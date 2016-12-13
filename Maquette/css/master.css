@@ -1,0 +1,206 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 1.6em;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* -----------------------------------------------
+  Header
+----------------------------------------------- */
+.header-wrap {
+  padding: 3px 10px 3px 10px;
+  color: white;
+  background: #CC2625;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-wrap h1 {
+  flex: 1;
+  margin: 0;
+  text-align: center;
+  text-shadow: 2px 2px rgb(54, 53, 52);
+}
+
+/* -----------------------------------------------
+  Nav et animation nav
+----------------------------------------------- */
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  min-height: 100vh;
+  padding-top: 1em;
+  background: #333;
+  color: #ddd;
+}
+.wrapper {
+  transform: translateX(0) translateZ(0);
+  transition: transform .2s;
+  will-change: transform;
+}
+
+/* Button deco */
+[class^="nav-button"] {
+  display: block;
+  z-index: 1;
+  height: 3.5rem; width: 3.5rem;
+  background-color: transparent;
+  background-image: linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff);
+  background-position: center top, center, center bottom;
+  background-repeat: no-repeat;
+  background-size: 3.5rem .9rem;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+a {
+  color: #fff;
+}
+.navigation a {
+  display: block;
+  padding: .7em;
+  margin-bottom: 2px;
+  text-decoration: none;
+  background: rgba(255,255,255, 0.1);
+}
+
+/* animation effet */
+body:target .wrapper {
+  transform: translateX(50vw);
+}
+.nav-button-close,
+body:target .nav-button-open {
+  display: none;
+}
+.nav-button-open,
+body:target .nav-button-close {
+  display: block;
+}
+
+/* -----------------------------------------------
+  Wrapper
+----------------------------------------------- */
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* -----------------------------------------------
+  Main
+----------------------------------------------- */
+
+.main {
+  height: 100vh;
+  position: relative;
+}
+
+.titre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  background-image: url('http://localhost/fond_de_placard/Maquette/pictures/fdp-background.jpg');
+  background-size: cover;
+}
+
+.titre h2 {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+/* -----------------------------------------------
+  selectors : div contenant les forms
+----------------------------------------------- */
+
+.selectors {
+  background: #CC2625;
+}
+
+.container-input {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+/* -----------------------------------------------
+  dropdown
+----------------------------------------------- */
+
+.dropdown {
+  width: 100%;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2%;
+  margin-top: 2%;
+}
+
+.dropbtn {
+  width: 100%;
+  padding: 20px;
+  background: #F4CA00;
+  border: none;
+  /*border-radius: 2px;*/
+  font-size: 1.3em;
+  color: white;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content {
+  width: 100%;
+  display: none;
+  position: relative;
+  background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content label {
+  display: block;
+}
+
+.content-btn {
+  width: 100%;
+}
+
+/* -----------------------------------------------
+  Cut-board
+----------------------------------------------- */
+
+.cut-board {
+  background: #CC2625;
+}
+
+.cut-board h2 {
+  margin: 0;
+  text-align: center;
+  color: white;
+}
+
+.ingredient-list {
+  background-image: url('http://localhost/fond_de_placard/Maquette/pictures/chalkboard.jpg');
+}
+
+.ingredient-list li {
+  list-style: none;
+  color: white;
+}

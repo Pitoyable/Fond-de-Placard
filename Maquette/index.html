@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JQ -->
+    <script
+    src="http://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="http://localhost/fond_de_placard/Maquette/js/master.js"></script>
+
+    <!-- GoogleFont -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/master.css">
+    <title>Fond de Placard</title>
+  </head>
+
+  <body id="body">
+    <aside class="sidebar">
+      <nav id="navigation" class="navigation" role="navigation">
+        <a href="#">Appli</a>
+        <a href="#">Liste des Recettes</a>
+        <a href="#">Info / Contact</a>
+      </nav>
+    </aside>
+
+
+    <div class="wrapper">
+      <header id="header" class="header-wrap">
+        <a href="#body" class="nav-button-open" aria-label="open navigation"></a>
+        <a href="#" class="nav-button-close" aria-label="close navigation"></a>
+        <h1>Fond de Placard</h1>
+      </header>
+
+      <div class="main">
+        <div class="titre">
+          <h2>Sélection d'ingrédients</h2>
+        </div>
+
+        <div class="selectors">
+          <div class="dropdown">
+            <button id="dropbtn"class="dropbtn">Légumes</button>
+            <div class="dropdown-content">
+              <div class="container-input">
+                <label for="carotte">Carotte</label>
+                <input class="checkbox" type="checkbox" id="carotte" name="carotte" value="Carotte">
+              </div>
+              <div class="container-input">
+                <label for="petit-pois">Petits pois</label>
+                <input class="checkbox" type="checkbox" id="petit-pois" name="petit-pois" value="Petit-pois">
+              </div>
+              <div class="container-input">
+                <label for="broccoli">Broccoli</label>
+                <input class="checkbox" type="checkbox" id="broccoli" name="broccoli" value="Broccoli">
+              </div>
+            </div>
+          </div> <!-- Fin dropdown -->
+
+          <div class="dropdown">
+            <button id="dropbtn"class="dropbtn">Viandes</button>
+            <div class="dropdown-content">
+              <div class="container-input">
+                <label for="boeuf">Boeuf</label>
+                <input class="checkbox" type="checkbox" id="boeuf" name="boeuf" value="Boeuf">
+              </div>
+              <div class="container-input">
+                <label for="dinde">Dinde</label>
+                <input class="checkbox" type="checkbox" id="dinde" name="dinde" value="Dinde">
+              </div>
+              <div class="container-input">
+                <label for="poulet">Poulet</label>
+                <input class="checkbox" type="checkbox" id="poulet" name="poulet" value="Poulet">
+              </div>
+            </div>
+          </div> <!-- Fin dropdown -->
+
+          <div class="dropdown">
+            <button id="dropbtn"class="dropbtn">Fruits</button>
+            <div class="dropdown-content">
+              <div class="container-input">
+                <label for="fraise">Fraise</label>
+                <input class="checkbox" type="checkbox" id="fraise" name="fraise" value="Fraise">
+              </div>
+              <div class="container-input">
+                <label for="cerise">Cerises</label>
+                <input class="checkbox" type="checkbox" id="cerise" name="cerise" value="Cerise">
+              </div>
+              <div class="container-input">
+                <label for="goyave">Goyave</label>
+                <input class="checkbox" type="checkbox" id="goyave" name="goyave" value="Goyave">
+              </div>
+            </div>
+          </div> <!-- Fin dropdown -->
+
+          <div class="dropdown">
+            <button id="dropbtn"class="dropbtn">Prostituées</button>
+            <div class="dropdown-content">
+              <div class="container-input">
+                <label for="natasha">Natasha</label>
+                <input class="checkbox" type="checkbox" id="natasha" name="natasha" value="Natasha">
+              </div>
+              <div class="container-input">
+                <label for="svetlana">Svetlana</label>
+                <input class="checkbox" type="checkbox" id="svetlana" name="svetlana" value="Svetlana">
+              </div>
+              <div class="container-input">
+                <label for="remi">Rémi</label>
+                <input class="checkbox" type="checkbox" id="remi" name="remi" value="Rémi">
+              </div>
+            </div>
+          </div> <!-- Fin dropdown -->
+
+        </div>  <!-- Fin de la div selector -->
+
+        <div class="cut-board">
+          <h2>Plan de travail :</h2>
+          <div class="ingredients"> <!-- div contenant le resultat des checkbox -->
+            <ul class="ingredient-list">
+
+            </ul>
+          </div>
+        </div>
+
+      </div>  <!-- Fin de la div Main -->
+    </div>
+   </body>
+</html>
