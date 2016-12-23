@@ -1,0 +1,183 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-image: url('../pictures/tartines.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* -----------------------------------------------
+  Wrapper
+----------------------------------------------- */
+
+.wrapper {
+  height: 100vh;
+  position: relative;
+}
+
+/* -----------------------------------------------
+  Header
+----------------------------------------------- */
+
+header {
+  color: black;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+/* -----------------------------------------------
+  Nav
+----------------------------------------------- */
+
+.navigation {
+  width: 50%;
+  height: 100px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.89);
+  border-radius: 0 0px 15px 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.navigation a {
+  color: black;
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
+  text-decoration: none;
+}
+
+.navigation img {
+  height: 240px;
+  position: relative;
+  top: 13px;
+}
+
+
+/* -----------------------------------------------
+  Main
+----------------------------------------------- */
+
+main {
+  align-self: flex-end;
+  width: 70%;
+  min-height: 60vh;;
+  margin: auto;
+  margin-bottom: 3%;
+  background: rgba(255, 255, 255, 0.89);
+  border-radius: 15px 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* -----------------------------------------------
+  Selecteur Ingredients
+----------------------------------------------- */
+
+.select-ingre {
+  display: flex;
+}
+
+.selector {
+  font-family: 'Lobster', cursive;
+  text-decoration: underline;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selector p {
+  margin: 0;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 30px;
+}
+
+.selector p:active {
+  background: rgb(236, 237, 237);
+}
+
+.list-ingre > div {
+  margin-bottom: 2%;
+}
+
+.list {
+  font-size: 1.1em;
+  border: 1px dashed black;
+  background: rgb(255, 255, 255);
+  width: 92%;
+  margin: auto;
+  padding: 20px;
+  column-count: 3;
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown p {
+  margin-bottom: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  min-width: 100%;
+  text-align: center;
+  box-shadow: 2px 1.5px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover {
+  background: rgb(255, 255, 255);
+  box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 1;
+}
+
+/* -----------------------------------------------
+  Chalkboard
+----------------------------------------------- */
+
+.chalkboard {
+  background-image: url('../pictures/chalkboard.jpg');
+}
+
+.basket li {
+  color: white;
+}
+
+/* -----------------------------------------------
+  Footer
+----------------------------------------------- */
+
+footer {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+footer p {
+  margin: 0;
+}
