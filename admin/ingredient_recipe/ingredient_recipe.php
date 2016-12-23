@@ -1,13 +1,19 @@
-<?php include("page/init.php");
+<?php include("../page/init.php");
 
-$sql = "SELECT recipe.name AS 'recipe.name', ingredient.name AS 'ingredient.name', recipe.id AS 'recipe.id', ingredient.id AS 'ingredient.id'
+$sql = "SELECT recipe.name AS 'recipe.name', recipe.id AS 'recipe.id'
+FROM recipe";
+$resultat_recette = $instance->query($sql)->fetchAll();
+
+$sql = "SELECT ingredient.name AS 'ingredient.name', ingredient.id AS 'ingredient.id'
+FROM ingredient";
+$resultat_ingredient = $instance->query($sql)->fetchAll();
+// var_dump($_POST);
+// var_dump($resultat_ingredient);
+$sql = "SELECT recipe.name AS 'recipe.name', ingredient.name AS 'ingredient.name', ingredient_recipe.quantity AS 'quantity', recipe.id AS 'recipe.id', ingredient.id AS 'ingredient.id'
 FROM ingredient_recipe
 INNER JOIN ingredient ON ingredient_recipe.ingredient_id = ingredient.id
 INNER JOIN recipe ON ingredient_recipe.recipe_id = recipe.id";
-
 $resultat = $instance->query($sql)->fetchAll();
-// var_dump($resultat);
-var_dump($_POST);
 
 if(isset($_POST['create'])){
   $ingredient_id = $_POST['id_ingredient'];
@@ -19,11 +25,15 @@ if(isset($_POST['create'])){
 }
 if(!empty($_POST)){
   $recipe_id = $_POST['id_recipe'];
-  $sql = "SELECT recipe.name AS 'recipe.name', recipe.id As 'recipe.id' FROM recipe
-  ";
+  $sql = "SELECT recipe.name AS 'recipe.name', ingredient.name AS 'ingredient.name', ingredient_recipe.quantity AS 'quantity', recipe.id AS 'recipe.id', ingredient.id AS 'ingredient.id', ingredient.unit AS 'ingredient.unit'
+  FROM ingredient_recipe
+  INNER JOIN ingredient ON ingredient_recipe.ingredient_id = ingredient.id
+  INNER JOIN recipe ON ingredient_recipe.recipe_id = recipe.id
+  WHERE recipe.id = $recipe_id
+  ORDER BY ingredient_id ASC";
   $recette = $instance->query($sql)->fetchAll();
 }
-var_dump($recette);
+
  ?>
  <!DOCTYPE html>
  <html>
@@ -37,24 +47,26 @@ var_dump($recette);
      <form class="formulaire" action="" method="post">
        <select class="" name="id_recipe">
          <?php
-          for($i=0; $i < count($resultat); $i++){
-           if ($resultat[$i]['recipe.name'] != $name || $i == 0){ ?>
-             <option value="<?php echo $resultat[$i]['recipe.id'] ?>">
-               <?php echo $resultat[$i]['recipe.name'] ?>
+         var_dump($resultat_ingredient);
+         var_dump($resultat_recette);
+          for($i=0; $i < count($resultat_recette); $i++){?>
+
+             <option value=<?php echo $resultat_recette[$i]['recipe.id'] ?>>
+               <?php echo $resultat_recette[$i]['recipe.name'] ?>
              </option>
-      <?php }
-      $name = $resultat[$i]['recipe.name'];
+      <?php
+
        } ?>
        </select>
        <select class="" name="id_ingredient">
          <?php
-         for($i=0; $i < count($resultat); $i++){
-           if($resultat[$i]['ingredient.name'] != $name_ingredient || $i == 0){ ?>
-             <option value=<?php echo $resultat[$i]['ingredient.id'] ?>>
-               <?php echo $resultat[$i]['ingredient.name'] ?>
+         for($i=0; $i < count($resultat_ingredient); $i++){
+           if($resultat_ingredient[$i]['ingredient.name'] != $name_ingredient || $i == 0){ ?>
+             <option value=<?php echo $resultat_ingredient[$i]['ingredient.id'] ?>>
+               <?php echo $resultat_ingredient[$i]['ingredient.name'] ?>
              </option>
            <?php }
-           $name_ingredient = $resultat[$i]['ingredient.name'];
+          $name_ingredient = $resultat_ingredient[$i]['ingredient.name'];
          } ?>
        </select>
        <label for="">Quantité : <input type="text" name="quantity" value=""></label>
@@ -69,13 +81,11 @@ var_dump($recette);
            <form class="" action="" method="post">
              <select class="" name="id_recipe">
                <?php
-               for($i=0; $i < count($resultat); $i++){
-                 $name2 = $resultat[$i]['recipe.name'];
-                 if ($resultat[$i]['recipe.name'] != $name2 || $i == 0){ ?>
-                   <option value="<?php echo $resultat[$i]['recipe.id'] ?>">
-                     <?php echo $resultat[$i]['recipe.name'] ?>
+               for($i=0; $i < count($resultat_recette); $i++){ ?>
+                   <option value="<?php echo $resultat_recette[$i]['recipe.id'] ?>">
+                     <?php echo $resultat_recette[$i]['recipe.name'] ?>
                    </option>
-                   <?php }
+                   <?php
                  } ?>
                </select>
                <input type="submit" name="valider" value="Valider">
@@ -88,7 +98,7 @@ var_dump($recette);
              <tr>
                <td><?php echo $recette[$i]['recipe.name'] ?></td>
                <td><?php echo $recette[$i]['ingredient.name'] ?></td>
-               <td><?php echo $recette[$i]['quantity'] ?></td>
+               <td><?php echo $recette[$i]['quantity']." ". $recette[$i]['ingredient.unit'] ?></td>
                <td>
 
                  <form class="supprimer" action="delete.php" method="post">
