@@ -1,9 +1,16 @@
 table {
   border: 2px solid black;
   border-collapse: collapse;
+  margin-top: 50px;
 }
 
-th, tr, td {
+.formulaire {
+  margin-bottom: 50px;
+}
+
+td,
+th,
+tr {
   border: 1px solid black;
   padding: 10px;
 }
