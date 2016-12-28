@@ -1,30 +1,30 @@
-$(function () {
+$(function (){
 
-  $(".dropbtn").click(function () {
-    $(this).siblings().slideToggle()
+  // On affiche la liste des ingrédients au click
+  $('#vegetables').on('click', function () {
+    $('.vegetables').toggle("slide");
   });
 
-  // $('.content-btn').click(function () {
-  //
-  //     var valeurs = [];
-  //
-  //     $( "input:checkbox:checked" ).each(function() {
-  //       valeurs.push($(this).val());
-  //       console.log(valeurs[valeurs.length-1])
-  //       var liste = valeurs[valeurs.length-1]
-  //       $('<li>').html(valeurs).appendTo('.ingredient-list');
-  //     });
-  // });
+  $('#fruits').on('click', function () {
+    $('.fruits').toggle("slide");
+  });
 
-  function checked() {
-    if ($( "input:checkbox:checked" )) {
-      var liste = $( "input:checkbox:checked" ).val();
-      $('<li>').html(liste).appendTo('.ingredient-list');
-      console.log(liste);
+  $('#meat').on('click', function () {
+    $('.meat').toggle("slide");
+  });
+
+  $('input[type="checkbox"]').on("click", function () {
+    var liste = $(this).val();
+    var text = $(this).parents().Text();
+    if ($(this).prop('checked')) {
+      if ($('li').filter('.' + liste).length) {
+      } else {
+        $('<li>').html(text).appendTo('#basket').addClass(liste);
+      }
+    } else {
+      if ($('li').filter('.' + liste).length) {
+        $('.' + liste).remove();
+      }
     }
-  }
-
-  $('input').click(function() {
-    checked()
   });
 });

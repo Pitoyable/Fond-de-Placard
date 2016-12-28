@@ -1,98 +1,17 @@
-* {
+html {
   box-sizing: border-box;
 }
-html {
-  font-size: 62.5%;
-  overflow-x: hidden;
+
+*, *::before, *::after {
+  box-sizing: inherit;
 }
+
 body {
-  overflow-x: hidden;
   margin: 0;
-  padding: 0;
-  color: #fff;
-  font-size: 1.6em;
-  font-family: 'Oswald', sans-serif;
-}
-
-/* -----------------------------------------------
-  Header
------------------------------------------------ */
-.header-wrap {
-  padding: 3px 10px 3px 10px;
-  color: white;
-  background: #CC2625;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-wrap h1 {
-  flex: 1;
-  margin: 0;
-  text-align: center;
-  text-shadow: 2px 2px rgb(54, 53, 52);
-}
-
-/* -----------------------------------------------
-  Nav et animation nav
------------------------------------------------ */
-
-.sidebar {
-  position: absolute;
-  top: 0;
-  width: 50vw;
-  min-height: 100vh;
-  padding-top: 1em;
-  background: #333;
-  color: #ddd;
-}
-.wrapper {
-  transform: translateX(0) translateZ(0);
-  transition: transform .2s;
-  will-change: transform;
-}
-
-/* Button deco */
-[class^="nav-button"] {
-  display: block;
-  z-index: 1;
-  height: 3.5rem; width: 3.5rem;
-  background-color: transparent;
-  background-image: linear-gradient(to right, #fff, #fff),
-    linear-gradient(to right, #fff, #fff),
-    linear-gradient(to right, #fff, #fff);
-  background-position: center top, center, center bottom;
+  background-image: url('../pictures/tartines.jpg');
+  background-size: cover;
   background-repeat: no-repeat;
-  background-size: 3.5rem .9rem;
-  padding: 0;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
-}
-
-a {
-  color: #fff;
-}
-.navigation a {
-  display: block;
-  padding: .7em;
-  margin-bottom: 2px;
-  text-decoration: none;
-  background: rgba(255,255,255, 0.1);
-}
-
-/* animation effet */
-body:target .wrapper {
-  transform: translateX(50vw);
-}
-.nav-button-close,
-body:target .nav-button-open {
-  display: none;
-}
-.nav-button-open,
-body:target .nav-button-close {
-  display: block;
+  background-attachment: fixed;
 }
 
 /* -----------------------------------------------
@@ -100,107 +19,165 @@ body:target .nav-button-close {
 ----------------------------------------------- */
 
 .wrapper {
+  height: 100vh;
   position: relative;
-  min-height: 100vh;
-  color: #333;
 }
+
+/* -----------------------------------------------
+  Header
+----------------------------------------------- */
+
+header {
+  color: black;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+/* -----------------------------------------------
+  Nav
+----------------------------------------------- */
+
+.navigation {
+  width: 50%;
+  height: 100px;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 7%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.89);
+  border-radius: 0 0px 15px 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.navigation a {
+  color: black;
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
+  text-decoration: none;
+}
+
+.navigation img {
+  height: 240px;
+  position: relative;
+  top: 13px;
+}
+
 
 /* -----------------------------------------------
   Main
 ----------------------------------------------- */
 
-.main {
-  height: 100vh;
-  position: relative;
-}
-
-.titre {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15%;
-  background-image: url('http://localhost/fond_de_placard/Maquette/pictures/fdp-background.jpg');
-  background-size: cover;
-}
-
-.titre h2 {
-  color: white;
-  text-shadow: 1px 1px 2px black;
-  text-align: center;
+main {
+  align-self: flex-end;
+  width: 70%;
+  min-height: 60vh;;
+  margin: auto;
+  margin-bottom: 3%;
+  background: rgba(255, 255, 255, 0.89);
+  border-radius: 15px 15px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 /* -----------------------------------------------
-  selectors : div contenant les forms
+  Selecteur Ingredients
 ----------------------------------------------- */
 
-.selectors {
-  background: #CC2625;
-}
-
-.container-input {
+.select-ingre {
   display: flex;
-  justify-content: space-between;
-  padding: 5px;
 }
-/* -----------------------------------------------
-  dropdown
------------------------------------------------ */
+
+.selector {
+  font-family: 'Lobster', cursive;
+  text-decoration: underline;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.selector p {
+  margin: 0;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 30px;
+}
+
+.selector p:active {
+  background: rgb(236, 237, 237);
+}
+
+.list-ingre > div {
+  margin-bottom: 2%;
+}
+
+.list {
+  font-size: 1.1em;
+  border: 1px dashed black;
+  background: rgb(255, 255, 255);
+  width: 92%;
+  margin: auto;
+  padding: 20px;
+  column-count: 3;
+  display: none;
+}
 
 .dropdown {
-  width: 100%;
   position: relative;
-  display: inline-block;
-  margin-bottom: 2%;
-  margin-top: 2%;
 }
 
-.dropbtn {
-  width: 100%;
-  padding: 20px;
-  background: #F4CA00;
-  border: none;
-  /*border-radius: 2px;*/
-  font-size: 1.3em;
-  color: white;
-  cursor: pointer;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+.dropdown p {
+  margin-bottom: 0;
 }
 
 .dropdown-content {
-  width: 100%;
   display: none;
-  position: relative;
-  background-color: white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  background: rgb(255, 255, 255);
+  min-width: 100%;
+  text-align: center;
+  box-shadow: 2px 1.5px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.dropdown-content label {
+.dropdown:hover {
+  background: rgb(255, 255, 255);
+  box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
   display: block;
-}
-
-.content-btn {
-  width: 100%;
+  z-index: 1;
 }
 
 /* -----------------------------------------------
-  Cut-board
+  Chalkboard
 ----------------------------------------------- */
 
-.cut-board {
-  background: #CC2625;
+.chalkboard {
+  background-image: url('../pictures/chalkboard.jpg');
 }
 
-.cut-board h2 {
+.basket li {
+  color: white;
+}
+
+/* -----------------------------------------------
+  Footer
+----------------------------------------------- */
+
+footer {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  color: white;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 10px;
+}
+
+footer p {
   margin: 0;
-  text-align: center;
-  color: white;
-}
-
-.ingredient-list {
-  background-image: url('http://localhost/fond_de_placard/Maquette/pictures/chalkboard.jpg');
-}
-
-.ingredient-list li {
-  list-style: none;
-  color: white;
 }
