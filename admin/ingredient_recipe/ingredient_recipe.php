@@ -23,6 +23,7 @@ if(isset($_POST['create'])){
   $requete ->execute(array($recipe_id, $ingredient_id, $quantity));
 
 }
+
 if(!empty($_POST)){
   $recipe_id = $_POST['id_recipe'];
   $sql = "SELECT recipe.name AS 'recipe.name', ingredient.name AS 'ingredient.name', ingredient_recipe.quantity AS 'quantity', recipe.id AS 'recipe.id', ingredient.id AS 'ingredient.id', ingredient.unit AS 'ingredient.unit'
