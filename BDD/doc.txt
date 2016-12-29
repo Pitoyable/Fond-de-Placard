@@ -1,0 +1,23 @@
+Admin :
+  - Tous les droits :
+    - Ajouter, modifier les utilisateurs
+    - Ajouter, modifier, valider les recettes, les themes
+    - Ajouter, modifier, valider les themes
+    - Ajouter, modifier, valider les ingredients
+    - Ajouter, modifier les commentaires
+    - Ajouter ses favoris
+
+Modérateur :
+  - Droits :
+    - Ajouter, modifier, valider les recettes
+    - Ajouter, modifier, valider les themes
+    - Ajouter, modifier, valider les ingredients
+    - Ajouter, modifier les commentaires
+    - Ajouter ses favoris
+
+Utilisateurs (default):
+  - Droits :
+      - Ajouter, modifier ses commentaires
+      - Ajouter les themes
+      - Ajouter recette à valider
+      - Ajouter ses favoris
