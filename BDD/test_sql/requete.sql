@@ -66,7 +66,14 @@ Page admin :
 
     - Modifier un utilisateur
 
-      $sql =
+      $sql = "UPDATE user SET use_pseudo = :use_pseudo, use_email = :use_email, use_password = :use_password WHERE use_id = :use_id";
+
+      array(
+        "use_pseudo" => " ",
+        "use_email" => " ",
+        "use_password" => " ",
+        "use_id" => " ",
+      )
 
   - Liste des recettes à validé
 

@@ -406,5 +406,3 @@ $bdd->exec($sql);
     $bdd->exec($sql);
 
   // Fin d'ajout des groupes
-
-  
