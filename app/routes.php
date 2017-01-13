@@ -11,10 +11,10 @@
 		['GET|POST', '/user_valide/', 'User#valide', 'User_valide'],//valider email
 
 		//recipe
-		['GET|POST', '/recipe_show/', 'recipe#afficher', 'recipe_afficher'],// montrer
+		['GET|POST', '/recipe_afficher/', 'recipe#afficher', 'recipe_afficher'],// montrer
 		['GET|POST', '/recipe_update/', 'recipe#update', 'recipe_update'],//mise à jour
 		['GET|POST', '/recipe_written/', 'recipe#written', 'recipe_written'],// crée
 
 		//trader_ht_trendmode
-			['GET|POST', '/theme_show/', 'theme#afficher', 'theme_afficher'],// montrer
+			['GET|POST', '/theme_afficher/', 'theme#afficher', 'theme_afficher'],// montrer
 	);
