@@ -9,7 +9,7 @@ use Model\UserModel;
 class RecipeController extends Controller
 {
   public function display(){
-    $this->show('default/home');
+    $this->show('recipe/recipe_display');
   }
 
 }

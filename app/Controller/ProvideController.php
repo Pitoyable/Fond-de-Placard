@@ -9,7 +9,7 @@ use Model\UserModel;
 class ProvideController extends Controller
 {
   public function display(){
-    $this->show('default/home');
+    $this->show('provide/provide_display');
   }
 
 }

@@ -13,7 +13,7 @@
 		</header>
 		<nav>
 			<p><a href="<?= $this -> url ('Recipe_display') ?>">J'ai faim</a></p>
-			<p><a href="<?= $this -> url ('Theme_display') ?>">Soirée</a></p>
+			<p><a href="<?= $this -> url ('Theme_display') ?>">Theme</a></p>
 			<p><a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a></p>
 			<p><a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a></p>
 			<p><a href="<?= $this -> url ('User_update') ?>">Mon compte</a></p>

@@ -18,7 +18,7 @@ class UserController extends Controller
     //methode pour se déconnecté
   }
   public function update(){
-    //methode pour modifier le compte 
-    $this->show('default/home');
+    //methode pour modifier le compte
+    $this->show('user/user_update');
   }
 }

@@ -9,7 +9,7 @@ use Model\UserModel;
 class ThemeController extends Controller
 {
   public function display(){
-    $this->show('default/home');
+    $this->show('theme/theme_display');
   }
 
 }

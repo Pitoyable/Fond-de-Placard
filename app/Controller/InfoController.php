@@ -9,7 +9,7 @@ use Model\UserModel;
 class InfoController extends Controller
 {
   public function display(){
-    $this->show('default/home');
+    $this->show('info/info_display');
   }
 
 }
