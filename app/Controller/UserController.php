@@ -19,6 +19,6 @@ class UserController extends Controller
   }
   public function update(){
     //methode pour modifier le compte
-    $this->show('user/user_update');
+    $this->show('user/update');
   }
 }

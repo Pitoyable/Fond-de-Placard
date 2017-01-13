@@ -17,6 +17,7 @@
 			<p><a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a></p>
 			<p><a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a></p>
 			<p><a href="<?= $this -> url ('User_update') ?>">Mon compte</a></p>
+			<p><a href="<?= $this -> url ('administration_connection') ?>">Administration</a></p>
 		</nav>
 		<section>
 			<?= $this->section('main_content') ?>
