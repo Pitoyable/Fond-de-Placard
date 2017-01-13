@@ -3,18 +3,24 @@
 	$w_routes = array(
 		['GET', '/', 'Default#home', 'default_home'],
 
-		//user
-		['GET|POST', '/user_signIn', 'User#signIn', 'User_signIn'],//inscription
-		['GET|POST', '/user_login', 'User#login', 'User_login'],//connexion
-		['GET|POST', '/user_logout', 'User#logout', 'User_logout'],//déconnexion
-		['GET|POST', '/user_update', 'User#update', 'User_update'],//mise à jour
-		['GET|POST', '/user_valide', 'User#valide', 'User_valide'],//valider email
+		//utilisateur
+		['GET|POST', '/utilisateur_inscription', 'User#signIn', 'User_signIn'],//inscription
+		['GET|POST', '/utilisateur_connexion', 'User#login', 'User_login'],//connexion
+		['GET|POST', '/utilisateur_déconnexion', 'User#logout', 'User_logout'],//déconnexion
+		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],//mise à jour
+		['GET|POST', '/utilisateur_valide', 'User#valide', 'User_valide'],//valider email
 
-		//recipe
-		['GET|POST', '/recipe_afficher', 'recipe#afficher', 'recipe_afficher'],// montrer
-		['GET|POST', '/recipe_update', 'recipe#update', 'recipe_update'],//mise à jour
-		['GET|POST', '/recipe_written', 'recipe#written', 'recipe_written'],// crée
+		//recette
+		['GET|POST', '/recette_afficher', 'Recipe#display', 'Recipe_display'],// montrer
+		['GET|POST', '/recette_mise_a_jour', 'Recipe#update', 'Recipe_update'],//mise à jour
+		['GET|POST', '/recette_cree', 'Recipe#written', 'Recipe_written'],// crée
 
-		//trader_ht_trendmode
-			['GET|POST', '/theme_afficher', 'theme#afficher', 'theme_afficher'],// montrer
+		//theme
+		['GET|POST', '/theme_afficher', 'Theme#display', 'Theme_display'],// montrer
+
+		//Info
+		['GET|POST', '/info_afficher', 'Info#display', 'Info_display'],
+
+		//Se fournir
+		['GET|POST', '/fournir_afficher', 'Provide#display', 'Provide_display'],
 	);

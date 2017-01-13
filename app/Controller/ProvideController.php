@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use Model\UserModel;
 
 
-class RecipeController extends Controller
+class ProvideController extends Controller
 {
   public function display(){
     $this->show('default/home');
