@@ -24,5 +24,3 @@
   <button type="submit">S'inscrire</button>
 </form>
 <?php $this->stop('main_content') ?>
-
-<?php var_dump($_POST); ?>

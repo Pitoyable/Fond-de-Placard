@@ -29,15 +29,15 @@ class UsersModel extends Model
 
 		$app = getApp();
 
-		$sql = 'SELECT * FROM ' . $this->table . 
-			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' . 
+		$sql = 'SELECT * FROM ' . $this->table .
+			   ' WHERE ' . $app->getConfig('security_username_property') . ' = :username' .
 			   ' OR ' . $app->getConfig('security_email_property') . ' = :email LIMIT 1';
 
 		$dbh = ConnectionModel::getDbh();
 		$sth = $dbh->prepare($sql);
 		$sth->bindValue(':username', $usernameOrEmail);
 		$sth->bindValue(':email', $usernameOrEmail);
-		
+
 		if($sth->execute()){
 			$foundUser = $sth->fetch();
 			if($foundUser){
