@@ -4,6 +4,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use Model\UserModel;
+use Security\AuthentificationModel;
 
 
 class UserController extends Controller
@@ -13,6 +14,8 @@ class UserController extends Controller
   }
   public function login(){
     //methode pour se connecté
+    echo "string";
+    var_dump($_POST);
   }
   public function logout(){
     //methode pour se déconnecté
