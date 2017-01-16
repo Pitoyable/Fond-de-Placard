@@ -29,8 +29,16 @@
 <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
 <div class="content_recipe">
   <div class="starter">
-    <h3>Les entrées</h3>
+    <h3>Les Entrées</h3>
     <!-- Ici se trouvera la liste des entrées -->
+  </div>
+  <div class="main_dish">
+    <h3>Les Plats</h3>
+    <!-- Ici se trouvera la liste des plats -->
+  </div>
+  <div class="dessert">
+    <h3>Les Desserts</h3>
+    <!-- Ici se trouvera la liste des desserts -->
   </div>
 </div>
 <?php $this->stop('main_content') ?>
