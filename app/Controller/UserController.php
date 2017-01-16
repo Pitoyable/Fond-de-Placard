@@ -8,7 +8,7 @@ use Model\UserModel;
 
 class UserController extends Controller
 {
-  public function signIn(){
+  public function signUp(){
     //methode pour s'inscrire
   }
   public function login(){
