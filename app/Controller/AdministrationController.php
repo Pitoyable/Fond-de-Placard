@@ -8,9 +8,17 @@ use Model\UserModel;
 
 class AdministrationController extends Controller
 {
-  public function connection(){
+  public function adminHome(){
     //methode pour se connecté a la partie administration
-    $this->show('administration/connection');
+    $this->show('administration/adminhome');
+  }
+
+  public function manageUser(){
+    $this->show('administration/admin_user');
+  }
+
+  public function validReceipe(){
+
   }
 
 }
