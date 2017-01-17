@@ -19,20 +19,6 @@
 	<link rel="stylesheet" href="<?= $this->assetUrl('css/style.css') ?>">
 
 </head>
-<<<<<<< HEAD
-<body>
-	<div class="container">
-		<header>
-			<h1><a href="<?= $this -> url ('default_home') ?>">Accueil</a></h1>
-		</header>
-		<nav>
-			<p><a href="<?= $this -> url ('Recipe_display') ?>">J'ai faim</a></p>
-			<p><a href="<?= $this -> url ('Theme_display') ?>">Theme</a></p>
-			<p><a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a></p>
-			<p><a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a></p>
-			<p><a href="<?= $this -> url ('User_display') ?>">Mon compte</a></p>
-			<p><a href="<?= $this -> url ('administration_home') ?>">Administration</a></p>
-=======
 <body id="body">
 	<aside class="sidebar">
 		<nav id="navigation" class="navigation" role="navigation">
@@ -41,9 +27,9 @@
 			<a href="<?= $this -> url ('Theme_display') ?>">Soirée à theme</a>
 			<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 			<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
-			<a href="<?= $this -> url ('User_update') ?>">Mon compte</a>
+			<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
 			<a href="<?= $this -> url ('Administration_home') ?>">Administration</a>
->>>>>>> bf332e399cde824630b04f9c1bb0385622e68566
+
 		</nav>
 	</aside>
 
