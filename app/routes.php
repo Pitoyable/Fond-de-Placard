@@ -16,9 +16,9 @@
 		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],
 
 		//connexion a la partie administration du site
-		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'administration_home'],
-		['GET|POST', '/administration_admin_user', 'administration#manageUser', 'administration_user'],
-		['GET|POST', '/administration_adminhome', 'administration#validReceipe', 'administration_validReceipe'],
+		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
+		['GET|POST', '/administration_admin_user', 'administration#manageUser', 'Administration_user'],
+		['GET|POST', '/administration_adminhome', 'administration#validReceipe', 'Administration_validReceipe'],
 
 		//recette
 			// montrer
