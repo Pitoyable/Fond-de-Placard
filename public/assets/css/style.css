@@ -1,0 +1,125 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: auto;
+  background-image: url('../pictures/tartines.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* -----------------------------------------------
+  Header
+----------------------------------------------- */
+
+.header-wrap {
+  background-color: black;
+  padding: 1%;
+  text-align: center;
+  z-index: 2;
+}
+
+.div_logo {
+  position: absolute;
+  top: 4%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.logo {
+  /*position: absolute;*/
+  height: 15em;
+}
+
+/* -----------------------------------------------
+  Nav et animation nav
+----------------------------------------------- */
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  width: 25vw;
+  min-height: 100vh;
+  padding-top: 1em;
+  background: #333;
+  color: #ddd;
+  z-index: 1000;
+  left: -25vw;
+  transform: translateX(0) translateZ(0);
+  transition: transform .2s;
+  will-change: transform;
+}
+
+.wrapper {
+  transform: translateX(0) translateZ(0);
+  transition: transform .2s;
+  will-change: transform;
+}
+
+/* Button deco */
+[class^="nav-button"] {
+  display: block;
+  z-index: 1;
+  height: 2.5rem; width: 2.5rem;
+  background-color: transparent;
+  background-image: linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff);
+  background-position: center top, center, center bottom;
+  background-repeat: no-repeat;
+  background-size: 2.5rem .5rem;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+a {
+  color: #fff;
+}
+
+.navigation a {
+  display: block;
+  padding: .7em;
+  margin-bottom: 2px;
+  text-decoration: none;
+  background: rgba(255,255,255, 0.1);
+}
+
+/* animation effet */
+body:target .wrapper {
+  transform: translateX(25vw);
+}
+
+body:target .sidebar {
+  transform: translateX(25vw);
+}
+
+.nav-button-close,
+body:target .nav-button-open {
+  display: none;
+}
+.nav-button-open,
+body:target .nav-button-close {
+  display: block;
+}
+
+/* -----------------------------------------------
+  Section
+----------------------------------------------- */
+
+section {
+  background-color: rgba(230, 230, 230, 0.75);
+  width: 80%;
+  margin: auto;
+  padding: 2%;
+  margin-top: 20%;
+}

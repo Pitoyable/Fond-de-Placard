@@ -4,28 +4,41 @@
 <h1>J'ai faim</h1>
 
 <div class="search_recipe">
-  <form class="search_bar" action="" method="post">
-    <input type="text" name="search_bar" value="">
-    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+
+  <form class="search_bar" action="<?php $this -> url('Recipe_display') ?>" method="post">
+
+    <p>
+      <input type="text" name="search_bar" value="">
+      <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </p>
+
   </form>
+
   <div class="checkbox">
-    <label>
+
+    <p>
+      <label>Entrée</label>
       <input type="checkbox" id="cbox1" value="starter">
-      Entrée
-    </label>
+    </p>
 
-    <label>
+    <p>
+      <label>Plat principal</label>
       <input type="checkbox" id="cbox2" value="main_dish">
-      Plat principal
-    </label>
+    </p>
 
-    <label>
+    <p>
+      <label>Dessert</label>
       <input type="checkbox" id="cbox3" value="dessert">
-      Dessert
-    </label>
+    </p>
+
   </div>
 </div>
 
+<!-- Section pour le panier -->
+
+<div class="panier">
+  <!-- Affichage de la session ingredient -->
+</div>
 <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
 <div class="content_recipe">
   <div class="starter">
