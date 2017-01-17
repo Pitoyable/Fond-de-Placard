@@ -3,13 +3,22 @@
 <?php $this->start('main_content') ?>
 <h1>Mon compte</h1>
 <h3>Se connecter</h3>
-<form class="login form" action="<?= $this->url('User_login') ?>" method="post">
-  <label for="pseudo_login">Pseudo : </label>
-  <input id="pseudo_login" type="text" name="pseudo" value=""><br>
-  <label for="password_login">Mot de passe :</label>
-  <input id="password_login" type="password" name="password" value=""><br>
-  <button type="submit">Se connecter</button>
-</form>
+<?php if (!empty($_SESSION)){ ?>
+  <form class="" action="<?= $this->url('User_logout') ?>" method="post">
+    <button type="submit" >Se déconnecter</button>
+  </form>
+
+<?php }else { ?>
+
+  <form class="login form" action="<?= $this->url('User_login') ?>" method="post">
+    <label for="pseudo_login">Pseudo : </label>
+    <input id="pseudo_login" type="text" name="pseudo" value=""><br>
+    <label for="password_login">Mot de passe :</label>
+    <input id="password_login" type="password" name="password" value=""><br>
+    <button type="submit">Se connecter</button>
+  </form>
+
+<?php } ?>
 
 <h3>S'inscrire</h3>
 <form class="signup form" action="<?= $this->url('User_signUp') ?>" method="post">

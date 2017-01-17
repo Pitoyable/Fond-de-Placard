@@ -38,7 +38,7 @@ class UserController extends Controller
     //methode pour se connecté
     $authentification = new AuthentificationModel();
     $test = $authentification -> isValidLoginInfo($_POST['pseudo'], $_POST['password']);
-		//$authentification -> logUserIn($_POST);
+
     var_dump($test);
     if ($test == 0){
       echo"erreur";
@@ -53,6 +53,8 @@ class UserController extends Controller
   }
   public function logout(){
     //methode pour se déconnecté
+    $authentification = new AuthentificationModel();
+    $authentification -> logUserOut();
   }
   public function update(){
     //methode pour modifier le compte
