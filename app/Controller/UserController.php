@@ -31,7 +31,7 @@ class UserController extends Controller
       var_dump($truc);
       echo"good";
     }
-
+    $this->show('default/home');
 
   }
   public function login(){
@@ -44,9 +44,12 @@ class UserController extends Controller
       echo"erreur";
     }else{
       echo 'good';
-      $authentification ->logUserIn($test);
+      $model = new UsersModel();
+      $truc = $model -> getUserByUsernameOrEmail($_POST['pseudo']);
+      $authentification ->logUserIn($truc);
       }
     var_dump($_SESSION);
+    // $this->show('default/home');
 
 
 
@@ -55,9 +58,21 @@ class UserController extends Controller
     //methode pour se déconnecté
     $authentification = new AuthentificationModel();
     $authentification -> logUserOut();
+    $this->show('default/home');
   }
+  public function display(){
+    //methode pour modifier le compte
+    var_dump($_SESSION);
+    $this->show('user/user_display');
+  }
+
   public function update(){
     //methode pour modifier le compte
-    $this->show('user/update');
+    var_dump($_SESSION);
+    var_dump($_POST);
+    $model = new UsersModel();
+    $model -> update($_POST, $_SESSION['user']['use_id'], $stripTags = true);
+    // $this->show('default/home');
   }
+
 }

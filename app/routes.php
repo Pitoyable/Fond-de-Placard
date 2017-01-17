@@ -9,11 +9,13 @@
 			//connexion
 		['GET|POST', '/utilisateur_connexion', 'User#login', 'User_login'],
 			//déconnexion
-		['GET|POST', '/utilisateur_déconnexion', 'User#logout', 'User_logout'],
+		['GET|POST', '/utilisateur_deconnexion', 'User#logout', 'User_logout'],
 			//valider email
 		['GET|POST', '/utilisateur_valide', 'User#valide', 'User_valide'],
 			//mise à jour
 		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],
+			//Afficher
+		['GET|POST', '/utilisateur_afficher', 'User#display', 'User_display'],
 
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'administration_home'],
