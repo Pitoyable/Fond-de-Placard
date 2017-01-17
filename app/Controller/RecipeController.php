@@ -8,8 +8,8 @@ use Model\UserModel;
 
 class RecipeController extends Controller
 {
-  public function afficher(){
-    $this->show('default/home');
+  public function display(){
+    $this->show('recipe/recipe_display');
   }
 
 }

@@ -92,7 +92,7 @@ $sql ="CREATE TABLE IF NOT EXISTS `fond_de_placard`.`user` (
   `use_id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `use_pseudo` VARCHAR(45) NOT NULL COMMENT '',
   `use_email` VARCHAR(45) NOT NULL COMMENT '',
-  `use_password` VARCHAR(45) NOT NULL COMMENT '',
+  `use_password` VARCHAR(60) NOT NULL COMMENT '',
   `use_valide` TINYINT(1) NOT NULL DEFAULT 0 COMMENT '',
   `group_gro_id` INT NOT NULL DEFAULT 1 COMMENT '',
   PRIMARY KEY (`use_id`)  COMMENT '',
