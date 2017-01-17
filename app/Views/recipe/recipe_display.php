@@ -5,7 +5,7 @@
 
 <div class="search_recipe">
 
-  <form class="search_bar" action="<?php  ?>" method="post">
+  <form class="search_bar" action="<?php $this -> url('Recipe_display') ?>" method="post">
 
     <p>
       <input type="text" name="search_bar" value="">
@@ -34,6 +34,11 @@
   </div>
 </div>
 
+<!-- Section pour le panier -->
+
+<div class="panier">
+  <!-- Affichage de la session ingredient -->
+</div>
 <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
 <div class="content_recipe">
   <div class="starter">
