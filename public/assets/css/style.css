@@ -147,15 +147,20 @@ body:target .nav-button-close {
 }
 
 /* -----------------------------------------------
-  Section
+  Home
 ----------------------------------------------- */
 
-section {
-  background-color: rgba(230, 230, 230, 0.75);
-  width: 80%;
-  margin: auto;
-  padding: 2%;
-  margin-top: 20%;
+.card_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(118, 218, 68);
 }
 
 /* -----------------------------------------------
@@ -177,6 +182,12 @@ footer {
 @media (max-width: 987px) {
   .login-connect-desktop {
     display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .logo {
+    height: 10em;
   }
 }
 

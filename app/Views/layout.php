@@ -29,7 +29,7 @@
 			<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 			<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
 			<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
-			<a href="<?= $this -> url ('Administration_home') ?>">Administration</a>
+			<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
 		</nav>
 	</aside>
 
@@ -72,7 +72,7 @@
 	</div>
 
 	<footer>
-		
+
 	</footer>
 </body>
 </html>
