@@ -47,11 +47,17 @@
 		</nav>
 
 		<div class="container login-connect-desktop">
-			<!-- A masquer si l'utilisateur est co -->
-			<a href="#">Connexion/Inscription</a>
-			<!-- A afficher uniquement si logué -->
-			<!-- <h3>Bienvenue {pseudo}</h3> -->
-			<!-- <a href="#">Deconnexion</a> -->
+
+			<?php if(empty($_SESSION)){ ?>
+
+				<!-- A masquer si l'utilisateur est co -->
+				<a href="<?= $this -> url ('User_acess') ?>">Connexion/Inscription</a>
+			<?php }else { ?>
+				<!-- A afficher uniquement si logué -->
+				<h3>Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
+				<a href="<?= $this->url('User_logout') ?>">Deconnexion</a>
+			<?php } ?>
+
 			<!-- Si l'utilisateur est un admin -->
 			<!-- <a href="<?= $this -> url ('Administration_home') ?>">Admin</a> -->
 		</div>

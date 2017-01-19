@@ -16,11 +16,13 @@
 		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],
 			//Afficher
 		['GET|POST', '/utilisateur_afficher', 'User#display', 'User_display'],
+		 //Page avec les formulaire de d'inscription et connexion
+	 	['GET|POST', '/utilisateur_acces', 'User#acess', 'User_acess'],
 
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
 		['GET|POST', '/administration_admin_user', 'administration#manageUser', 'Administration_user'],
-		['GET|POST', '/administration_adminhome', 'administration#validReceipe', 'Administration_validReceipe'],
+		['GET|POST', '/administration_valideRecette', 'administration#validRecipe', 'Administration_validRecipe'],
 
 		//recette
 			// montrer

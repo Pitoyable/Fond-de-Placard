@@ -19,7 +19,7 @@ class UserController extends Controller
   public function login(){
     //methode pour se connecté
     $authentification = new UserModel();
-    $test = $authentification -> login($_POST['pseudo'], $_POST['password']);
+    $test = $authentification -> login($_POST['email'], $_POST['password']);
 
 
 
@@ -33,7 +33,11 @@ class UserController extends Controller
   public function display(){
     //methode pour afficher le compte
 
-    $this->show('user/user_display');
+    if (!isset($_SESSION['user'])){
+      $this->show('user/user_acess');
+    }else{
+       $this->show('user/user_display');
+    }
   }
 
   public function update(){
@@ -42,6 +46,12 @@ class UserController extends Controller
     $authentification = new UserModel();
     $test = $authentification -> update($_POST['pseudo'], $_POST['password']);
 
+  }
+
+  public function acess(){
+    //methode pour afficher les formulaire d'inscription
+
+    $this->show('user/user_acess');
   }
 
 }
