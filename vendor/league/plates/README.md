@@ -4,7 +4,7 @@ Plates
 [![Author](http://img.shields.io/badge/author-@reinink-blue.svg?style=flat-square)](https://twitter.com/reinink)
 [![Source Code](http://img.shields.io/badge/source-league/plates-blue.svg?style=flat-square)](https://github.com/thephpleague/plates)
 [![Latest Version](https://img.shields.io/github/release/thephpleague/plates.svg?style=flat-square)](https://github.com/thephpleague/plates/releases)
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/thephpleague/plates/master.svg?style=flat-square)](https://travis-ci.org/thephpleague/plates)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/plates.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/plates/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/plates.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/plates)
@@ -31,12 +31,8 @@ Plates is a native PHP template system that's fast, easy to use and easy to exte
 
 Plates is available via Composer:
 
-```json
-{
-    "require": {
-        "league/plates": "3.*"
-    }
-}
+```
+composer require league/plates
 ```
 
 ## Documentation
@@ -46,7 +42,7 @@ Full documentation can be found at [platesphp.com](http://platesphp.com/).
 ## Testing
 
 ```bash
-$ phpunit
+phpunit
 ```
 
 ## Contributing

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'W\\' => array($baseDir . '/W'),
     'TrueBV\\' => array($vendorDir . '/true/punycode/src'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'League\\Url\\' => array($vendorDir . '/league/url/src'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     '' => array($baseDir . '/app'),

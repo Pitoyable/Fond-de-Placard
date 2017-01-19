@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit4a7149f14926b1552bd81e5813fb8092
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         'e40631d46120a9c38ea139981f8dab26' => __DIR__ . '/..' . '/ircmaxell/password-compat/lib/password.php',
     );
 
@@ -18,6 +19,10 @@ class ComposerStaticInit4a7149f14926b1552bd81e5813fb8092
         'T' => 
         array (
             'TrueBV\\' => 7,
+        ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
         ),
         'L' => 
         array (
@@ -34,6 +39,10 @@ class ComposerStaticInit4a7149f14926b1552bd81e5813fb8092
         'TrueBV\\' => 
         array (
             0 => __DIR__ . '/..' . '/true/punycode/src',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
         'League\\Url\\' => 
         array (
