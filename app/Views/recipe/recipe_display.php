@@ -14,30 +14,28 @@
 
   </form>
 
-  <div class="checkbox">
-
-    <p>
-      <label>Entrée</label>
-      <input type="checkbox" id="cbox1" value="starter">
-    </p>
-
-    <p>
-      <label>Plat principal</label>
-      <input type="checkbox" id="cbox2" value="main_dish">
-    </p>
-
-    <p>
-      <label>Dessert</label>
-      <input type="checkbox" id="cbox3" value="dessert">
-    </p>
-
-  </div>
 </div>
 
 <!-- Section pour le panier -->
 
 <div class="panier">
-  <!-- Affichage de la session ingredient -->
+  <!-- Affichage des ingredients -->
+  <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
+  <form action="index.html" method="post">
+
+    <p>
+      <label for="ail"></label>
+      <input type="text" name="ail" value="ail">
+    </p>
+
+    <p>
+      <label for="carotte"></label>
+      <input type="text" name="carotte" value="carotte">
+    </p>
+
+    <input type="submit" name="search_recipe" value="Trouver Une recette !">
+
+  </form>
 </div>
 <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
 <div class="content_recipe">
