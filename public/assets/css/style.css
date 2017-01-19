@@ -158,9 +158,14 @@ body:target .nav-button-close {
 }
 
 .card {
-  width: 500px;
-  height: 500px;
+  margin-bottom: 3%;
+  width: 48%;
+  height: 300px;
   background-color: rgb(118, 218, 68);
+  border: 3px dashed black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* -----------------------------------------------
@@ -168,12 +173,12 @@ body:target .nav-button-close {
 ----------------------------------------------- */
 
 footer {
-  position: absolute;
-  bottom: 0;
+  text-align: right;
   background-color: black;
   min-width: 100%;
   color: #fff;
   padding: 2%;
+  margin-top: 10%;
 }
 
 /* -----------------------------------------------

@@ -5,7 +5,7 @@
 
 <div class="search_recipe">
 
-  <form class="search_bar" action="<?php $this -> url('Recipe_display') ?>" method="post">
+  <form class="search_bar" action="" method="post">
 
     <p>
       <input type="text" name="search_bar" value="">
