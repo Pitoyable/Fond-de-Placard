@@ -14,8 +14,10 @@ $(function () {
 
     //On boucle les données pour les stockées dans un tableau
     for (var i = 0; i < datas.length; i++) {
-      formatDatas[datas[i]['search_recipe']] = datas[i]['values'];
+      formatDatas[datas[i]['name']] = datas[i]['value'];
     }
+
+    console.log(formatDatas);
 
     //On appel la method AJAX
     selectIng(formatDatas);
