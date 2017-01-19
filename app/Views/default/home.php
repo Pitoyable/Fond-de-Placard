@@ -17,17 +17,5 @@
     <div class="card">
       <h3>Mon compte</h3>
     </div>
-    <div class="card">
-      <h3>Mon compte</h3>
-    </div>
-    <div class="card">
-      <h3>Mon compte</h3>
-    </div>
-    <div class="card">
-      <h3>Mon compte</h3>
-    </div>
-    <div class="card">
-      <h3>Mon compte</h3>
-    </div>
   </div>
 <?php $this->stop('main_content') ?>
