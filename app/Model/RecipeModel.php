@@ -6,11 +6,6 @@ use \W\Model\Model;
 class RecipeModel extends \W\Model\Model
 {
 
-  //Function pour l'auto complementation des ingredients (AJAX)
-  public function autoFindIngredient() {
-
-  }
-
   //Trouver l'ingredients rechercher et stockage dans $_SESSION['ingredients']
   public function findIngredient() {
 
@@ -29,11 +24,28 @@ class RecipeModel extends \W\Model\Model
     //Utilisation de la method search()
     $ingFind = $model -> search($array);
 
-    //return du resultat
     return $ingFind;
   }
 
-  //Trouver les recettes avec les conditions ($_SESSION['ingredients'], type)
+  //Method pour ajouter des ingredients au panier (AJAX)
+  //Elle prend un argument, qui sera le resultat retourné par la method findIngredient
+  public function addIngPanier($ingredient) {
+
+    //Isolé l'ing_name de son id
+
+    //Envoyer cette ingredients au Javascript
+
+    //Le javascript l'insert dans le panier
+  }
+
+
+  //Method pour l'auto complementation des ingredients (AJAX)
+  public function autoFindIngredient() {
+
+  }
+
+
+  //Trouver les recettes avcec les ingredients prensent dans le panier
   public function findRecipe() {
 
 

@@ -17,9 +17,10 @@ class RecipeController extends \W\Controller\Controller
       //Instance du Model RecipeModel
       $modelRecipe = new RecipeModel();
 
-      //Utilisation de la method findIngredient
-      $modelRecipe -> findIngredient();
+      //Utilisation de la method findIngredient et recuperation du resultat
+      $ingFind = $modelRecipe -> findIngredient();
 
+      //Verification que $ingFind est true avent d'appeler la method addIngPanier();
     }
 
     //Affichage de la page
