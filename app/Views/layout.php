@@ -16,6 +16,7 @@
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
 
 	<!-- Font Awesome -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -24,22 +25,44 @@
 </head>
 <body id="body">
 	<aside class="sidebar">
-		<nav id="navigation" class="navigation" role="navigation">
+		<nav id="navigation" class="mobile-nav" role="navigation">
 			<a href="<?= $this -> url ('default_home') ?>">Accueil</a>
 			<a href="<?= $this -> url ('Recipe_display') ?>">J'ai faim</a>
-			<a href="<?= $this -> url ('Theme_display') ?>">Soirée à theme</a>
+			<a href="<?= $this -> url ('Theme_display') ?>">Soirée</a>
 			<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 			<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
 			<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
 			<a href="<?= $this -> url ('Administration_home') ?>">Administration</a>
-
 		</nav>
 	</aside>
 
+	<header class="header-nav">
+		<nav class="desktop-nav">
+			<a href="<?= $this -> url ('default_home') ?>">Accueil</a>
+			<a href="<?= $this -> url ('Recipe_display') ?>">J'ai faim</a>
+			<a href="<?= $this -> url ('Theme_display') ?>">Soirée</a>
+			<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
+			<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
+			<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
+		</nav>
+
+		<div class="container login-connect-desktop">
+			<!-- A masquer si l'utilisateur est co -->
+			<a href="#">Connexion/Inscription</a>
+			<!-- A afficher uniquement si logué -->
+			<!-- <h3>Bienvenue {pseudo}</h3> -->
+			<!-- <a href="#">Deconnexion</a> -->
+			<!-- Si l'utilisateur est un admin -->
+			<!-- <a href="<?= $this -> url ('Administration_home') ?>">Admin</a> -->
+		</div>
+	</header>
+
 	<div class="wrapper">
-		<header id="header" class="header-wrap">
+		<header class="header-wrap">
+			<!-- A masquer en desktop -->
 			<a href="#body" class="nav-button-open" aria-label="open navigation"></a>
 			<a href="#" class="nav-button-close" aria-label="close navigation"></a>
+			<!-- Pas à masquer -->
 			<div class="div_logo">
 				<a href="<?= $this -> url ('default_home') ?>"><img class="logo" src="<?= $this->assetUrl('pictures/test3.png') ?>" alt=""></a>
 			</div>
@@ -49,8 +72,10 @@
 			<?= $this->section('main_content') ?>
 		</section>
 
-		<footer>
-		</footer>
 	</div>
+
+	<footer>
+		
+	</footer>
 </body>
 </html>
