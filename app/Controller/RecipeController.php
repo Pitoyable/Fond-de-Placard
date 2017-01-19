@@ -7,15 +7,18 @@ use Model\RecipeModel;
 
 
 
+
 class RecipeController extends \W\Controller\Controller
 {
 
   public function display(){
 
-    // //Partie pour l'autocompletion des ingredients
-    // if (condition) {
-    //   # code...
-    // }
+    //Partie pour l'autocompletion des ingredients
+
+    // $credentials = array(
+    //   "ingredient" => $_POST['search_bar']
+    // );
+
 
     //Partie pour trouver l'ingredients en BDD
     if (!empty($_POST['search_bar'])) {
@@ -27,9 +30,9 @@ class RecipeController extends \W\Controller\Controller
       $ingFind = $modelRecipe -> findIngredient();
 
       //Verification que $ingFind est true avent d'appeler la method addIngPanier();
-      if ($ingFind) {
-
-      }
+      // if ($ingFind) {
+      //
+      // }
     }
 
     //Partie pour trouver une recette depuis les ingredients du panier
