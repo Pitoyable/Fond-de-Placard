@@ -14,13 +14,13 @@ class UserController extends Controller
     //methode pour s'inscrire
     $authentification = new UserModel();
     $test = $authentification -> signUp($_POST['pseudo'], $_POST['password'], $_POST['password'], $_POST['password_check']);
-
+    $this->show('default/home');
   }
   public function login(){
     //methode pour se connecté
     $authentification = new UserModel();
     $test = $authentification -> login($_POST['email'], $_POST['password']);
-
+    $this->show('default/home');
 
 
   }
