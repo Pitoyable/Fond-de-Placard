@@ -12,6 +12,11 @@ class RecipeController extends \W\Controller\Controller
 
   public function display(){
 
+    // //Partie pour l'autocompletion des ingredients
+    // if (condition) {
+    //   # code...
+    // }
+
     //Partie pour trouver l'ingredients en BDD
     if (!empty($_POST['search_bar'])) {
 

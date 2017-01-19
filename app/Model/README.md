@@ -1,6 +1,7 @@
 
 
 Partie recipeModel :
+
   - Method findIngredient() :
     - Permet de trouver un ingredient en base de donnée
     - Transmet le resulstat trouver à la method addIngPanier()

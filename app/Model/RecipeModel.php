@@ -42,6 +42,8 @@ class RecipeModel extends \W\Model\Model
   //Method pour l'auto complementation des ingredients (AJAX)
   public function autoFindIngredient() {
 
+    //Recuperation de l'ajax
+    
   }
 
 
