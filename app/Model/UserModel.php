@@ -25,7 +25,7 @@ class UserModel
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
           //problems erreur avec la methode find() pas d'id mais je ne comprend pas pourquoi il utilise find ...!!!!!
-          var_dump($insert);
+          
           echo"good";
         }
       }else{
@@ -41,7 +41,7 @@ class UserModel
     $authentification = new AuthentificationModel();
     $test = $authentification -> isValidLoginInfo($pseudo, $password);
 
-    var_dump($test);
+
     if ($test == 0){
       echo"erreur";
     }else{
