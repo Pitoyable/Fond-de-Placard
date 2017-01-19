@@ -75,7 +75,9 @@
 	</div>
 
 	<footer>
-
+		Copyright (c) 2016 Copyright Holder All Rights Reserved.
+		<p></p>
+		<p></p>
 	</footer>
 </body>
 </html>
