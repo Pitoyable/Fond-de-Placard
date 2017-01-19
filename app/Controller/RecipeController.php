@@ -16,7 +16,11 @@ class RecipeController extends \W\Controller\Controller
     // if (condition) {
     //   # code...
     // }
-
+    // $credentials = array(
+    //   "ingredient" => $_POST['search_bar']
+    // );
+    //
+    // var_dump($credentials);
     //Partie pour trouver l'ingredients en BDD
     if (!empty($_POST['search_bar'])) {
 
