@@ -3,6 +3,7 @@
 namespace League\Plates\Extension;
 
 use League\Plates\Engine;
+use League\Plates\Template\Template;
 use LogicException;
 
 /**
@@ -41,6 +42,7 @@ class Asset implements ExtensionInterface
 
     /**
      * Register extension function.
+     * @param Engine $engine
      * @return null
      */
     public function register(Engine $engine)
@@ -76,8 +78,8 @@ class Asset implements ExtensionInterface
 
         if ($this->filenameMethod) {
             return $directory . $pathInfo['filename'] . '.' . $lastUpdated . '.' . $pathInfo['extension'];
-        } else {
-            return $directory . $pathInfo['filename'] . '.' . $pathInfo['extension'] . '?v=' . $lastUpdated;
         }
+
+        return $directory . $pathInfo['filename'] . '.' . $pathInfo['extension'] . '?v=' . $lastUpdated;
     }
 }

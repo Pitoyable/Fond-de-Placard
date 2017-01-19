@@ -8,7 +8,13 @@
     <button type="submit" >Se déconnecter</button>
   </form>
 
+<!--
 
+Ancien code
+
+-->
+
+<!-- modification -->
   <form class="" action="<?= $this->url('User_update') ?>" method="post">
     <p>
       <label for="">Pseudo :
@@ -33,7 +39,7 @@
     <button type="submit">Mise à jour</button>
   </form>
 <?php }else { ?>
-
+<!-- connection -->
   <form class="login form" action="<?= $this->url('User_login') ?>" method="post">
     <label for="pseudo_login">Pseudo : </label>
     <input id="pseudo_login" type="text" name="pseudo" value=""><br>
@@ -43,7 +49,7 @@
   </form>
 
 <?php } ?>
-
+<!-- inscription -->
 <h3>S'inscrire</h3>
 <form class="signup form" action="<?= $this->url('User_signUp') ?>" method="post">
   <label for="pseudo_signup">Pseudo :</label>
@@ -56,4 +62,41 @@
   <input id="password_signup_check" type="password" name="password_check" value=""><br>
   <button type="submit">S'inscrire</button>
 </form>
+
+<hr>
+
+<!--
+
+Nouveau code
+
+-->
+
+<!-- Page mon compte / modification des infos -->
+<h1>Mon compte</h1>
+<!-- div global de tout le contenu -->
+<div class="container container_mon_compte">
+  <h3>*************</h3><!--mettre le pseudo du user en cour-->
+  <h5>Modifier mes infos :</h5>
+  <!-- formulaire de modification des infos user -->
+  <form class="form form_update_user" action="" method="post">
+
+    <div class="form_update_user_mail">
+      <label for="update_mail">Adresse Mail :</label>
+      <input id="update_mail" type="text" name="update_mail" placeholder="*************" required><!-- mettre l'adresse mail du user dans le placeholder !!! -->
+    </div>
+
+    <div class="form_update_user_old_password">
+      <label for="update_old_password">Ancien mot de passe :</label>
+      <input id="update_old_password" type="password" name="update_old_password" placeholder="Ancien mot de passe" required>
+    </div>
+
+    <div class="form_update_user_new_password">
+      <label for="update_new_password">Nouveau mot de passe :</label>
+      <input id="update_new_password" type="password" name="update_new_password" placeholder="Nouveau mot de passe" required>
+    </div>
+
+    <button type="submit" name="update_user_submit">Valider</button>
+  </form>
+</div>
+
 <?php $this->stop('main_content') ?>
