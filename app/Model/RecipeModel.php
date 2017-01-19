@@ -42,12 +42,33 @@ class RecipeModel extends \W\Model\Model
   //Method pour l'auto complementation des ingredients (AJAX)
   public function autoFindIngredient() {
 
+    //Recuperation de l'ajax
+    
   }
 
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
   public function findRecipe() {
 
+    //Recuperation des ingredients du panier
+
+    //Trouver les recettes en fonction des ingredients
+
+    //Stockage dans un tableau des resultats
+
+      //Si la recette return est une entré, stockage dans un tableau entrée
+
+        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
+
+      //Si la recette return est une plat, stockage dans un tableau plat
+
+        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
+
+      //Si la recette return est une dessert, stockage dans un tableau dessert
+
+        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
+
+    //Envoyer la liste des recettes vers un function de tri?
 
   }
 

@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *::before, *::after {
@@ -13,33 +14,66 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  min-height: 100%;
+  position: relative;
 }
 
 /* -----------------------------------------------
   Header
 ----------------------------------------------- */
 
-.header-wrap {
+.header-nav {
+  display: flex;
+  justify-content: center;
   background-color: black;
-  padding: 1%;
-  text-align: center;
-  z-index: 2;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
 }
 
-.div_logo {
+.desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+}
+
+.desktop-nav a {
+  font-family: 'Oswald', sans-serif;
+  padding: 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.desktop-nav a:hover {
+  background-color: rgb(230, 143, 15);
+}
+
+.login-connect-desktop {
   position: absolute;
-  top: 4%;
-  width: 50%;
-  margin-left: 25%;
+  align-self: center;
+  right: 0;
+  color: #fff;
+  margin-right: 3%;
 }
 
-.logo {
-  /*position: absolute;*/
-  height: 15em;
+.login-connect-desktop a {
+  text-decoration: none;
 }
 
 /* -----------------------------------------------
-  Nav et animation nav
+  Header-wrap
+----------------------------------------------- */
+
+.header-wrap {
+  text-align: center;
+  padding: 3%;
+}
+
+.logo {
+  height: 20em;
+}
+
+/* -----------------------------------------------
+  Nav et animation nav-mobile
 ----------------------------------------------- */
 
 .sidebar {
@@ -86,7 +120,7 @@ a {
   color: #fff;
 }
 
-.navigation a {
+.mobile-nav a {
   display: block;
   padding: .7em;
   margin-bottom: 2px;
@@ -113,13 +147,58 @@ body:target .nav-button-close {
 }
 
 /* -----------------------------------------------
-  Section
+  Home
 ----------------------------------------------- */
 
-section {
-  background-color: rgba(230, 230, 230, 0.75);
-  width: 80%;
-  margin: auto;
+.card_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(118, 218, 68);
+}
+
+/* -----------------------------------------------
+  Footer
+----------------------------------------------- */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: black;
+  min-width: 100%;
+  color: #fff;
   padding: 2%;
-  margin-top: 20%;
+}
+
+/* -----------------------------------------------
+  Responsive
+----------------------------------------------- */
+@media (max-width: 987px) {
+  .login-connect-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .logo {
+    height: 10em;
+  }
+}
+
+@media (min-width: 620px) {
+  .nav-button-open, .nav-button-close {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .desktop-nav {
+    display: none;
+  }
 }
