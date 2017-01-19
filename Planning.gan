@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-01-17" view-index="0" gantt-divider-location="353" resource-divider-location="350" version="2.8.1" locale="fr">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-01-18" view-index="0" gantt-divider-location="353" resource-divider-location="350" version="2.8.1" locale="fr">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Nom" width="142" order="0"/>
-        <field id="tpd4" name="Date de début" width="147" order="1"/>
+    <view zooming-state="default:0" id="gantt-chart">
+        <field id="tpd3" name="Nom" width="215" order="0"/>
+        <field id="tpd4" name="Date de début" width="74" order="1"/>
         <field id="tpd5" name="Date de fin" width="60" order="2"/>
-        <option id="color.recent"><![CDATA[#ff0000 #33ffff #6666ff]]></option>
+        <option id="color.recent"><![CDATA[#006666 #003333 #9900ff #990000 #0033ff #33ffcc #66ff66 #f4f4f4 #ff0000 #33ffff]]></option>
     </view>
     <view id="resource-table">
         <field id="0" name="Nom" width="162" order="0"/>
@@ -34,9 +34,40 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="1" name="Création BDD" color="#6666ff" meeting="false" start="2017-01-18" duration="1" complete="0" priority="4" expand="true"/>
-        <task id="2" name="Partie utilisateur/gestion compte" color="#33ffff" meeting="false" start="2017-01-19" duration="1" complete="0" expand="true"/>
-        <task id="6" name="Partie j'ai faim" color="#ff0000" meeting="false" start="2017-01-19" duration="1" complete="0" expand="true"/>
+        <task id="13" name="Back" color="#000000" meeting="false" start="2017-01-19" duration="7" complete="0" expand="true">
+            <task id="21" name="Création BDD" color="#6666ff" meeting="false" start="2017-01-19" duration="1" complete="0" priority="4" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="18" name="Partie user" color="#f4f4f4" meeting="false" start="2017-01-20" duration="2" complete="0" expand="true">
+                <depend id="15" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="16" name="Partie theme" color="#66ff66" meeting="false" start="2017-01-20" duration="1" complete="0" expand="true"/>
+            <task id="19" name="Partie j'ai faim" color="#ff0000" meeting="false" start="2017-01-20" duration="4" complete="0" expand="true">
+                <depend id="14" type="2" difference="0" hardness="Strong"/>
+                <depend id="20" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="14" name="Fonction favoris" color="#33ffcc" meeting="false" start="2017-01-25" duration="1" complete="0" expand="true">
+                <depend id="20" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="15" name="Partie administration" color="#0033ff" meeting="false" start="2017-01-23" duration="3" complete="0" expand="true"/>
+            <task id="20" name="Partie commentaire" color="#990000" meeting="false" start="2017-01-26" duration="1" complete="0" expand="true"/>
+        </task>
+        <task id="23" name="Front" color="#000000" meeting="false" start="2017-01-19" duration="4" complete="0" expand="true">
+            <task id="25" name="HTML partie client" color="#9900ff" meeting="false" start="2017-01-19" duration="1" complete="0" expand="true">
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="26" name="HTML partie administration" color="#003333" meeting="false" start="2017-01-20" duration="1" complete="0" expand="true">
+                <depend id="15" type="2" difference="0" hardness="Strong"/>
+                <depend id="28" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="28" name="Requete Ajax j'ai faim" color="#8cb6ce" meeting="false" start="2017-01-21" duration="1" complete="0" expand="true"/>
+            <task id="27" name="Design/Layout" color="#006666" meeting="false" start="2017-01-19" duration="4" complete="0" expand="true"/>
+        </task>
     </tasks>
     <resources>
         <resource id="0" name="Alexandre" function="2" contacts="" phone=""/>
@@ -45,10 +76,17 @@
         <resource id="3" name="Sammy" function="1" contacts="" phone=""/>
     </resources>
     <allocations>
-        <allocation task-id="1" resource-id="0" function="2" responsible="true" load="100.0"/>
-        <allocation task-id="2" resource-id="0" function="2" responsible="true" load="100.0"/>
-        <allocation task-id="1" resource-id="1" function="2" responsible="true" load="100.0"/>
-        <allocation task-id="2" resource-id="2" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="0" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="0" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="1" function="2" responsible="true" load="100.0"/>
+        <allocation task-id="27" resource-id="2" function="Default:1" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="3" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="26" resource-id="3" function="1" responsible="true" load="100.0"/>
+        <allocation task-id="28" resource-id="3" function="1" responsible="true" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
