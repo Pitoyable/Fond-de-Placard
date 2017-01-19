@@ -164,9 +164,22 @@ body:target .nav-button-close {
   background-color: rgb(118, 218, 68);
   border: 3px dashed black;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+.card h3 {font-size: 3em;}
+
+.card p {display: none;}
+
+.receipe h3 {font-family: 'Permanent Marker', cursive;}
+
+.party h3 {font-family: 'Monoton', cursive;}
+
+.provide h3 {font-family: 'Boogaloo', cursive;}
+
+.contact h3 {font-family: 'Pacifico', cursive;}
 
 /* -----------------------------------------------
   Footer
