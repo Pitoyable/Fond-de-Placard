@@ -62,10 +62,19 @@ body {
   right: 0;
   color: #fff;
   margin-right: 3%;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 15%;
 }
 
 .login-connect-desktop a {
   text-decoration: none;
+}
+
+.connected {
+  font-size: 1.5em;
 }
 
 /* -----------------------------------------------
@@ -325,8 +334,12 @@ footer p {
 
 
 @media (max-width: 987px) {
-  .login-connect-desktop {
+  .login-connect-desktop h3 {
     display: none;
+  }
+
+  .header-nav {
+    align-items: center;
   }
 
   .contact h3 {

@@ -60,8 +60,8 @@
 						<a href="<?= $this -> url ('User_acess') ?>"><i class="fa fa-user" aria-hidden="true"></i>Connexion/Inscription</a>
 					<?php }else { ?>
 						<!-- A afficher uniquement si logué -->
-						<h3>Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
-						<a href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
+						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 					<?php } ?>
 
 					<!-- Si l'utilisateur est un admin -->
