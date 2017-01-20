@@ -17,8 +17,6 @@ $(function () {
       formatDatas[datas[i]['name']] = datas[i]['value'];
     }
 
-    console.log(formatDatas);
-
     //On appel la method AJAX
     selectIng(formatDatas);
   })
@@ -29,8 +27,17 @@ var selectIng = function(credentials) {
 
   $.ajax({
     method : 'POST',
-    url : 'http://localhost/Fond-de-Placard/app/Controller/RecipeController.php',
-    data : credentials
+    // Faire attention au route
+    url : 'http://localhost/Fond-de-Placard/app/Controller/AjaxController/findIngredient',
+    data : credentials,
+    success : function(response) {
+
+        if (response.success) {
+
+          console.log('win');
+        }
+      }
+
   });
 
 }

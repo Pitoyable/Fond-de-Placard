@@ -7,7 +7,7 @@ class RecipeModel extends \W\Model\Model
 {
 
   //Trouver l'ingredients rechercher et stockage dans $_SESSION['ingredients']
-  public function findIngredient() {
+  public function findIngredientBdd() {
 
     //Instance du Model RecipeModel Pour avoir accés au method de Model
     $model = new RecipeModel();
@@ -15,7 +15,7 @@ class RecipeModel extends \W\Model\Model
 
     //Creation d'un tableau pour la method search();
     $array = array(
-      "ing_name" => $_POST['search_bar'],
+      "ing_name" => $credentials['ingredient'],
     );
 
     //Utilisation de la method setTable() pour chercher dans la table ingredients
@@ -43,7 +43,7 @@ class RecipeModel extends \W\Model\Model
   public function autoFindIngredient() {
 
     //Recuperation de l'ajax
-    
+
   }
 
 
