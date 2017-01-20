@@ -29,8 +29,12 @@ class RecipeController extends Controller
 
   public function findIngredient() {
 
-    $model = new RecipeModel();
-    $model -> findIngredient();
-    
+    if (!empty($_POST['search_bar'])) {
+
+      $model = new RecipeModel();
+      $model -> findIngredient();
+      
+    }
+
   }
 }
