@@ -42,7 +42,7 @@ class UserController extends Controller
 
   public function update(){
     //methode pour modifier le compte
-
+    var_dump($_SESSION);
     $authentification = new UserModel();
     $test = $authentification -> update($_POST, $_SESSION['user']['id']);
 
