@@ -26,7 +26,7 @@ class UserModel
             'use_email' => $email,
             'use_password' => $passwordHash,
           );
-          //methode pour inscrir en bdd
+          //methode pour inscrire en bdd
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
           echo"good";
