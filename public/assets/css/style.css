@@ -14,6 +14,15 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
+
+/* -----------------------------------------------
+  Wrapper
+----------------------------------------------- */
+
+.wrapper {
   min-height: 100%;
   position: relative;
 }
@@ -60,10 +69,10 @@ body {
 }
 
 /* -----------------------------------------------
-  Header-wrap
+  Main
 ----------------------------------------------- */
 
-.header-wrap {
+.header-main {
   text-align: center;
   padding: 3%;
 }
@@ -91,7 +100,7 @@ body {
   will-change: transform;
 }
 
-.wrapper {
+.main {
   transform: translateX(0) translateZ(0);
   transition: transform .2s;
   will-change: transform;
@@ -129,7 +138,7 @@ a {
 }
 
 /* animation effet */
-body:target .wrapper {
+body:target .main {
   transform: translateX(25vw);
 }
 
@@ -161,25 +170,59 @@ body:target .nav-button-close {
   margin-bottom: 3%;
   width: 48%;
   height: 300px;
-  background-color: rgb(118, 218, 68);
-  border: 3px dashed black;
+  border: 3px dashed #fff;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card div {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 1s;
 }
 
 .card h3 {font-size: 3em;}
 
 .card p {display: none;}
 
+.receipe div {
+  background-image: url('../pictures/foodontable.jpg');
+  background-size: cover;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
+}
 .receipe h3 {font-family: 'Permanent Marker', cursive;}
 
+.party div {
+  background-image: url('../pictures/party.jpg');
+  background-size: cover;
+  text-shadow: 2px 2px 4px black;
+}
 .party h3 {font-family: 'Monoton', cursive;}
 
+.provide div{
+  background-image: url('../pictures/sefournir.jpg');
+  background-size: cover;
+  text-shadow: 2px 2px 4px black;
+}
 .provide h3 {font-family: 'Boogaloo', cursive;}
 
+.contact div {
+  background-image: url('../pictures/contact.jpg');
+  background-size: cover;
+  text-shadow: 2px 2px 4px black;
+}
+
 .contact h3 {font-family: 'Pacifico', cursive;}
+
+.card div:hover {
+  transform: scale(1.2, 1.2);
+  font-size: 0.8em;
+}
 
 /* -----------------------------------------------
   Footer
@@ -190,8 +233,13 @@ footer {
   background-color: black;
   min-width: 100%;
   color: #fff;
-  padding: 2%;
-  margin-top: 10%;
+  position:absolute;
+	bottom:0;
+	left:0;
+}
+
+footer p {
+  margin: 0;
 }
 
 /* -----------------------------------------------
