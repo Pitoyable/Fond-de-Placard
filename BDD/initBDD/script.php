@@ -89,7 +89,7 @@ $bdd->exec($sql);
 
 // Création de la table User
 $sql ="CREATE TABLE IF NOT EXISTS `fond_de_placard`.`user` (
-  `use_id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `use_pseudo` VARCHAR(45) NOT NULL COMMENT '',
   `use_email` VARCHAR(45) NOT NULL COMMENT '',
   `use_password` VARCHAR(60) NOT NULL COMMENT '',
