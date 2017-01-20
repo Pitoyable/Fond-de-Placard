@@ -29,11 +29,12 @@ class UserModel
           //methode pour inscrire en bdd
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
-          echo"good";
-          $authentification ->logUserIn($arrayData);
+
+
           header('Location:http://fond_de_placard.local/recette_afficher');
         }
       }else{
+        echo "2 mdp pas identique";
         header('Location:http://fond_de_placard.local/utilisateur_afficher');
       }
     }else{
