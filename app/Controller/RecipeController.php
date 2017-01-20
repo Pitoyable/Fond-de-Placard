@@ -9,7 +9,7 @@ use Model\RecipeModel;
 class RecipeController extends Controller
 {
 
-  public function display(){
+  public function display() {
 
 
     //Partie pour trouver une recette depuis les ingredients du panier
@@ -27,4 +27,10 @@ class RecipeController extends Controller
 
   }
 
+  public function findIngredient() {
+
+    $model = new RecipeModel();
+    $model -> findIngredient();
+    
+  }
 }

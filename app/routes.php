@@ -43,4 +43,8 @@
 		//Se fournir
 			//montrer
 		['GET|POST', '/fournir_afficher', 'Provide#display', 'Provide_display'],
+
+		//Ajax
+			//montrer
+		['GET|POST', '/recette_ajax', 'Recipe#findIngredient', 'Recipe_findIngredient'],
 	);

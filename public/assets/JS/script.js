@@ -29,10 +29,10 @@ var selectIng = function(credentials) {
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://localhost/Fond-de-Placard/app/Controller/AjaxController/findIngredient',
+    url : 'http://localhost/Fond-de-Placard/public/recette_ajax',
     data : credentials,
     success : function(response) {
-      console.log(response.test);
+
         if (response.success) {
 
           console.log('win');
