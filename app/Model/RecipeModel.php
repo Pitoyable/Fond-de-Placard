@@ -27,6 +27,17 @@ class RecipeModel extends \W\Model\Model
     return $ingFind;
   }
 
+  public function findIngredient() {
+
+
+    header('Content-Type: application/json');
+    //Je formate la reponse en JSON
+    echo json_encode(array(
+      "success" => true
+    ));
+
+  }
+
   //Method pour ajouter des ingredients au panier (AJAX)
   //Elle prend un argument, qui sera le resultat retourné par la method findIngredient
   public function addIngPanier($ingredient) {
