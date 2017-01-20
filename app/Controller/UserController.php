@@ -44,7 +44,7 @@ class UserController extends Controller
     //methode pour modifier le compte
 
     $authentification = new UserModel();
-    $test = $authentification -> update($_POST['pseudo'], $_POST['password']);
+    $test = $authentification -> update($_POST, $_SESSION['user']['id']);
 
   }
 

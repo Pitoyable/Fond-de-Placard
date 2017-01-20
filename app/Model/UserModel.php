@@ -51,12 +51,35 @@ class UserModel
       $authentification ->logUserIn($emailValide);
       }
   }
-  public function update(){
-    //methode pour modifier le compte
 
-    $model = new UsersModel();
-    $model -> update($_POST, $_SESSION['user']['use_id'], $stripTags = true);
-    //a finir
+  public function update($array, $id){
+    //methode pour modifier le compte
+    var_dump($array);
+    var_dump($_SESSION);
+    // on verifie que l'ancien et le nouveau mdp ne sont pas identique
+    if ($array['old_use_password'] == $array['use_password']){
+      echo "ancien et nouveau mdp identique";
+    }else{
+      // on verifie l'email et le mdp se bon avec la bdd
+      $authentification = new AuthentificationModel();
+      $test = $authentification -> isValidLoginInfo($array['use_email'], $array['old_use_password']);
+      var_dump($test);
+      if ($test == 0){
+        echo "erreur";
+      }else {
+        echo "good";
+        $modelHash = new AuthentificationModel();
+        $passwordHash = $modelHash -> hashPassword($array['use_password']);
+        $info = array (
+          "use_email" => $array['use_email'],
+          "use_password" => $passwordHash,
+        );
+        $model = new UsersModel();
+        $model -> update($info, $id, $stripTags = true);
+      }
+    }
+
+
   }
 
 
