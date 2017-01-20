@@ -12,10 +12,9 @@ class RecipeModel extends \W\Model\Model
     //Instance du Model RecipeModel Pour avoir accés au method de Model
     $model = new RecipeModel();
 
-
     //Creation d'un tableau pour la method search();
     $array = array(
-      "ing_name" => $credentials['ingredient'],
+      "ing_name" => $_POST['search_bar'],
     );
 
     //Utilisation de la method setTable() pour chercher dans la table ingredients
@@ -29,11 +28,17 @@ class RecipeModel extends \W\Model\Model
 
   public function findIngredient() {
 
+    //Initialisation du model RecipdeModel
+    $model = new RecipeModel();
+
+    //Appel de la method findIngredientBdd
+    $ingFind = $model -> findIngredientBdd();
 
     header('Content-Type: application/json');
     //Je formate la reponse en JSON
     echo json_encode(array(
-      "success" => true
+      "success" => true,
+      "ingredient" => $ingFind
     ));
 
   }
