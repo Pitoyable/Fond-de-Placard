@@ -52,12 +52,12 @@
 					<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
 				</nav>
 
-				<div class="container login-connect-desktop">
+				<div class="login-connect-desktop">
 
 					<?php if(empty($_SESSION)){ ?>
 
 						<!-- A masquer si l'utilisateur est co -->
-						<a href="<?= $this -> url ('User_acess') ?>">Connexion/Inscription</a>
+						<a href="<?= $this -> url ('User_acess') ?>"><i class="fa fa-sign-in" aria-hidden="true"></i><i class="fa fa-user-plus" aria-hidden="true"></i>Connexion/Inscription</a>
 					<?php }else { ?>
 						<!-- A afficher uniquement si logué -->
 						<h3>Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>

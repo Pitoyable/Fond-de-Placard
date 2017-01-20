@@ -50,6 +50,7 @@ body {
   padding: 15px;
   font-size: 1.2em;
   text-decoration: none;
+  transition: all 0.5s;
 }
 
 .desktop-nav a:hover {
@@ -81,6 +82,27 @@ body {
   height: 20em;
 }
 
+/* -----------------------------------------------
+  Container de chaques pages
+----------------------------------------------- */
+
+section {
+  margin-bottom: 5%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: inset 0px 1px 10px 1px rgba(0,0,0,0.7);
+  padding: 15px;
+  min-height: 600px;
+}
+
+label {
+  display: block;
+}
 /* -----------------------------------------------
   Nav et animation nav-mobile
 ----------------------------------------------- */
@@ -237,6 +259,23 @@ body:target .nav-button-close {
 }
 
 /* -----------------------------------------------
+  User_acess
+----------------------------------------------- */
+
+.container_connection_subscribe {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container_connection, .container_subscribe {
+  text-align: center;
+}
+
+.container_connection h3, .container_subscribe h3 {
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif;
+}
+/* -----------------------------------------------
   Footer
 ----------------------------------------------- */
 
@@ -245,9 +284,7 @@ footer {
   background-color: black;
   min-width: 100%;
   color: #fff;
-  position:absolute;
-	bottom:0;
-	left:0;
+  padding: 10px;
 }
 
 footer p {
@@ -267,6 +304,13 @@ footer p {
   .contact h3 {
     font-size: 2em;
   }
+}
+
+@media (max-width: 780px) {
+  .logo {
+    height: 10em;
+  }
+
 }
 
 @media (max-width: 727px) {
@@ -294,13 +338,17 @@ footer p {
     margin: auto;
     margin-bottom: 10%;
   }
-}
 
-@media (max-width: 780px) {
-  .logo {
-    height: 10em;
+  .card-div:hover h3 {
+    display: none;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.8em;
   }
 }
+
 
 @media (min-width: 620px) {
   .nav-button-open, .nav-button-close {

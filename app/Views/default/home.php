@@ -5,7 +5,7 @@
     <a href="<?= $this -> url ('Recipe_display') ?>" class="card receipe">
       <div class="card-div">
         <h3>─ J'ai faim ─</h3>
-        <p class="card-content">Trouver rapidemment une recette avec les ingrédients que vous avez !</p>
+        <p class="card-content">Trouver rapidemment une recette avec les ingrédients dont vous disposez !</p>
       </div>
     </a>
 
