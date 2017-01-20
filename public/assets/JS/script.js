@@ -22,6 +22,12 @@ $(function () {
     selectIng(formatDatas);
   })
 
+  //Recuperation du fontAwesome et ajout de la function
+  $('.delete_panier').click(function() {
+    //Delete du parent
+    $(this).remove().parent();
+  });
+
 });
 
 
@@ -32,7 +38,7 @@ var selectIng = function(credentials) {
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://localhost/Fond-de-Placard/public/recette_ajax',
+    url : 'http://fond_de_placard.local/recette_ajax',
     data : credentials,
     success : function(response) {
         //Si la reponse est true on appel la function
@@ -49,13 +55,13 @@ var selectIng = function(credentials) {
               $('.panier').append(
                 '<p>'
                 //Input name
-                + '<input type= "texte" disabled name="'
+                + '<input type= "texte" name="'
                 + ingredient[i]['ing_name']
                 + '" value= "'
                 + ingredient[i]['ing_name']
                 + '" >'
                 //Le fontAwesome
-                + '<i class="fa fa-times" aria-hidden="true"></i>'
+                + '<i class="fa fa-times delete_panier" aria-hidden="true"></i>'
                 //Input hidden
                 + '<input type= "hidden" disabled name="'
                 + ingredient[i]['ing_id']
@@ -69,8 +75,3 @@ var selectIng = function(credentials) {
       }
   });
 }
-//Mettre une limite au nombre d'ingredients
-// <p>
-//   <input type="text" name="carotte" value="carotte">
-//   <input type="hidden" name="id" value="id">
-// </p>
