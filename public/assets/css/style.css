@@ -186,11 +186,12 @@ body:target .nav-button-close {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  padding: 0 10% 0 10%;
 }
 
 .card {
   margin-bottom: 3%;
-  width: 45%;
+  width: 35%;
   height: 300px;
   border: 3px dashed #fff;
   overflow: hidden;
@@ -294,26 +295,13 @@ footer p {
 /* -----------------------------------------------
   Responsive
 ----------------------------------------------- */
-@media (max-width: 987px) {
-  .login-connect-desktop {
-    display: none;
-  }
-}
-
-@media (max-width: 910px) {
+@media (max-width: 1480px) {
   .contact h3 {
-    font-size: 2em;
+    font-size: 2.3em;
   }
 }
 
-@media (max-width: 780px) {
-  .logo {
-    height: 10em;
-  }
-
-}
-
-@media (max-width: 727px) {
+@media (max-width: 1200px) {
   .card-div h3 {
     font-size: 2em;
   }
@@ -326,6 +314,39 @@ footer p {
     height: 230px;
   }
 }
+
+
+@media (max-width: 987px) {
+  .login-connect-desktop {
+    display: none;
+  }
+
+  .contact h3 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 970px) {
+  .card_container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .logo {
+    height: 10em;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+
+  section {
+    margin-bottom: 0;
+  }
+}
+
 
 @media (max-width: 600px) {
   .card_container {
@@ -359,6 +380,9 @@ footer p {
 @media (max-width: 620px) {
   .desktop-nav {
     display: none;
+  }
+  .receipe h3 {
+    font-size: 1.7em;
   }
 }
 

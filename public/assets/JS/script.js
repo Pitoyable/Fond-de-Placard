@@ -17,6 +17,7 @@ $(function () {
       formatDatas[datas[i]['name']] = datas[i]['value'];
     }
 
+
     //On appel la method AJAX
     selectIng(formatDatas);
   })
@@ -31,7 +32,7 @@ var selectIng = function(credentials) {
     url : 'http://localhost/Fond-de-Placard/app/Controller/AjaxController/findIngredient',
     data : credentials,
     success : function(response) {
-
+      console.log(response.test);
         if (response.success) {
 
           console.log('win');

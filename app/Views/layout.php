@@ -57,11 +57,11 @@
 					<?php if(empty($_SESSION)){ ?>
 
 						<!-- A masquer si l'utilisateur est co -->
-						<a href="<?= $this -> url ('User_acess') ?>"><i class="fa fa-sign-in" aria-hidden="true"></i><i class="fa fa-user-plus" aria-hidden="true"></i>Connexion/Inscription</a>
+						<a href="<?= $this -> url ('User_acess') ?>"><i class="fa fa-user" aria-hidden="true"></i>Connexion/Inscription</a>
 					<?php }else { ?>
 						<!-- A afficher uniquement si logué -->
 						<h3>Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
-						<a href="<?= $this->url('User_logout') ?>">Deconnexion</a>
+						<a href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 					<?php } ?>
 
 					<!-- Si l'utilisateur est un admin -->
@@ -87,7 +87,7 @@
 			</div>
 
 			<footer>
-				Copyright (c) 2016 Copyright Holder All Rights Reserved.
+				Copyright (c) 2017 Copyright Holder All Rights Reserved.
 				<p></p>
 				<p></p>
 			</footer>
