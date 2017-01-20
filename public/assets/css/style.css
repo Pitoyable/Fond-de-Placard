@@ -14,6 +14,15 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
+
+/* -----------------------------------------------
+  Wrapper
+----------------------------------------------- */
+
+.wrapper {
   min-height: 100%;
   position: relative;
 }
@@ -41,6 +50,7 @@ body {
   padding: 15px;
   font-size: 1.2em;
   text-decoration: none;
+  transition: all 0.5s;
 }
 
 .desktop-nav a:hover {
@@ -60,10 +70,10 @@ body {
 }
 
 /* -----------------------------------------------
-  Header-wrap
+  Main
 ----------------------------------------------- */
 
-.header-wrap {
+.header-main {
   text-align: center;
   padding: 3%;
 }
@@ -72,6 +82,27 @@ body {
   height: 20em;
 }
 
+/* -----------------------------------------------
+  Container de chaques pages
+----------------------------------------------- */
+
+section {
+  margin-bottom: 5%;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: inset 0px 1px 10px 1px rgba(0,0,0,0.7);
+  padding: 15px;
+  min-height: 600px;
+}
+
+label {
+  display: block;
+}
 /* -----------------------------------------------
   Nav et animation nav-mobile
 ----------------------------------------------- */
@@ -91,7 +122,7 @@ body {
   will-change: transform;
 }
 
-.wrapper {
+.main {
   transform: translateX(0) translateZ(0);
   transition: transform .2s;
   will-change: transform;
@@ -129,7 +160,7 @@ a {
 }
 
 /* animation effet */
-body:target .wrapper {
+body:target .main {
   transform: translateX(25vw);
 }
 
@@ -159,28 +190,91 @@ body:target .nav-button-close {
 
 .card {
   margin-bottom: 3%;
-  width: 48%;
+  width: 45%;
   height: 300px;
-  background-color: rgb(118, 218, 68);
-  border: 3px dashed black;
+  border: 3px dashed #fff;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card-div {
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all 1s;
 }
 
-.card h3 {font-size: 3em;}
+.card-div h3 {
+  font-size: 3em;
+  margin: 0;
+}
 
-.card p {display: none;}
+.card-content {
+  display: none;
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+}
 
+.receipe div {
+  background-image: url('../pictures/foodontable.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
+}
 .receipe h3 {font-family: 'Permanent Marker', cursive;}
 
+.party div {
+  background-image: url('../pictures/party.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
 .party h3 {font-family: 'Monoton', cursive;}
 
+.provide div{
+  background-image: url('../pictures/sefournir.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
 .provide h3 {font-family: 'Boogaloo', cursive;}
+
+.contact div {
+  background-image: url('../pictures/contact.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
 
 .contact h3 {font-family: 'Pacifico', cursive;}
 
+.card-div:hover {
+  background-size: 150% 150%;
+}
+
+/* -----------------------------------------------
+  User_acess
+----------------------------------------------- */
+
+.container_connection_subscribe {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container_connection, .container_subscribe {
+  text-align: center;
+}
+
+.container_connection h3, .container_subscribe h3 {
+  font-size: 2em;
+  font-family: 'Oswald', sans-serif;
+}
 /* -----------------------------------------------
   Footer
 ----------------------------------------------- */
@@ -190,8 +284,11 @@ footer {
   background-color: black;
   min-width: 100%;
   color: #fff;
-  padding: 2%;
-  margin-top: 10%;
+  padding: 10px;
+}
+
+footer p {
+  margin: 0;
 }
 
 /* -----------------------------------------------
@@ -203,11 +300,55 @@ footer {
   }
 }
 
+@media (max-width: 910px) {
+  .contact h3 {
+    font-size: 2em;
+  }
+}
+
 @media (max-width: 780px) {
   .logo {
     height: 10em;
   }
+
 }
+
+@media (max-width: 727px) {
+  .card-div h3 {
+    font-size: 2em;
+  }
+
+  .card-content {
+    font-size: 1em;
+  }
+
+  .card {
+    height: 230px;
+  }
+}
+
+@media (max-width: 600px) {
+  .card_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10%;
+  }
+
+  .card-div:hover h3 {
+    display: none;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 0.8em;
+  }
+}
+
 
 @media (min-width: 620px) {
   .nav-button-open, .nav-button-close {
@@ -218,5 +359,15 @@ footer {
 @media (max-width: 620px) {
   .desktop-nav {
     display: none;
+  }
+}
+
+@media (max-width: 348px) {
+  .contact h3 {
+    font-size: 1.5em;
+  }
+
+  .card {
+    height: 150px;
   }
 }
