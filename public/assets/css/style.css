@@ -265,6 +265,8 @@ body:target .nav-button-close {
 
 .card-div:hover {
   background-size: 150% 150%;
+  background-color: rgba(9, 9, 9, 0.60);
+  background-blend-mode: darken;
 }
 
 /* -----------------------------------------------
@@ -292,6 +294,51 @@ body:target .nav-button-close {
 .container_connection h3, .container_subscribe h3 {
   font-size: 2em;
   font-family: 'Oswald', sans-serif;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  width: 90%;
+  padding: 20px 0px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #435160;
+  outline: none;
+  color: #6D7781;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  background: #cc2727;
+  border: 0;
+  width: 350px;
+  height: 40px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+  background: #9e0000;
+  animation-name: shake;
+}
+
+.form_button {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
 }
 /* -----------------------------------------------
   Footer
