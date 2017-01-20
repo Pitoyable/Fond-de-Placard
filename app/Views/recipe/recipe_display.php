@@ -18,24 +18,16 @@
 
 <!-- Section pour le panier -->
 
-<div class="panier">
+<div class="paniertest">
   <!-- Affichage des ingredients -->
   <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
-  <form action="index.html" method="post">
+  <form class="panier" action="index.html" method="post">
 
-    <p>
-      <label for="ail"></label>
-      <input type="text" name="ail" value="ail">
-    </p>
 
-    <p>
-      <label for="carotte"></label>
-      <input type="text" name="carotte" value="carotte">
-    </p>
-
-    <input type="submit" name="search_recipe" value="Trouver Une recette !">
+    <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
 
   </form>
+
 </div>
 <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
 <div class="content_recipe">
