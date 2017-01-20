@@ -22,6 +22,7 @@ class UserModel
             'use_email' => $email,
             'use_password' => $passwordHash,
           );
+
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
           //problems erreur avec la methode find() pas d'id mais je ne comprend pas pourquoi il utilise find ...!!!!!
