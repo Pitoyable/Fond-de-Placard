@@ -59,7 +59,6 @@ body {
 
 .login-connect-desktop {
   position: absolute;
-  align-self: center;
   right: 0;
   color: #fff;
   margin-right: 3%;
@@ -257,6 +256,15 @@ body:target .nav-button-close {
 
 .card-div:hover {
   background-size: 150% 150%;
+}
+
+/* -----------------------------------------------
+  J'ai faim / receipe
+----------------------------------------------- */
+
+.delete_panier {
+  display: inline-block;
+  padding: 3px;
 }
 
 /* -----------------------------------------------
