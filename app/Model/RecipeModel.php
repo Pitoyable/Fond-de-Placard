@@ -7,11 +7,10 @@ class RecipeModel extends \W\Model\Model
 {
 
   //Trouver l'ingredients rechercher et stockage dans $_SESSION['ingredients']
-  public function findIngredient() {
+  public function findIngredientBdd() {
 
     //Instance du Model RecipeModel Pour avoir accés au method de Model
     $model = new RecipeModel();
-
 
     //Creation d'un tableau pour la method search();
     $array = array(
@@ -25,6 +24,23 @@ class RecipeModel extends \W\Model\Model
     $ingFind = $model -> search($array);
 
     return $ingFind;
+  }
+
+  public function findIngredient() {
+
+    //Initialisation du model RecipdeModel
+    $model = new RecipeModel();
+
+    //Appel de la method findIngredientBdd
+    $ingFind = $model -> findIngredientBdd();
+
+    header('Content-Type: application/json');
+    //Je formate la reponse en JSON
+    echo json_encode(array(
+      "success" => true,
+      "ingredient" => $ingFind
+    ));
+
   }
 
   //Method pour ajouter des ingredients au panier (AJAX)
@@ -43,7 +59,7 @@ class RecipeModel extends \W\Model\Model
   public function autoFindIngredient() {
 
     //Recuperation de l'ajax
-    
+
   }
 
 

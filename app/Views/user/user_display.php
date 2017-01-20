@@ -13,17 +13,17 @@
 
     <div class="form_update_user_mail">
       <label for="update_mail">Adresse Mail :</label>
-      <input id="update_mail" type="text" name="email" value="<?= $_SESSION['user']['use_email'] ?>" required>
+      <input id="update_mail" type="text" name="use_email" value="<?= $_SESSION['user']['use_email'] ?>" required>
     </div>
 
     <div class="form_update_user_old_password">
       <label for="update_old_password">Ancien mot de passe :</label>
-      <input id="update_old_password" type="password" name="update_old_password" placeholder="Ancien mot de passe" required>
+      <input id="update_old_password" type="password" name="old_use_password" placeholder="Ancien mot de passe" required>
     </div>
 
     <div class="form_update_user_new_password">
       <label for="update_new_password">Nouveau mot de passe :</label>
-      <input id="update_new_password" type="password" name="update_new_password" placeholder="Nouveau mot de passe" required>
+      <input id="update_new_password" type="password" name="use_password" placeholder="Nouveau mot de passe" required>
     </div>
 
     <button type="submit" name="update_user_submit">Valider</button>
