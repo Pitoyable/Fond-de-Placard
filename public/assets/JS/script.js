@@ -22,14 +22,18 @@ $(function () {
     selectIng(formatDatas);
   })
 
-  //Recuperation du fontAwesome et ajout de la function
-  $('.delete_panier').click(function() {
-    //Delete du parent
-    $(this).remove().parent();
-  });
 
 });
 
+    //A DEBUG
+        //Recuperation du fontAwesome et ajout de la function
+        // $('.delete_panier').on('click', function(e) {
+        //
+        //   e.preventDefault();
+        //   console.log('hello');
+        //   // //Delete du parent
+        //   // $(this).remove().parent();
+        // });
 
 
 //Function Ajax pour ajouter un ingredient trouver au panier
@@ -60,8 +64,11 @@ var selectIng = function(credentials) {
                 + '" value= "'
                 + ingredient[i]['ing_name']
                 + '" >'
+                //Ajout d'un button autour du font awesome
+                +'<button type ="button" class = "delete_panier">'
                 //Le fontAwesome
-                + '<i class="fa fa-times delete_panier" aria-hidden="true"></i>'
+                + '<i class="fa fa-times" aria-hidden="true"></i>'
+                +'</button>'
                 //Input hidden
                 + '<input type= "hidden" disabled name="'
                 + ingredient[i]['ing_id']
