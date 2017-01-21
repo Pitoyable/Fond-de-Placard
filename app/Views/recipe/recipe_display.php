@@ -12,6 +12,12 @@
       <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </p>
 
+    <!-- Div pour tester l'autoComple -->
+    <div>
+      <ul class="auto_complete">
+
+      </ul>
+    </div>
   </form>
 
 </div>

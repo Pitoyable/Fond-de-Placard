@@ -14,6 +14,8 @@ $(function () {
       formatDatas[datas[i]['name']] = datas[i]['value'];
     }
 
+    //On appel la function AJAX pour recuperé les resultat
+    autoComple(formatDatas);
   });
 
   //Preparation des données recuperé du formulaire
@@ -61,9 +63,17 @@ var autoComple = function(credentials) {
     data : credentials,
     success : function(response) {
       if (response.success) {
-        console.log('winw');
-      } else {
-        console.log('loose');
+        //Exec d'une boucle pour séparé les valeurs
+        for (var i = 0; i < ingredient.length; i++) {
+
+          if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
+
+            $('.auto_complete').append(
+              '<li>'
+              + ingredient[i]['ing_name']
+              + '</li>');
+          }
+        }
       }
     }
   })
@@ -92,13 +102,13 @@ var selectIng = function(credentials) {
               $('.panier_add').append(
                 '<p>'
                 //Input name
-                + '<input type= "texte" name="'
+                + '<input type="texte" disabled name="'
                 + ingredient[i]['ing_name']
                 + '" value= "'
                 + ingredient[i]['ing_name']
                 + '" >'
                 //Input hidden
-                + '<input type= "hidden" disabled name="'
+                + '<input type="hidden" disabled name="'
                 + ingredient[i]['ing_id']
                 + '" value= "'
                 + ingredient[i]['ing_id']
