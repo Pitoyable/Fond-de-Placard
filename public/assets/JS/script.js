@@ -36,20 +36,21 @@ $(function () {
 
     //On appel la method AJAX pour ajouter un ingredient trouver au panier
     selectIng(formatDatas);
+
+
+    //Recuperation du button pour vider le panier
+    $('.delete_panier').on('click', function(e) {
+
+      e.preventDefault();
+      //Delete des freres, soit les ingredients ajouter en Ajax dans le panier
+      $(this).siblings().remove();
+
+    });
   });
 
 
 });
 
-    //A DEBUG
-        //Recuperation du fontAwesome et ajout de la function
-        // $('.delete_panier').on('click', function(e) {
-        //
-        //   e.preventDefault();
-        //   console.log('hello');
-        //   // //Delete du parent
-        //   // $(this).remove().parent();
-        // });
 
 //Function Ajax pour l'autocomplementation
 var autoComple = function(credentials) {
@@ -87,7 +88,8 @@ var selectIng = function(credentials) {
 
             if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
               //Ajout de input name et input text ainsi q'un font awesome
-              $('.panier').append(
+              //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
+              $('.panier_add').append(
                 '<p>'
                 //Input name
                 + '<input type= "texte" name="'
@@ -95,18 +97,13 @@ var selectIng = function(credentials) {
                 + '" value= "'
                 + ingredient[i]['ing_name']
                 + '" >'
-                //Ajout d'un button autour du font awesome
-                +'<button type ="button" class = "delete_panier">'
-                //Le fontAwesome
-                + '<i class="fa fa-times" aria-hidden="true"></i>'
-                +'</button>'
                 //Input hidden
                 + '<input type= "hidden" disabled name="'
                 + ingredient[i]['ing_id']
                 + '" value= "'
                 + ingredient[i]['ing_id']
                 + '" >'
-                +'</p>').after($('.submitPanier'));
+                + '</p>');
             }
           }
         }
