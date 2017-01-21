@@ -37,8 +37,10 @@
 					<a href="<?= $this -> url ('Theme_display') ?>">Soirée</a>
 					<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 					<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
+					<?php if (!empty($_SESSION)) {?>
 					<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
 					<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+					<?php } ?>
 				</nav>
 			</aside>
 

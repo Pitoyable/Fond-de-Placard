@@ -112,8 +112,8 @@ body {
 }
 
 .fa-times-circle-o {
-  font-size: 5em;
-  color: #cc2727;
+  font-size: 3em;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -201,6 +201,12 @@ body {
 
 .logo {
   height: 20em;
+  transition: all 0.5s;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+
 }
 
 /* -----------------------------------------------
