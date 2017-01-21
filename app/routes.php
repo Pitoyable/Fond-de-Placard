@@ -45,6 +45,8 @@
 		['GET|POST', '/fournir_afficher', 'Provide#display', 'Provide_display'],
 
 		//Ajax
-			//montrer
-		['GET|POST', '/recette_ajax', 'Recipe#findIngredient', 'Recipe_findIngredient'],
+			//Ajouter Ingredients panier
+		['GET|POST', '/recipe_ajaxFind', 'Recipe#findIngredient', 'Recipe_findIngredient'],
+			//autocomplementation
+		['GET|POST', '/recipe_ajaxComplete', 'Recipe#autoComplete', 'Recipe_autocomplete'],
 	);

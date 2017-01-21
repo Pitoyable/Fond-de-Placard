@@ -1,5 +1,21 @@
 $(function () {
 
+  //Preparation pour l'auto complementation
+  $('.search_bar').keyup(function() {
+
+    //On stock les données du formulaire dans une variable
+    var datas = $(this).serializeArray();
+
+    //On prepare le JSON
+    var formatDatas = {};
+
+    //On boucle les données pour les stockées dans un tableau
+    for (var i = 0; i < datas.length; i++) {
+      formatDatas[datas[i]['name']] = datas[i]['value'];
+    }
+
+  });
+
   //Preparation des données recuperé du formulaire
   $('.search_bar').on('submit', function (e) {
 
@@ -20,7 +36,7 @@ $(function () {
 
     //On appel la method AJAX pour ajouter un ingredient trouver au panier
     selectIng(formatDatas);
-  })
+  });
 
 
 });
@@ -35,14 +51,29 @@ $(function () {
         //   // $(this).remove().parent();
         // });
 
+//Function Ajax pour l'autocomplementation
+var autoComple = function(credentials) {
 
+  $.ajax({
+    method : 'POST',
+    url : 'http://fond_de_placard.local/recipe_ajaxComplete',
+    data : credentials,
+    success : function(response) {
+      if (response.success) {
+        console.log('winw');
+      } else {
+        console.log('loose');
+      }
+    }
+  })
+};
 //Function Ajax pour ajouter un ingredient trouver au panier
 var selectIng = function(credentials) {
 
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://fond_de_placard.local/recette_ajax',
+    url : 'http://fond_de_placard.local/recipe_ajaxComplete',
     data : credentials,
     success : function(response) {
         //Si la reponse est true on appel la function

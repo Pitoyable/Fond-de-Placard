@@ -1,5 +1,7 @@
-### Répertoire app/Controller
+- RecipeController:
 
-Ce répertoire contient vos différents contrôleurs. Vous pouvez y créer des sous-dossiers sans problème, du moment que les espaces de noms de vos contrôleurs collent à la structure de ces dossiers. 
+  - Display :
+    - Affiche la wiew
 
-Tous vos contrôleurs devraient hériter de \W\Controller\Controller, le contrôleur de base du framework W. 
+  - findIngredient :
+    - Recupere une requete Ajax et appel le model RecipeModel pour lui transmettre les données
