@@ -31,15 +31,15 @@ class UserModel
           $insert = $model -> insert($arrayData, $stripTags = true);
 
 
-          header('Location:http://fond_de_placard.local/recette_afficher');
+          header('Location:http://fond-de-placard.local/recette_afficher');
         }
       }else{
         echo "2 mdp pas identique";
-        header('Location:http://fond_de_placard.local/utilisateur_afficher');
+        header('Location:http://fond-de-placard.local/utilisateur_afficher');
       }
     }else{
       echo "taille du pseudo faux";
-      header('Location:http://fond_de_placard.local/utilisateur_afficher');
+      header('Location:http://fond-de-placard.local/utilisateur_afficher');
     }
   }
 
@@ -53,7 +53,7 @@ class UserModel
       echo"erreur";
     }else{
       echo 'good';
-      header('Location:http://fond_de_placard.local/recette_afficher');
+      header('Location:http://fond-de-placard.local/recette_afficher');
       $model = new UsersModel();
       //on cherche l'utilisateur en bdd avec son email
       $emailValide = $model -> getUserByUsernameOrEmail($email);
