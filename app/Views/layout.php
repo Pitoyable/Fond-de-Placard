@@ -11,6 +11,9 @@
 	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	    crossorigin="anonymous"></script>
 
+		<!-- TynyMCE -->
+		<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+		<script>tinymce.init({ selector:'textarea' });</script>
 
 		<!-- Script Javascript -->
 		<script src="<?= $this -> assetUrl('js/script.js') ?>"></script>

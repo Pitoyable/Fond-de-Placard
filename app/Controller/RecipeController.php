@@ -16,6 +16,13 @@ class RecipeController extends Controller
 
   }
 
+  public function written() {
+
+    //Affichage de la page
+    $this->show('recipe/recipe_cree');
+
+  }
+
   //Controller pour la recuperation des données AJAX
   public function findIngredient() {
 

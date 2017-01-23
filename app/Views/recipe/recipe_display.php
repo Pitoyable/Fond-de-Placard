@@ -2,7 +2,7 @@
 
 <?php $this->start('main_content') ?>
 <h1>J'ai faim</h1>
-
+<p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
 <div class="search_recipe">
 
   <form class="search_bar" action="" method="post">
