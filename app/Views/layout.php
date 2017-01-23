@@ -80,32 +80,32 @@
 						 <a href="#" id="signup-box-link">S'inscrire</a>
 					 </div>
 					 <form class="email-login"  action="<?= $this->url('User_login') ?>" method="post">
-						 <div class="u-form-group">
+						 <p class="u-form-group">
 							 <input type="email" placeholder="Email" name="email" required/>
-						 </div>
-						 <div class="u-form-group">
+						 </p>
+						 <p class="u-form-group">
 							 <input type="password" placeholder="Mot de passe" name="password"  required/>
-						 </div>
+						 </p>
 						 <div class="u-form-group">
 							 <button>Connexion</button>
 						 </div>
 					 </form>
 					 <form class="email-signup" action="<?= $this->url('User_signUp') ?>" method="post">
-						 <div class="u-form-group">
+						 <p class="u-form-group">
 							 <input type="text" placeholder="Pseudo" name="pseudo"  required/>
-						 </div>
-						 <div class="u-form-group">
+						 </p>
+						 <p class="u-form-group">
 							 <input type="email" placeholder="Email" name="email"  required/>
-						 </div>
-						 <div class="u-form-group">
+						 </p>
+						 <p class="u-form-group">
 							 <input type="password" placeholder="Mot de passe" name="password"  required/>
-						 </div>
-						 <div class="u-form-group">
+						 </p>
+						 <p class="u-form-group">
 							 <input type="password" placeholder="Confirmer votre mot de passe" name="password_check"  required/>
-						 </div>
-						 <div class="u-form-group">
+						 </p>
+						 <p class="u-form-group">
 							 <button>S'inscrire</button>
-						 </div>
+						 </p>
 					 </form>
 				 </div>
 			</div> <!-- Fin de l'overlay -->

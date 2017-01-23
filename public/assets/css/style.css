@@ -86,7 +86,7 @@ body {
 }
 
 .connected {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 /* -----------------------------------------------
@@ -120,7 +120,7 @@ body {
 .login-box{
   position:relative;
   width: 500px;
-  height: 350px;
+  height: 380px;
   background-color: #fff;
   padding: 10px;
   border-radius: 15px;
@@ -154,7 +154,6 @@ body {
   float: left;
   width: 100%;
   height:auto;
-  margin-top: 20px;
   text-align:center;
 }
 .u-form-group{
@@ -164,7 +163,7 @@ body {
 .u-form-group input[type="email"],
 .u-form-group input[type="text"],
 .u-form-group input[type="password"]{
-  width: calc(50% - 22px);
+  width: calc(70% - 22px);
   height:45px;
   outline: none;
   border: 1px solid #ddd;
@@ -178,7 +177,7 @@ body {
   border-color: #358efb;
 }
 .u-form-group button{
-  width: calc(50% - 22px);
+  width: calc(70% - 22px);
   background: #cc2727;
   border: none;
   outline: none;
