@@ -18,10 +18,26 @@ class RecipeController extends Controller
 
   public function written() {
 
+    $model = new RecipeModel();
+    //On recupere et on traite les different themes
+    $model -> setTable('theme');
+    $allTheme = $model -> findAll();
+    $listTheme = $model -> createThemeList($allTheme);
+
+    //On verifie que $_POST['search_bar']) n'est pas vide
+    if (!empty($_POST['search_bar'])) {
+
+      $controller = new RecipeController();
+
+      //On recupere les données renvoyer par autoFindIngredient();
+      $data = $model -> autoFindIngredient();
+
+      //On revoie les données obtenue
+      $controller -> showJson($data);
+    }
 
     //Vérification que $_POST n'est pas vide
     if (!empty($_POST['add_recipe'])) {
-      $model = new RecipeModel();
 
       if ($model -> addRecipe()) {
         echo 'bravo';
@@ -30,7 +46,7 @@ class RecipeController extends Controller
     }
 
     //Affichage de la page
-    $this->show('recipe/recipe_cree');
+    $this->show('recipe/recipe_cree', ['themes' => $listTheme]);
 
   }
 

@@ -6,6 +6,24 @@ use \W\Model\Model;
 class RecipeModel extends \W\Model\Model
 {
 
+  //Function pour traiter les données retourner par findAll() pour les themes
+  public function createThemeList($argument) {
+
+    //Creation d'une variable theme
+    $theme = "";
+
+    //On boucle pour parcourir les themes
+    for ($i=0; $i < count($argument) ; $i++) {
+
+      //On concatene les different themes
+      $theme .= "<option value='" . $argument[$i]['id'] . "'>" . $argument[$i]['the_name'] . "</option>";
+
+    }
+
+    //On return le resultat
+    return $theme;
+  }
+
 
   public function findIngredient() {
 

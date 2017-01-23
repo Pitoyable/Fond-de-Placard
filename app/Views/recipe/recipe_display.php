@@ -30,7 +30,7 @@
   <form class="panier" action="index.html" method="post">
 
     <!-- Partie pour le panier -->
-    <div class="panier_add">
+    <div class="liste_ing_select">
 
       <!-- Button pour vider la liste des ingredients du panier -->
       <button type="button" name="button" class="delete_panier">

@@ -1,7 +1,7 @@
 $(function () {
 
   //Preparation pour l'auto complementation
-  $('.search_bar').keyup(function() {
+  $('.input_search').keyup(function() {
 
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
@@ -110,7 +110,7 @@ var selectIng = function(credentials) {
               //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']") == true) {
 
                 //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
-                $('.panier_add').append(
+                $('.liste_ing_select').append(
                   '<p>'
                   //Input name
                   + '<input type="texte" disabled name="'
@@ -130,7 +130,7 @@ var selectIng = function(credentials) {
           }
         //Ajout d'une function si la requete echoue
         } else {
-          console.log('false');
+          console.log('false auto');
         }
       }
   });
