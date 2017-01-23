@@ -11,12 +11,16 @@
 	    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	    crossorigin="anonymous"></script>
 
+		<!-- TynyMCE -->
+		<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+		<script>tinymce.init({ selector:'textarea' });</script>
+
 		<!-- Script Javascript -->
 		<script src="<?= $this -> assetUrl('js/script.js') ?>"></script>
 		<script src="<?= $this -> assetUrl('js/master.js') ?>"></script>
 
 		<!-- Google Font -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -65,10 +69,14 @@
 						<!-- A afficher uniquement si logué -->
 						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
 						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-					<?php } ?>
 
-					<!-- Si l'utilisateur est un admin -->
-					<!-- <a href="<?= $this -> url ('Administration_home') ?>">Admin</a> -->
+						<!-- Si l'utilisateur est un admin -->
+						<?php if($_SESSION['user']['group_gro_id'] == 1){ ?>
+							 <a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+
+						<?php }
+					 } ?>
+
 				</div>
 			</header>
 

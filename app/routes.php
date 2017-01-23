@@ -21,8 +21,18 @@
 
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
-		['GET|POST', '/administration_admin_user', 'administration#manageUser', 'Administration_user'],
-		['GET|POST', '/administration_valideRecette', 'administration#validRecipe', 'Administration_validRecipe'],
+			//gerer les utililsateur et leur droit
+		['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
+			//route pour formulaire de modification de l'user
+		['GET|POST', '/administration_gerer_user/modifier', 'administration#editUser', 'Administration_editUser'],
+			//mettre à jour es information de l'utilisateur
+		['GET|POST', '/administration_gerer_user/mise_a_jour', 'administration#updateUser', 'Administration_updateUser'],
+			//supprimer l'utilisateur
+		['GET|POST', '/administration_gerer_user/supprimer', 'administration#deleteUser', 'Administration_deleteUser'],
+			//gerer les themes
+		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
+			// valider et modifier less recettes
+		['GET|POST', '/administration_gerer_Recette', 'administration#manageRecipe', 'Administration_manageRecipe'],
 
 		//recette
 			// montrer

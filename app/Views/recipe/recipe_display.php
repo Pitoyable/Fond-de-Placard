@@ -2,13 +2,13 @@
 
 <?php $this->start('main_content') ?>
 <h1>J'ai faim</h1>
-
+<p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
 <div class="search_recipe">
 
   <form class="search_bar" action="" method="post">
 
     <p>
-      <input type="text" name="search_bar" value="">
+      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ingredient">
       <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </p>
 
@@ -30,7 +30,7 @@
   <form class="panier" action="index.html" method="post">
 
     <!-- Partie pour le panier -->
-    <div class="panier_add">
+    <div class="liste_ing_select">
 
       <!-- Button pour vider la liste des ingredients du panier -->
       <button type="button" name="button" class="delete_panier">
