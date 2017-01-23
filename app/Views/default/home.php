@@ -12,7 +12,7 @@
     <a href="<?= $this -> url ('Theme_display') ?>" class="card party">
       <div class="card-div">
         <h3>─ Soirée ─</h3>
-        <p class="card-content">Envie d'organiser une soirée à thème ? C'est par ici ! Si vous sentez l'ennui vous gagner, essayez nos jeux ;) </p>
+        <p class="card-content">Envie d'organiser une soirée à thème ? C'est par ici ! Si vous sentez l'ennui vous gagner, venez voir les jeux ;) </p>
       </div>
     </a>
 

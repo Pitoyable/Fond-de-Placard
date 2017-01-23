@@ -12,6 +12,12 @@
       <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </p>
 
+    <!-- Div pour tester l'autoComple -->
+    <div>
+      <ul class="auto_complete">
+
+      </ul>
+    </div>
   </form>
 
 </div>
@@ -23,6 +29,15 @@
   <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
   <form class="panier" action="index.html" method="post">
 
+    <!-- Partie pour le panier -->
+    <div class="panier_add">
+
+      <!-- Button pour vider la liste des ingredients du panier -->
+      <button type="button" name="button" class="delete_panier">
+        <p>Vider le panier !</p>
+      </button>
+
+    </div>
 
     <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
 

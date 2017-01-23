@@ -37,8 +37,10 @@
 					<a href="<?= $this -> url ('Theme_display') ?>">Soirée</a>
 					<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 					<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
+					<?php if (!empty($_SESSION)) {?>
 					<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
 					<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+					<?php } ?>
 				</nav>
 			</aside>
 
@@ -49,25 +51,64 @@
 					<a href="<?= $this -> url ('Theme_display') ?>">Soirée</a>
 					<a href="<?= $this -> url ('Provide_display') ?>">Se fournir</a>
 					<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
-					<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
+					<?php if(!empty($_SESSION)) { ?>
+						<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
+					<?php } ?>
 				</nav>
 
-				<div class="login-connect-desktop">
-
+				<div class="login-connect">
 					<?php if(empty($_SESSION)){ ?>
 
 						<!-- A masquer si l'utilisateur est co -->
-						<a href="<?= $this -> url ('User_acess') ?>"><i class="fa fa-user" aria-hidden="true"></i>Connexion/Inscription</a>
+						<button id="connect_button" class="connect_button" type="button">Login</button>
 					<?php }else { ?>
 						<!-- A afficher uniquement si logué -->
-						<h3>Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
-						<a href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
+						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 					<?php } ?>
 
 					<!-- Si l'utilisateur est un admin -->
 					<!-- <a href="<?= $this -> url ('Administration_home') ?>">Admin</a> -->
 				</div>
 			</header>
+
+			<div id="overlay" class="overlay">
+				<p><i id="close" class="fa fa-times-circle-o" aria-hidden="true"></i></p>
+				<div class="login-box">
+					 <div class="lb-header">
+						 <a href="#" class="active" id="login-box-link">Se connecter</a>
+						 <a href="#" id="signup-box-link">S'inscrire</a>
+					 </div>
+					 <form class="email-login"  action="<?= $this->url('User_login') ?>" method="post">
+						 <div class="u-form-group">
+							 <input type="email" placeholder="Email" name="email" required/>
+						 </div>
+						 <div class="u-form-group">
+							 <input type="password" placeholder="Mot de passe" name="password"  required/>
+						 </div>
+						 <div class="u-form-group">
+							 <button>Connexion</button>
+						 </div>
+					 </form>
+					 <form class="email-signup" action="<?= $this->url('User_signUp') ?>" method="post">
+						 <div class="u-form-group">
+							 <input type="text" placeholder="Pseudo" name="pseudo"  required/>
+						 </div>
+						 <div class="u-form-group">
+							 <input type="email" placeholder="Email" name="email"  required/>
+						 </div>
+						 <div class="u-form-group">
+							 <input type="password" placeholder="Mot de passe" name="password"  required/>
+						 </div>
+						 <div class="u-form-group">
+							 <input type="password" placeholder="Confirmer votre mot de passe" name="password_check"  required/>
+						 </div>
+						 <div class="u-form-group">
+							 <button>S'inscrire</button>
+						 </div>
+					 </form>
+				 </div>
+			</div> <!-- Fin de l'overlay -->
 
 			<div class="main">
 				<header class="header-main">
