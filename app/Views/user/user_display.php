@@ -10,7 +10,7 @@
 
   <nav id="tabs" class="nav-tab">
     <ul>
-      <a class="nav-a active" href="#information" id="button_information"><li>Modifier mes infos</li></a>
+      <a class="nav-a onfocus" href="#information" id="button_information"><li>Modifier mes infos</li></a>
       <a class="nav-a" href="#receipe" id="button_receipe"><li>Mes recettes</li></a>
     </ul>
   </nav>

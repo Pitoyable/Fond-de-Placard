@@ -32,7 +32,7 @@ $(document).ready(function () {
   // Nav-tab
   $(".nav-a").click(function() {
     hide();
-    $(this).addClass("active");
+    $(this).addClass("onfocus");
     var getId = $(this).attr("href");
     var blockId = $(getId);
 
@@ -40,7 +40,7 @@ $(document).ready(function () {
   })
 
   function hide() {
-    $(".nav-a").removeClass("active");
+    $(".nav-a").removeClass("onfocus");
     $('.tabs').removeClass("block");
   }
 })
