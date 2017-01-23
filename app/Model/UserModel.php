@@ -78,13 +78,12 @@ class UserModel
       }else {
         echo "good";
         //on hash le nouveau mdp pour le rentré dans la bdd
-        $modelHash = new AuthentificationModel();
-        $passwordHash = $modelHash -> hashPassword($array['use_password']);
+        $passwordHash = $authentification -> hashPassword($array['use_password']);
         $info = array (
           "use_email" => $array['use_email'],
           "use_password" => $passwordHash,
         );
-        //on ibsert les donner en bdd
+        //on insert les donner en bdd
         $model = new UsersModel();
         $model -> update($info, $id, $stripTags = true);
       }
