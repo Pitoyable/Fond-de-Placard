@@ -6,16 +6,12 @@ $(function () {
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
 
-    //On prepare le JSON
-    var formatDatas = {};
-
-    //On boucle les données pour les stockées dans un tableau
-    for (var i = 0; i < datas.length; i++) {
-      formatDatas[datas[i]['name']] = datas[i]['value'];
-    }
+    //On appel une function pour formater les datas en JSON
+    var formatData = formatDatasJson(datas);
 
     //On appel la function AJAX pour recuperé les resultat
-    autoComple(formatDatas);
+    autoComple(formatData);
+
   });
 
   //Preparation des données recuperé du formulaire
@@ -27,32 +23,24 @@ $(function () {
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
 
-    //On prepare le JSON
-    var formatDatas = {};
-
-    //On boucle les données pour les stockées dans un tableau
-    for (var i = 0; i < datas.length; i++) {
-      formatDatas[datas[i]['name']] = datas[i]['value'];
-    }
-
+    //On appel une function pour formater les datas en JSON
+    var formatData = formatDatasJson(datas);
 
     //On appel la method AJAX pour ajouter un ingredient trouver au panier
-    selectIng(formatDatas);
+    selectIng(formatData);
 
-
-    //Recuperation du button pour vider le panier
-    $('.delete_panier').on('click', function(e) {
-
-      e.preventDefault();
-      //Delete des freres, soit les ingredients ajouter en Ajax dans le panier
-      $(this).siblings().remove();
-
-    });
   });
 
+  //Recuperation du button pour vider le panier
+  $('.delete_panier').on('click', function(e) {
+
+    e.preventDefault();
+    //Delete des freres, soit les ingredients ajouter en Ajax dans le panier
+    $(this).siblings().remove();
+
+  });
 
 });
-
 
 //Function Ajax pour l'autocomplementation
 var autoComple = function(credentials) {
@@ -63,24 +51,34 @@ var autoComple = function(credentials) {
     data : credentials,
     success : function(response) {
       if (response.success) {
+
         //Création d'une variable pour simplifier la lisibilité
         var ingredient = response.ingredient;
-        
+
+        //Suppression de la liste existante
+        $('.auto_complete').children().remove();
+
         //Exec d'une boucle pour séparé les valeurs
         for (var i = 0; i < ingredient.length; i++) {
-
-
-            for (var i = 0; i < ingredient.length; i++) {
-              if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
-
+          //Verification des données reçu
+          if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
+            //Ajout de la liste
             $('.auto_complete').append(
-              '<li>'
+              '<li class="auto_ing">'
               + ingredient[i]['ing_name']
               + '</li>');
-            }
-            }
 
+          }
         }
+
+        //Ajout d'un click sur la liste pour envoyer la valeur dans le champ de texte
+        $('.auto_ing').on('click', function(e) {
+          var text = $(this).text();
+          $(".input_search").val(text);
+
+          //Suppression de la liste existante
+          $('.auto_complete').children().remove();
+        })
       }
     }
   })
@@ -104,26 +102,46 @@ var selectIng = function(credentials) {
           for (var i = 0; i <ingredient.length; i++) {
 
             if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
-              //Ajout de input name et input text ainsi q'un font awesome
-              //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
-              $('.panier_add').append(
-                '<p>'
-                //Input name
-                + '<input type="texte" disabled name="'
-                + ingredient[i]['ing_name']
-                + '" value= "'
-                + ingredient[i]['ing_name']
-                + '" >'
-                //Input hidden
-                + '<input type="hidden" disabled name="'
-                + ingredient[i]['ing_id']
-                + '" value= "'
-                + ingredient[i]['ing_id']
-                + '" >'
-                + '</p>');
+
+              //Condition pour ne pas dupliquer les ingredients à revoir
+              //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']")) {
+
+                //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
+                $('.panier_add').append(
+                  '<p>'
+                  //Input name
+                  + '<input type="texte" disabled name="'
+                  + ingredient[i]['ing_name']
+                  + '" value= "'
+                  + ingredient[i]['ing_name']
+                  + '" >'
+                  //Input hidden
+                  + '<input type="hidden" disabled name="'
+                  + ingredient[i]['ing_id']
+                  + '" value= "'
+                  + ingredient[i]['ing_id']
+                  + '" >'
+                  + '</p>');
+            //  }
             }
           }
         }
       }
   });
+}
+
+//Création de la function pour formater les data en JSON
+var formatDatasJson = function(datas) {
+
+  //On prepare le JSON
+  var formatDatas = {};
+
+  //On boucle les données pour les stockées dans un tableau
+  for (var i = 0; i < datas.length; i++) {
+    formatDatas[datas[i]['name']] = datas[i]['value'];
+  }
+
+  //On return le resultat
+  return formatDatas;
+
 }
