@@ -10,15 +10,18 @@ class AdministrationController extends Controller
 {
   public function adminHome(){
     //methode pour se connecté a la partie administration
-    $this->show('administration/adminhome');
+    $this->show('administration/admin_home');
   }
 
   public function manageUser(){
-    $this->show('administration/admin_user');
+    $this->show('administration/admin_manageUser');
   }
 
-  public function validReceipe(){
-
+  public function validRecipe(){
+    $this->show('administration/admin_validRecipe');
   }
 
+  public function manageTheme(){
+    $this->show('administration/admin_manageTheme');
+  }
 }

@@ -65,10 +65,14 @@
 						<!-- A afficher uniquement si logué -->
 						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
 						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-					<?php } ?>
 
-					<!-- Si l'utilisateur est un admin -->
-					<!-- <a href="<?= $this -> url ('Administration_home') ?>">Admin</a> -->
+						<!-- Si l'utilisateur est un admin -->
+						<?php if($_SESSION['user']['group_gro_id'] == 1){ ?>
+							 <a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+
+						<?php }
+					 } ?>
+
 				</div>
 			</header>
 

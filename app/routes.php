@@ -21,8 +21,9 @@
 
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
-		['GET|POST', '/administration_admin_user', 'administration#manageUser', 'Administration_user'],
-		['GET|POST', '/administration_valideRecette', 'administration#validRecipe', 'Administration_validRecipe'],
+		['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
+		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
+		['GET|POST', '/administration_valide_Recette', 'administration#validRecipe', 'Administration_validRecipe'],
 
 		//recette
 			// montrer
