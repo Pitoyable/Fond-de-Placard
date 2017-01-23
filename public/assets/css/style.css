@@ -59,6 +59,10 @@ body {
   background-color: #f2c600;
 }
 
+.mobile-nav a {
+  color: #fff;
+}
+
 .login-connect {
   position: absolute;
   right: 0;
@@ -169,7 +173,8 @@ body {
 }
 .u-form-group input[type="email"],
 .u-form-group input[type="text"],
-.u-form-group input[type="password"]{
+.u-form-group input[type="password"]
+{
   width: calc(50% - 22px);
   height:45px;
   outline: none;
@@ -221,8 +226,7 @@ body {
 .container {
   width: 100%;
   margin: auto;
-  background-color: rgba(255, 255, 255, 0.9);
-  /*border-radius: 10px;*/
+  background-color: rgba(255, 255, 255, 0.95);
   box-shadow: inset 0px 3px 5px -1px rgba(0,0,0,0.64);
   padding: 15px;
   min-height: 600px;
@@ -275,6 +279,10 @@ body {
   text-align: center;
 }
 
+.tabs h3 {
+  font-size: 1.6em;
+}
+
 .block {
   display: block;
 }
@@ -284,7 +292,7 @@ body {
 ----------------------------------------------- */
 
 .form {
-  font-size: 1em;
+  font-size: 1.3em;
 }
 
 .form-input {
@@ -306,6 +314,20 @@ body {
 
 .form input:focus {
   border-bottom: 1px dashed #f2c600;
+}
+
+.form button[type="submit"] {
+  cursor: pointer;
+  width: calc(50% - 22px);
+  background: #cc2727;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 2px;
+  text-transform: uppercase;
 }
 
 /* -----------------------------------------------
@@ -366,6 +388,10 @@ body:target .main {
 }
 
 body:target .sidebar {
+  transform: translateX(25vw);
+}
+
+body:target .login-connect {
   transform: translateX(25vw);
 }
 
@@ -473,6 +499,28 @@ body:target .nav-button-close {
 }
 
 /* -----------------------------------------------
+  Info_display
+----------------------------------------------- */
+
+.container_contact {
+  margin-top: 2%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container_contact_dev {
+  border: 1px solid black;
+  padding: 15px;
+  text-align: center;
+}
+
+img {
+  height: 200px;
+  border: 2px dashed black;
+  border-radius: 50%;
+}
+
+/* -----------------------------------------------
   Footer
 ----------------------------------------------- */
 
@@ -511,6 +559,11 @@ footer p {
   }
 }
 
+@media (max-width: 1024px) {
+  .connected {
+    font-size: 0.8em;
+  }
+}
 
 @media (max-width: 987px) {
   .login-connect h3 {
@@ -541,13 +594,13 @@ footer p {
     height: 10em;
   }
 
-  footer {
-    position: absolute;
-    bottom: 0;
-  }
-
   section {
     margin-bottom: 0;
+  }
+
+  .login-connect {
+    justify-content: flex-end;
+    font-size: 1.2em;
   }
 }
 
@@ -627,11 +680,32 @@ footer p {
 }
 
 @media (max-width: 348px) {
+  footer {
+    position: relative;
+  }
+
   .contact h3 {
     font-size: 1.5em;
   }
 
   .card {
     height: 150px;
+  }
+
+  .sidebar {
+    width: 50vw;
+    left: -50vw;
+  }
+  /* animation effet */
+  body:target .main {
+    transform: translateX(50vw);
+  }
+
+  body:target .sidebar {
+    transform: translateX(50vw);
+  }
+
+  body:target .login-connect {
+    transform: translateX(50vw);
   }
 }
