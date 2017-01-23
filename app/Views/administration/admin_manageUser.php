@@ -29,10 +29,10 @@
         <td><?= $array[$i]['group_gro_id'] ?></td>
 
         <td>
-          <form class="" action="index.html" method="post">
+          <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
             <button type="submit" name="modif">Modifier</button>
           </form>
-          <form class="" action="index.html" method="post">
+          <form class="" action<?= $this -> url('Administration_removeUser') ?> method="post">
             <button type="submit" name="delete">Supprimer</button>
           </form>
         </td>
@@ -59,10 +59,10 @@
         <td><?= $array[$i]['use_valide'] ?></td>
         <td><?= $array[$i]['group_gro_id'] ?></td>
         <td>
-          <form class="" action="" method="post">
+          <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
             <button type="submit" name="modif">Modifier</button>
           </form>
-          <form class="" action="" method="post">
+          <form class="" action="<?= $this -> url('Administration_removeUser') ?>" method="post">
             <button type="submit" name="delete">Supprimer</button>
           </form>
         </td>

@@ -21,8 +21,15 @@
 
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
+			//gerer les utlilsateur et leur droit
 		['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
+			//route pour formulaire de modification de l'user
+		['GET|POST', '/administration_gerer_user/modifier', 'administration#editUser', 'Administration_editUser'],
+			//supprimer l'utilisateur
+		['GET|POST', '/administration_gerer_user/supprimer', 'administration#removeUser', 'Administration_removeUser'],
+			//gerer les themes
 		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
+			// valider et modifier els recettes
 		['GET|POST', '/administration_gerer_Recette', 'administration#manageRecipe', 'Administration_manageRecipe'],
 
 		//recette

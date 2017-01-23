@@ -27,6 +27,10 @@ class AdministrationController extends Controller
 
     $this->show('administration/admin_manageUser', ['array' => $array]);
   }
+
+  public function editUser(){
+    
+  }
   public function updateUser(){
     //methode pour mettre à jour un utilisateur
     $authorization = new AuthorizationModel();
