@@ -73,7 +73,7 @@ CREATE TABLE `ingredients` (
 
 CREATE TABLE `link_ing_rec` (
   `ingredients_id` int(11) NOT NULL,
-  `recipe_rec_id` int(11) NOT NULL
+  `recipe_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -83,8 +83,8 @@ CREATE TABLE `link_ing_rec` (
 --
 
 CREATE TABLE `link_rec_the` (
-  `recipe_rec_id` int(11) NOT NULL,
-  `theme_the_id` int(11) NOT NULL
+  `recipe_id` int(11) NOT NULL,
+  `theme_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -94,8 +94,8 @@ CREATE TABLE `link_rec_the` (
 --
 
 CREATE TABLE `link_rec_use` (
-  `recipe_rec_id` int(11) NOT NULL,
-  `user_use_id` int(11) NOT NULL
+  `recipe_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -123,7 +123,7 @@ CREATE TABLE `recipe` (
   `rec_html` text NOT NULL,
   `rec_type` varchar(45) NOT NULL,
   `rec_valide` tinyint(1) NOT NULL DEFAULT '0',
-  `picture_pic_id` int(11) NOT NULL DEFAULT '1'
+  `picture_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -150,7 +150,7 @@ CREATE TABLE `user` (
   `use_email` varchar(45) NOT NULL,
   `use_password` varchar(60) NOT NULL,
   `use_valide` tinyint(1) NOT NULL DEFAULT '0',
-  `group_gro_id` int(11) NOT NULL DEFAULT '2'
+  `group_id` int(11) NOT NULL DEFAULT '2'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -182,25 +182,25 @@ ALTER TABLE `ingredients`
 -- Index pour la table `link_ing_rec`
 --
 ALTER TABLE `link_ing_rec`
-  ADD PRIMARY KEY (`ingredients_id`,`recipe_rec_id`),
-  ADD KEY `fk_ingredients_has_recipe_recipe1_idx` (`recipe_rec_id`),
+  ADD PRIMARY KEY (`ingredients_id`,`recipe_id`),
+  ADD KEY `fk_ingredients_has_recipe_recipe1_idx` (`recipe_id`),
   ADD KEY `fk_ingredients_has_recipe_ingredients_idx` (`ingredients_id`);
 
 --
 -- Index pour la table `link_rec_the`
 --
 ALTER TABLE `link_rec_the`
-  ADD PRIMARY KEY (`recipe_rec_id`,`theme_the_id`),
-  ADD KEY `fk_recipe_has_theme_theme1_idx` (`theme_the_id`),
-  ADD KEY `fk_recipe_has_theme_recipe1_idx` (`recipe_rec_id`);
+  ADD PRIMARY KEY (`recipe_id`,`theme_id`),
+  ADD KEY `fk_recipe_has_theme_theme1_idx` (`theme_id`),
+  ADD KEY `fk_recipe_has_theme_recipe1_idx` (`recipe_id`);
 
 --
 -- Index pour la table `link_rec_use`
 --
 ALTER TABLE `link_rec_use`
-  ADD PRIMARY KEY (`recipe_rec_id`,`user_use_id`),
-  ADD KEY `fk_recipe_has_user_user1_idx` (`user_use_id`),
-  ADD KEY `fk_recipe_has_user_recipe1_idx` (`recipe_rec_id`);
+  ADD PRIMARY KEY (`recipe_id`,`user_id`),
+  ADD KEY `fk_recipe_has_user_user1_idx` (`user_id`),
+  ADD KEY `fk_recipe_has_user_recipe1_idx` (`recipe_id`);
 
 --
 -- Index pour la table `picture`
@@ -215,7 +215,7 @@ ALTER TABLE `picture`
 ALTER TABLE `recipe`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `rec_name_UNIQUE` (`rec_name`),
-  ADD KEY `fk_recipe_picture1_idx` (`picture_pic_id`);
+  ADD KEY `fk_recipe_picture1_idx` (`picture_id`);
 
 --
 -- Index pour la table `theme`
@@ -231,7 +231,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `use_pseudo_UNIQUE` (`use_pseudo`),
   ADD UNIQUE KEY `use_email_UNIQUE` (`use_email`),
-  ADD KEY `fk_user_group1_idx` (`group_gro_id`);
+  ADD KEY `fk_user_group1_idx` (`group_id`);
 
 --
 -- AUTO_INCREMENT pour les tables exportées
@@ -280,40 +280,40 @@ ALTER TABLE `user`
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `fk_comment_recipe_has_user1` FOREIGN KEY (`com_rec_id`,`com_use_id`) REFERENCES `link_rec_use` (`recipe_rec_id`, `user_use_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_comment_recipe_has_user1` FOREIGN KEY (`com_rec_id`,`com_use_id`) REFERENCES `link_rec_use` (`recipe_id`, `user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `link_ing_rec`
 --
 ALTER TABLE `link_ing_rec`
   ADD CONSTRAINT `fk_ingredients_has_recipe_ingredients` FOREIGN KEY (`ingredients_id`) REFERENCES `ingredients` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_ingredients_has_recipe_recipe1` FOREIGN KEY (`recipe_rec_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_ingredients_has_recipe_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `link_rec_the`
 --
 ALTER TABLE `link_rec_the`
-  ADD CONSTRAINT `fk_recipe_has_theme_recipe1` FOREIGN KEY (`recipe_rec_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_recipe_has_theme_theme1` FOREIGN KEY (`theme_the_id`) REFERENCES `theme` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_recipe_has_theme_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_recipe_has_theme_theme1` FOREIGN KEY (`theme_id`) REFERENCES `theme` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `link_rec_use`
 --
 ALTER TABLE `link_rec_use`
-  ADD CONSTRAINT `fk_recipe_has_user_recipe1` FOREIGN KEY (`recipe_rec_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_recipe_has_user_user1` FOREIGN KEY (`user_use_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_recipe_has_user_recipe1` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_recipe_has_user_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `recipe`
 --
 ALTER TABLE `recipe`
-  ADD CONSTRAINT `fk_recipe_picture1` FOREIGN KEY (`picture_pic_id`) REFERENCES `picture` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_recipe_picture1` FOREIGN KEY (`picture_id`) REFERENCES `picture` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `user`
 --
 ALTER TABLE `user`
-  ADD CONSTRAINT `fk_user_group1` FOREIGN KEY (`group_gro_id`) REFERENCES `group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_user_group1` FOREIGN KEY (`group_id`) REFERENCES `group` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
