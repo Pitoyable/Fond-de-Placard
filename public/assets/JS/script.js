@@ -61,7 +61,7 @@ var autoComple = function(credentials) {
         //Exec d'une boucle pour séparé les valeurs
         for (var i = 0; i < ingredient.length; i++) {
           //Verification des données reçu
-          if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
+          if (ingredient[i]['id'] && ingredient[i]['ing_name']) {
             //Ajout de la liste
             $('.auto_complete').append(
               '<li class="auto_ing">'
@@ -104,7 +104,7 @@ var selectIng = function(credentials) {
           //Exec d'une boucle pour séparé les valeurs
           for (var i = 0; i <ingredient.length; i++) {
 
-            if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
+            if (ingredient[i]['id'] && ingredient[i]['ing_name']) {
 
               //Condition pour ne pas dupliquer les ingredients à revoir
               //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']") == true) {
@@ -120,9 +120,9 @@ var selectIng = function(credentials) {
                   + '" >'
                   //Input hidden
                   + '<input type="hidden" disabled name="'
-                  + ingredient[i]['ing_id']
+                  + ingredient[i]['id']
                   + '" value= "'
-                  + ingredient[i]['ing_id']
+                  + ingredient[i]['id']
                   + '" >'
                   + '</p>');
               //}
