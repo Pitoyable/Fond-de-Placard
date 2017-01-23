@@ -8,7 +8,7 @@
   <form class="search_bar" action="" method="post">
 
     <p>
-      <input type="text" name="search_bar" value="">
+      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ingredient">
       <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </p>
 
