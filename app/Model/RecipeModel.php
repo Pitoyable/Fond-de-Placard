@@ -79,6 +79,24 @@ class RecipeModel extends \W\Model\Model
 
   }
 
+  //Ajouter une recette
+  public function addRecipe() {
+
+    $model = new RecipeModel();
+
+    //Création du tableau pour insert();
+    $array = array(
+      "rec_name" => $_POST['nom'],
+      "rec_HTML" => $_POST['recipe_content'],
+      "rec_type" => $_POST['type']
+    );
+
+    if ($model -> insert($array, $stripTags = false)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
   public function findRecipe() {

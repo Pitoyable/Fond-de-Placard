@@ -16,9 +16,9 @@ $bdd->exec($sql);
 
 // Création de la table ingredients
 $sql = "CREATE TABLE IF NOT EXISTS `fond_de_placard`.`ingredients` (
-  `ing_id` INT NOT NULL AUTO_INCREMENT COMMENT '',
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '',
   `ing_name` VARCHAR(45) NOT NULL COMMENT '',
-  PRIMARY KEY (`ing_id`)  COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
   UNIQUE INDEX `ing_name_UNIQUE` (`ing_name` ASC)  COMMENT '')
   ENGINE = InnoDB";
 
@@ -58,14 +58,14 @@ $bdd->exec($sql);
 
 // Création de la table link_ing_rec
 $sql="CREATE TABLE IF NOT EXISTS `fond_de_placard`.`link_ing_rec` (
-  `ingredients_ing_id` INT NOT NULL COMMENT '',
+  `ingredients_id` INT NOT NULL COMMENT '',
   `recipe_rec_id` INT NOT NULL COMMENT '',
-  PRIMARY KEY (`ingredients_ing_id`, `recipe_rec_id`)  COMMENT '',
+  PRIMARY KEY (`ingredients_id`, `recipe_rec_id`)  COMMENT '',
   INDEX `fk_ingredients_has_recipe_recipe1_idx` (`recipe_rec_id` ASC)  COMMENT '',
-  INDEX `fk_ingredients_has_recipe_ingredients_idx` (`ingredients_ing_id` ASC)  COMMENT '',
+  INDEX `fk_ingredients_has_recipe_ingredients_idx` (`ingredients_id` ASC)  COMMENT '',
   CONSTRAINT `fk_ingredients_has_recipe_ingredients`
-    FOREIGN KEY (`ingredients_ing_id`)
-    REFERENCES `fond_de_placard`.`ingredients` (`ing_id`)
+    FOREIGN KEY (`ingredients_id`)
+    REFERENCES `fond_de_placard`.`ingredients` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_ingredients_has_recipe_recipe1`

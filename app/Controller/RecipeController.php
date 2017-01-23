@@ -18,6 +18,17 @@ class RecipeController extends Controller
 
   public function written() {
 
+
+    //Vérification que $_POST n'est pas vide
+    if (!empty($_POST['add_recipe'])) {
+      $model = new RecipeModel();
+
+      if ($model -> addRecipe()) {
+        echo 'bravo';
+      }
+
+    }
+
     //Affichage de la page
     $this->show('recipe/recipe_cree');
 

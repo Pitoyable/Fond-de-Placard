@@ -18,7 +18,7 @@ try {
   $sql = "SELECT *
   FROM link_ing_rec
   INNER JOIN recipe ON recipe.rec_id = link_ing_rec.recipe_rec_id
-  INNER JOIN ingredients ON ingredients.ing_id =  link_ing_rec.ingredients_ing_id";
+  INNER JOIN ingredients ON ingredients.id =  link_ing_rec.ingredients_id";
 
   $recipeJoin = $bdd->query($sql)->fetchAll();
 ?>
@@ -64,7 +64,7 @@ try {
         <th>rec_type</th>
         <th>rec_valide</th>
         <th>picture_pic_id</th>
-        <th>ingredients_ing_id</th>
+        <th>ingredients_id</th>
         <th>recipe_rec_id</th>
       </thead>
       <?php for ($i=0; $i < count($recipeJoin) ; $i++) { ?>
@@ -75,7 +75,7 @@ try {
           <td><?php echo $recipeJoin[$i]['rec_type'] ?></td>
           <td><?php echo $recipeJoin[$i]['rec_valide'] ?></td>
           <td><?php echo $recipeJoin[$i]['picture_pic_id'] ?></td>
-          <td><?php echo $recipeJoin[$i]['ingredients_ing_id'] ?></td>
+          <td><?php echo $recipeJoin[$i]['ingredients_id'] ?></td>
           <td><?php echo $recipeJoin[$i]['recipe_rec_id'] ?></td>
         </tr>
       <?php } ?>
