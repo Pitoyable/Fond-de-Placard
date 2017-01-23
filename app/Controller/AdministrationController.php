@@ -49,6 +49,8 @@ class AdministrationController extends Controller
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
+    $model = new AdministrationModel ();
+    $model -> deleteUser($_POST['id']);
   }
 
 

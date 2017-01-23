@@ -14,7 +14,6 @@
     <th>Pseudo</th>
     <th>Email</th>
     <th>Valide</th>
-    <th>Groupe</th>
     <th>Actions</th>
   </tr>
   <!-- Boucle sur les utilisateurs -->
@@ -27,14 +26,14 @@
         <td><?= $array[$i]['use_pseudo'] ?></td>
         <td><?= $array[$i]['use_email'] ?></td>
         <td><?= $array[$i]['use_valide'] ?></td>
-        <td><?= $array[$i]['group_gro_id'] ?></td>
 
         <td>
           <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
             <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="modif">Modifier</button>
           </form>
-          <form class="" action<?= $this -> url('Administration_removeUser') ?> method="post">
+          <form class="" action<?= $this -> url('Administration_deleteUser') ?> method="post">
+            <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="delete">Supprimer</button>
           </form>
         </td>
@@ -49,7 +48,6 @@
     <th>Pseudo</th>
     <th>Email</th>
     <th>Valide</th>
-    <th>Groupe</th>
     <th>Actions</th>
   </tr>
   <!-- Boucle sur les utilisateurs -->
@@ -65,7 +63,8 @@
             <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="modif">Modifier</button>
           </form>
-          <form class="" action="<?= $this -> url('Administration_removeUser') ?>" method="post">
+          <form class="" action="<?= $this -> url('Administration_deleteUser') ?>" method="post">
+            <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="delete">Supprimer</button>
           </form>
         </td>

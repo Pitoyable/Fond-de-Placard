@@ -22,5 +22,14 @@ class AdministrationModel extends \W\Model\Model
     header('Location:http://fond-de-placard.local/administration_gerer_user');
   }
 
+  public function deleteUser($id){
+    //methode pour supprimer un utilisateur
+    var_dump($id);
+    $model = new UsersModel();
+    $model -> delete($id);
+
+    header('Location:http://fond-de-placard.local/administration_gerer_user');
+  }
+
 
 }

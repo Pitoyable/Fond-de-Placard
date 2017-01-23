@@ -28,7 +28,7 @@
 			//mettre à jour es information de l'utilisateur
 		['GET|POST', '/administration_gerer_user/mise_a_jour', 'administration#updateUser', 'Administration_updateUser'],
 			//supprimer l'utilisateur
-		['GET|POST', '/administration_gerer_user/supprimer', 'administration#removeUser', 'Administration_removeUser'],
+		['GET|POST', '/administration_gerer_user/supprimer', 'administration#deleteUser', 'Administration_deleteUser'],
 			//gerer les themes
 		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
 			// valider et modifier less recettes
