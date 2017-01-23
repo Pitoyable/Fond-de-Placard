@@ -20,6 +20,7 @@
   <!-- Boucle sur les utilisateurs -->
 
   <?php
+
   for ($i=0; $i <count($array) ; $i++) {
     if($array[$i]['group_gro_id'] == 1) { ?>
       <tr>
@@ -30,6 +31,7 @@
 
         <td>
           <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
+            <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="modif">Modifier</button>
           </form>
           <form class="" action<?= $this -> url('Administration_removeUser') ?> method="post">
@@ -60,6 +62,7 @@
         <td><?= $array[$i]['group_gro_id'] ?></td>
         <td>
           <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
+            <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
             <button type="submit" name="modif">Modifier</button>
           </form>
           <form class="" action="<?= $this -> url('Administration_removeUser') ?>" method="post">

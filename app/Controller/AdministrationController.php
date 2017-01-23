@@ -29,13 +29,19 @@ class AdministrationController extends Controller
   }
 
   public function editUser(){
-    
+    var_dump($_POST);
+    // on recupere les informatino de l'utilisateur avec sont id
+    $model = new UsersModel();
+    $array = $model -> find($_POST['id']);
+    $this->show('administration/admin_editUser', ['array' => $array]);
   }
   public function updateUser(){
     //methode pour mettre à jour un utilisateur
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
+    $model = new AdministrationModel ();
+    $model -> updateUser($_POST['pseudo'], $_POST['email'], $_POST['groupe']);
   }
 
   public function deleteUser(){
