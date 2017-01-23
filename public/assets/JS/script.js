@@ -79,6 +79,9 @@ var autoComple = function(credentials) {
           //Suppression de la liste existante
           $('.auto_complete').children().remove();
         })
+      //Ajout d'une function si la requete echoue
+      } else {
+        console.log('false');
       }
     }
   })
@@ -104,7 +107,7 @@ var selectIng = function(credentials) {
             if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
 
               //Condition pour ne pas dupliquer les ingredients à revoir
-              //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']")) {
+              //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']") == true) {
 
                 //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
                 $('.panier_add').append(
@@ -122,9 +125,12 @@ var selectIng = function(credentials) {
                   + ingredient[i]['ing_id']
                   + '" >'
                   + '</p>');
-            //  }
+              //}
             }
           }
+        //Ajout d'une function si la requete echoue
+        } else {
+          console.log('false');
         }
       }
   });

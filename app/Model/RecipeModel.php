@@ -31,8 +31,12 @@ class RecipeModel extends \W\Model\Model
         "success" => true,
         "ingredient" => $ingFind
       );
-
+    } else {
+      return $data = array(
+        "success" => false
+      );
     }
+
   }
 
 //Requete a lancer pour 'l'auto complete'
@@ -67,9 +71,12 @@ class RecipeModel extends \W\Model\Model
         "success" => true,
         "ingredient" => $ingFind
       );
-
+    } else {
+      return $data = array(
+        "success" => false
+      );
     }
-    
+
   }
 
 
