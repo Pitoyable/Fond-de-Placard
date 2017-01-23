@@ -514,7 +514,7 @@ body:target .nav-button-close {
   text-align: center;
 }
 
-img {
+.container_contact_dev img {
   height: 200px;
   border: 2px dashed black;
   border-radius: 50%;

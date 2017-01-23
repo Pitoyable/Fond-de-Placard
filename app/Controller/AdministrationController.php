@@ -25,7 +25,7 @@ class AdministrationController extends Controller
     $model = new UsersModel();
     $array = $model -> findAll($orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null);
 
-    $this->show('administration/admin_manageUser', ['array' => $array]);
+    $this->show('administration/user/admin_manageUser', ['array' => $array]);
   }
 
   public function editUser(){
@@ -33,7 +33,7 @@ class AdministrationController extends Controller
     // on recupere les informatino de l'utilisateur avec sont id
     $model = new UsersModel();
     $array = $model -> find($_POST['id']);
-    $this->show('administration/admin_editUser', ['array' => $array]);
+    $this->show('administration/user/admin_editUser', ['array' => $array]);
   }
   public function updateUser(){
     //methode pour mettre à jour un utilisateur
@@ -59,13 +59,18 @@ class AdministrationController extends Controller
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
-    $this->show('administration/admin_manageRecipe');
+
+    $model = new UsersModel();
+    $model -> setTable('recipe');
+    $array = $model -> findAll($orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null);
+    
+    $this->show('administration/recette/admin_manageRecipe', ['array' => $array]);
   }
 
   public function manageTheme(){
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
-    $this->show('administration/admin_manageTheme');
+    $this->show('administration/theme/admin_manageTheme');
   }
 }
