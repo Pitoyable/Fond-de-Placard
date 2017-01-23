@@ -12,7 +12,7 @@ $(document).ready(function () {
   $("#close").click(function () {
     $("#overlay").removeClass("flex");
   })
-  
+
   // Formulaire de connexion/inscription
   $(".email-signup").hide();
 
@@ -28,4 +28,19 @@ $(document).ready(function () {
     $("#login-box-link").addClass("active");
     $("#signup-box-link").removeClass("active");
   });
+
+  // Nav-tab
+  $(".nav-a").click(function() {
+    hide();
+    $(this).addClass("active");
+    var getId = $(this).attr("href");
+    var blockId = $(getId);
+
+    blockId.addClass("block");
+  })
+
+  function hide() {
+    $(".nav-a").removeClass("active");
+    $('.tabs').removeClass("block");
+  }
 })

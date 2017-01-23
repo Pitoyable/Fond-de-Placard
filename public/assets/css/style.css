@@ -1,6 +1,7 @@
 html {
   box-sizing: border-box;
   height: 100%;
+  font-family: 'Roboto Slab', serif;
 }
 
 *, *::before, *::after {
@@ -51,6 +52,7 @@ body {
   font-size: 1.2em;
   text-decoration: none;
   transition: all 0.5s;
+  color: #fff;
 }
 
 .desktop-nav a:hover {
@@ -73,6 +75,10 @@ body {
   text-decoration: none;
 }
 
+.fa-power-off {
+  color: #fff;
+}
+
 .connect_button {
   background: #cc2727;
   border: 0;
@@ -86,7 +92,7 @@ body {
 }
 
 .connected {
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 /* -----------------------------------------------
@@ -206,25 +212,100 @@ body {
 
 .logo:hover {
   transform: rotate(360deg);
-
 }
 
 /* -----------------------------------------------
-  Container de chaques pages
+  Container de chaques pages/nav tab
 ----------------------------------------------- */
 
-section {
-  margin-bottom: 5%;
-}
-
 .container {
-  width: 90%;
+  width: 100%;
   margin: auto;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: inset 0px 1px 10px 1px rgba(0,0,0,0.7);
+  background-color: rgba(255, 255, 255, 0.9);
+  /*border-radius: 10px;*/
+  box-shadow: inset 0px 3px 5px -1px rgba(0,0,0,0.64);
   padding: 15px;
   min-height: 600px;
+}
+
+.container h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 2em;
+  border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
+  width: 70%;
+  margin: auto;
+}
+
+.container h2 {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: 400;
+}
+
+.nav-tab ul {
+  list-style: none;
+  border-bottom: 1px solid black;
+  padding: 0;
+  display: flex;
+  text-align: center;
+}
+
+.nav-a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  flex: 1;
+}
+
+.nav-tab a:hover {
+  background-color: rgb(119, 117, 121);
+  color: white;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+.tabs {
+  display: none;
+  text-align: center;
+}
+
+.block {
+  display: block;
+}
+
+/* -----------------------------------------------
+  Form
+----------------------------------------------- */
+
+.form {
+  font-size: 1em;
+}
+
+.form-input {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.form input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px dashed rgb(162, 162, 162);
+  font-size: 1em;
+  outline: none;
+  width: 50%;
+  margin-left: 2%;
+}
+
+.form input:focus {
+  border-bottom: 1px dashed #f2c600;
 }
 
 /* -----------------------------------------------
@@ -269,10 +350,6 @@ section {
   border: 0;
   cursor: pointer;
   -webkit-tap-highlight-color:rgba(0,0,0,0);
-}
-
-a {
-  color: #fff;
 }
 
 .mobile-nav a {
@@ -325,6 +402,7 @@ body:target .nav-button-close {
 .card-div {
   height: 100%;
   width: 100%;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -452,6 +530,10 @@ footer p {
   .card_container {
     padding: 0;
   }
+
+  .form-input {
+    width: 80%;
+  }
 }
 
 @media (max-width: 780px) {
@@ -525,6 +607,22 @@ footer p {
 @media (max-width: 545px) {
   .login-box {
     width: 90%;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input input {
+    width: 100%;
   }
 }
 

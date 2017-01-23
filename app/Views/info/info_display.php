@@ -1,9 +1,9 @@
 <?php $this->layout('layout', ['title' => 'Nous contacter']) ?>
 
 <?php $this->start('main_content') ?>
-<h1>Contact</h1>
 
 <div class="container container_contact">
+  <h1>Contact</h1>
 
   <div class="container_contact_dev">
     <div class="container_contact_picture">
