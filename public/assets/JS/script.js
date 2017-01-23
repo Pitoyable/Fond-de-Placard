@@ -59,20 +59,27 @@ var autoComple = function(credentials) {
 
   $.ajax({
     method : 'POST',
-    url : 'http://fond_de_placard.local/recipe_ajaxComplete',
+    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
     data : credentials,
     success : function(response) {
       if (response.success) {
+        //Création d'une variable pour simplifier la lisibilité
+        var ingredient = response.ingredient;
+        
         //Exec d'une boucle pour séparé les valeurs
         for (var i = 0; i < ingredient.length; i++) {
 
-          if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
+
+            for (var i = 0; i < ingredient.length; i++) {
+              if (ingredient[i]['ing_id'] && ingredient[i]['ing_name']) {
 
             $('.auto_complete').append(
               '<li>'
               + ingredient[i]['ing_name']
               + '</li>');
-          }
+            }
+            }
+
         }
       }
     }
@@ -84,7 +91,7 @@ var selectIng = function(credentials) {
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://fond_de_placard.local/recipe_ajaxComplete',
+    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
     data : credentials,
     success : function(response) {
         //Si la reponse est true on appel la function

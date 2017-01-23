@@ -33,6 +33,10 @@ class RecipeModel extends \W\Model\Model
 
   }
 
+//Requete a lancer pour 'l'auto complete'
+//SELECT *
+// FROM ingredients
+// WHERE ing_name LIKE 'd%'
 
   //Method pour l'auto complementation des ingredients (AJAX)
   public function autoFindIngredient() {
@@ -40,16 +44,23 @@ class RecipeModel extends \W\Model\Model
     //Initialisation du model RecipdeModel
     $model = new RecipeModel();
 
-    ////Creation d'un tableau pour la method search();
-    $array = array(
-      "ing_name" => $_POST['search_bar'],
-    );
-
     //Utilisation de la method setTable() pour chercher dans la table ingredients
     $model -> setTable('ingredients');
 
-    //Utilisation de la method search()
-    $ingFind = $model -> search($array);
+    //Ajout d'un if pour verifier que $_POST['search_bar'] n'est pas vide et ne ressorte pas toute la liste des ingredients
+    if (!empty($_POST['search_bar'])) {
+
+      //Création de la requete SQL
+      $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '";
+      //Limitation à 3 ingreedients renvoyer
+      $sql .=  $_POST['search_bar'] . "%' LIMIT 3";
+
+      $sth = $this->dbh->prepare($sql);
+  		$sth->execute();
+
+  		$ingFind = $sth->fetchAll();
+
+    };
 
     header('Content-Type: application/json');
 
