@@ -23,16 +23,26 @@ class RecipeModel extends \W\Model\Model
     //Utilisation de la method search()
     $ingFind = $model -> search($array);
 
-    header('Content-Type: application/json');
+    //Vérification que la requete est reussi
+    if ($ingFind) {
 
-    //Je formate la reponse en JSON
-    echo json_encode(array(
-      "success" => true,
-      "ingredient" => $ingFind
-    ));
+      //On return les datas obtenue
+      return $data = array(
+        "success" => true,
+        "ingredient" => $ingFind
+      );
+    } else {
+      return $data = array(
+        "success" => false
+      );
+    }
 
   }
 
+//Requete a lancer pour 'l'auto complete'
+//SELECT *
+// FROM ingredients
+// WHERE ing_name LIKE 'd%'
 
   //Method pour l'auto complementation des ingredients (AJAX)
   public function autoFindIngredient() {
@@ -40,24 +50,33 @@ class RecipeModel extends \W\Model\Model
     //Initialisation du model RecipdeModel
     $model = new RecipeModel();
 
-    ////Creation d'un tableau pour la method search();
-    $array = array(
-      "ing_name" => $_POST['search_bar'],
-    );
-
     //Utilisation de la method setTable() pour chercher dans la table ingredients
     $model -> setTable('ingredients');
 
-    //Utilisation de la method search()
-    $ingFind = $model -> search($array);
+    //Création de la requete SQL
+    $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '";
+    //Limitation à 3 ingreedients renvoyer
+    $sql .=  $_POST['search_bar'] . "%' LIMIT 3";
 
-    header('Content-Type: application/json');
+    $sth = $this->dbh->prepare($sql);
+		$sth->execute();
 
-    //Je formate la reponse en JSON
-    echo json_encode(array(
-      "success" => true,
-      "ingredient" => $ingFind
-    ));
+		$ingFind = $sth->fetchAll();
+
+    //Vérification que la requete est reussi
+    if ($ingFind) {
+
+      //On return les datas obtenue
+      return $data = array(
+        "success" => true,
+        "ingredient" => $ingFind
+      );
+    } else {
+      return $data = array(
+        "success" => false
+      );
+    }
+
   }
 
 

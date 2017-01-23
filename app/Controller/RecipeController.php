@@ -16,14 +16,27 @@ class RecipeController extends Controller
 
   }
 
+  public function written() {
+
+    //Affichage de la page
+    $this->show('recipe/recipe_cree');
+
+  }
+
   //Controller pour la recuperation des données AJAX
   public function findIngredient() {
 
+    //On verifie que $_POST['search_bar']) n'est pas vide
     if (!empty($_POST['search_bar'])) {
 
       $model = new RecipeModel();
-      $model -> findIngredient();
+      $controller = new RecipeController();
 
+      //On recupere les données renvoyer par autoFindIngredient();
+      $data = $model -> findIngredient();
+
+      //On revoie les données obtenue
+      $controller -> showJson($data);
     }
 
   }
@@ -31,9 +44,18 @@ class RecipeController extends Controller
   //Controller pour la recuperation des données AJAX
   public function autoComplete() {
 
-    $model = new RecipeModel();
-    $model -> autoFindIngredient();
+    //On verifie que $_POST['search_bar']) n'est pas vide
+    if (!empty($_POST['search_bar'])) {
 
+      $model = new RecipeModel();
+      $controller = new RecipeController();
+
+      //On recupere les données renvoyer par autoFindIngredient();
+      $data = $model -> autoFindIngredient();
+
+      //On revoie les données obtenue
+      $controller -> showJson($data);
+    }
   }
 
 }
