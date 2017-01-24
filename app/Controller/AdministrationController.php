@@ -86,10 +86,26 @@ class AdministrationController extends Controller
 
   public function deleteRecipe(){
     //methode pour mettre a jour  la recette
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
+
+    $model = new AdministrationModel ();
+    $table = 'recipe';
+    $model -> deleteAdmin($_POST['id'], $table);
   }
 
   public function validateRecipe(){
     //methode pour mettre a jour  la recette
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
+    $table = 'recipe';
+    $id =  $_POST['id'];
+    $info = array (
+      "rec_valide" => 1,
+    );
+
+    $model = new AdministrationModel ();
+    $model -> updateAdmin($info, $id, $table);
   }
   public function manageTheme(){
     $authorization = new AuthorizationModel();
