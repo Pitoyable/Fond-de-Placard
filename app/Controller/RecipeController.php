@@ -20,6 +20,7 @@ class RecipeController extends Controller
 
 
     $model = new RecipeModel();
+    
     //On recupere et on traite les different themes
     $model -> setTable('theme');
     $allTheme = $model -> findAll();

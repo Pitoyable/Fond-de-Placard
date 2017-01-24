@@ -117,7 +117,6 @@
 					 </form>
 				 </div>
 			</div> <!-- Fin de l'overlay -->
-
 			<div class="main">
 				<header class="header-main">
 					<!-- A masquer en desktop -->

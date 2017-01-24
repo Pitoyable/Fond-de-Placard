@@ -44,7 +44,11 @@
 
   <p>
     <label for="type">Type de la recette : </label>
-    <input type="text" name="type" value="">
+    <select name="type">
+      <option value="entree">Entrée</option>
+      <option value="plat">Plat</option>
+      <option value="dessert">Dessert</option>
+    </select>
   </p>
 
   <textarea name="recipe_content" rows="8" cols="80"></textarea>

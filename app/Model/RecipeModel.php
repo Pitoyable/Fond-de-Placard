@@ -6,6 +6,34 @@ use \W\Model\Model;
 class RecipeModel extends \W\Model\Model
 {
 
+  //Variante de la function insert() du framework
+  public function insertBDD(array $data, $stripTags = true) {
+
+    $colNames = array_keys($data);
+		//$colNamesEscapes = $this->escapeKeys($colNames);
+		$colNamesString = implode(', ', $colNames);
+
+		$sql = 'INSERT INTO ' . $this->table . ' (' . $colNamesString . ') VALUES (';
+		foreach($data as $key => $value){
+			$sql .= ":$key, ";
+		}
+		// Supprime les caractères superflus en fin de requète
+		$sql = substr($sql, 0, -2);
+		$sql .= ')';
+
+		$sth = $this->dbh->prepare($sql);
+		foreach($data as $key => $value){
+			$value = ($stripTags) ? strip_tags($value) : $value;
+			$sth->bindValue(':'.$key, $value);
+		}
+
+		if (!$sth->execute()){
+			return false;
+		} else {
+		  return true;
+		}
+  }
+
   //Function pour traiter les données retourner par findAll() pour les themes
   public function createThemeList($argument) {
 
@@ -57,11 +85,6 @@ class RecipeModel extends \W\Model\Model
 
   }
 
-//Requete a lancer pour 'l'auto complete'
-//SELECT *
-// FROM ingredients
-// WHERE ing_name LIKE 'd%'
-
   //Method pour l'auto complementation des ingredients (AJAX)
   public function autoFindIngredient() {
 
@@ -100,7 +123,87 @@ class RecipeModel extends \W\Model\Model
   //Ajouter une recette
   public function addRecipe() {
 
-    var_dump($_POST);
+    $model = new RecipeModel();
+
+    //Verification des different champs et si l'utilisateur est connecter
+    if (!empty($_POST['mp_ing']) && !empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['recipe_content']) && !empty($_SESSION['user'])) {
+
+      $array = array(
+        "rec_name" => $_POST['nom'],
+        "rec_html" => $_POST['recipe_content'],
+        "rec_type" => $_POST['type']
+      );
+
+      //On definie la table à utiliser
+      $model -> setTable('recipe');
+
+      //On insert la recipe in BDD, on recupe son ID
+      $idRecipe = $model -> insert($array, $stripTags = false);
+
+      //Si l'insertion est reussi
+      if ($idRecipe) {
+
+        //On definie la table a utiliser
+        $model -> setTable('link_rec_use');
+
+        //On crée un tableau pour remplir la table 'link_rec_use'
+        $array = array(
+          "recipe_id" => $idRecipe['id'],
+          "user_id" => $_SESSION['user']['id']
+        );
+
+        $model -> insertBDD($array);
+
+        //On crée une boucle pour remplir la table 'link_ing_rec'
+        for ($i=0; $i < count($_POST['mp_ing']) ; $i++) {
+
+          //On definie la table a utiliser
+          $model -> setTable('link_ing_rec');
+
+          //On crée le tableau pour insert
+          $array = array(
+            "recipe_id" => $idRecipe['id'],
+            "ingredients_id" => $_POST['mp_ing'][$i]
+          );
+
+          //On lance les differentes insert necessaire
+          $model -> insertBDD($array);
+
+        }
+
+        //On verifie que $_POST['mp_checked'] existe
+        if (isset($_POST['mp_checked'])) {
+
+          //On verifie si aucun theme n'est selectionner
+          if ($_POST['mp_checked'][0] == 'none') {
+
+            echo 'aucun theme select';
+
+          //Si un theme est selectionner
+          } else {
+
+            //On definie la table a utiliser
+            $model -> setTable('link_rec_the');
+
+            //On crée une boucle pour remplir la table 'link_rec_theme'
+            for ($i=0; $i < count($_POST['mp_checked']) ; $i++) {
+
+              //On crée le tableau pour insert
+              $array = array(
+                "recipe_id" => $idRecipe['id'],
+                "theme_id" => $_POST['mp_checked'][$i]
+              );
+
+              //On lance les differentes insert necessaire
+              $model -> insertBDD($array);
+
+            }
+          }
+        }
+      }
+    } else {
+      echo 'erreur';
+    }
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier

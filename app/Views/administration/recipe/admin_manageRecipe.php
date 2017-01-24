@@ -19,13 +19,13 @@
       <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="modifier">
-          <input type="hidden" name="id" value="">
+          <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
         </label>
       </form>
-      <form class="" action="" method="post">
+      <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="supprimer">
-          <input type="hidden" name="id" value="">
+          <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
         </label>
       </form>
     <?php }
@@ -43,19 +43,19 @@
       <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="modifier">
-          <input type="hidden" name="id" value="">
+          <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
         </label>
       </form>
-      <form class="" action="" method="post">
+      <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="supprimer">
-          <input type="hidden" name="id" value="">
+          <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
         </label>
       </form>
-      <form class="" action="" method="post">
+      <form class="" action="<?= $this -> url('Administration_validateRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="valider recette">
-          <input type="hidden" name="id" value="">
+          <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
         </label>
       </form>
     <?php }

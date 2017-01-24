@@ -20,7 +20,7 @@
   </p>
   <p>
     <label for="">Groupe :
-      <input type="text" name="groupe" value="<?= $array['group_gro_id']?>">
+      <input type="text" name="groupe" value="<?= $array['group_id']?>">
     </label>
   </p>
   <input type="hidden" name="id" value="<?= $array['id']?>">
