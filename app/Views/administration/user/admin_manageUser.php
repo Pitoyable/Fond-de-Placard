@@ -21,7 +21,7 @@
   <?php
 
   for ($i=0; $i <count($array) ; $i++) {
-    if($array[$i]['group_gro_id'] == 1) { ?>
+    if($array[$i]['group_id'] == 1) { ?>
       <tr>
         <td><?= $array[$i]['use_pseudo'] ?></td>
         <td><?= $array[$i]['use_email'] ?></td>
@@ -52,7 +52,7 @@
   </tr>
   <!-- Boucle sur les utilisateurs -->
   <?php for ($i=0; $i <count($array) ; $i++) {
-    if($array[$i]['group_gro_id'] == 2){ ?>
+    if($array[$i]['group_id'] == 2){ ?>
       <tr>
         <td><?= $array[$i]['use_pseudo'] ?></td>
         <td><?= $array[$i]['use_email'] ?></td>

@@ -71,7 +71,7 @@
 						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
 
 						<!-- Si l'utilisateur est un admin -->
-						<?php if($_SESSION['user']['group_gro_id'] == 1){ ?>
+						<?php if($_SESSION['user']['group_id'] == 1){ ?>
 							 <a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
 
 						<?php }
