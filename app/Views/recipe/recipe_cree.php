@@ -20,19 +20,20 @@
       </ul>
     </div>
 
+  </form>
 </div>
+
 <!-- Fin de partie en autoComple -->
 
 <!-- Debut de partie de la création de recette -->
-<form action="<?= $this->url('Recipe_written') ?>" method="post">
+<form action="<?= $this->url('Recipe_addWritten') ?>" method="post">
 
   <div class="liste_ing_select">
 
   </div>
 
-  <p>
-    <p>Thème : </p>
-    <label for="none">Aucun<input type="checkbox" name="none" value="none"></label>
+  <p>Thème :
+    <label for="none">Aucun<input type="checkbox" name="mp_checked[]" value="none"></label>
     <?= $themes ?>
   </p>
 

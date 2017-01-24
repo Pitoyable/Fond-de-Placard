@@ -16,7 +16,7 @@ class RecipeModel extends \W\Model\Model
     for ($i=0; $i < count($argument) ; $i++) {
 
       //On concatene les different themes
-      $theme .= "<label for='" . $argument[$i]['the_name'] . "'>" . $argument[$i]['the_name'] . "<input type='checkbox' value='" . $argument[$i]['id'] . "'></label>";
+      $theme .= "<label for='" . $argument[$i]['the_name'] . "'>" . $argument[$i]['the_name'] . "<input type='checkbox' name='mp_checked[]' value='" . $argument[$i]['id'] . "'></label>";
 
     }
 
@@ -100,20 +100,7 @@ class RecipeModel extends \W\Model\Model
   //Ajouter une recette
   public function addRecipe() {
 
-    $model = new RecipeModel();
-
-    //Création du tableau pour insert();
-    $array = array(
-      "rec_name" => $_POST['nom'],
-      "rec_HTML" => $_POST['recipe_content'],
-      "rec_type" => $_POST['type']
-    );
-
-    if ($model -> insert($array, $stripTags = false)) {
-      return true;
-    } else {
-      return false;
-    }
+    var_dump($_POST);
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier

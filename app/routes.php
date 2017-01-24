@@ -46,7 +46,7 @@
 			// crée
 		['GET|POST', '/recette_cree', 'Recipe#written', 'Recipe_written'],
 			// crée test de theo
-		['GET|POST', '/recette_cree', 'Recipe#writtenTest', 'Recipe_writtenTest'],
+		['GET|POST', '/recette_confirme', 'Recipe#addWritten', 'Recipe_addWritten'],
 
 		//theme
 			// montrer

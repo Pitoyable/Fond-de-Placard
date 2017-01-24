@@ -113,16 +113,8 @@ var selectIng = function(credentials) {
                 $('.liste_ing_select').append(
                   '<p>'
                   //Input name
-                  + '<input type="texte" disabled name="'
+                  + '<input type="text" name="mp_ing[]" value= "'
                   + ingredient[i]['ing_name']
-                  + '" value= "'
-                  + ingredient[i]['ing_name']
-                  + '" >'
-                  //Input hidden
-                  + '<input type="hidden" disabled name="'
-                  + ingredient[i]['id']
-                  + '" value= "'
-                  + ingredient[i]['id']
                   + '" >'
                   + '</p>');
               //}

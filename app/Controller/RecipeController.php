@@ -18,6 +18,7 @@ class RecipeController extends Controller
 
   public function written() {
 
+
     $model = new RecipeModel();
     //On recupere et on traite les different themes
     $model -> setTable('theme');
@@ -36,17 +37,16 @@ class RecipeController extends Controller
       $controller -> showJson($data);
     }
 
-    //Vérification que $_POST n'est pas vide
-    if (!empty($_POST['add_recipe'])) {
-
-      if ($model -> addRecipe()) {
-        echo 'bravo';
-      }
-
-    }
-
     //Affichage de la page
     $this->show('recipe/recipe_cree', ['themes' => $listTheme]);
+
+  }
+
+  public function addWritten() {
+
+
+    $model = new RecipeModel();
+    $model -> addRecipe();
 
   }
 
