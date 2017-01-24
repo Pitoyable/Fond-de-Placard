@@ -1,7 +1,7 @@
 $(function () {
 
   //Preparation pour l'auto complementation
-  $('.input_search').keyup(function() {
+  $('.input_search').on('keyup submit',function() {
 
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
@@ -29,6 +29,12 @@ $(function () {
     //On appel la method AJAX pour ajouter un ingredient trouver au panier
     selectIng(formatData);
 
+    //Remplacement de la valeur de l'input
+    $('.input_search').val("");
+
+    //Suppression de la liste existante ainsi que suppresion de la classe block
+    $('.auto_complete').children().remove().removeClass('block');
+
   });
 
   //Recuperation du button pour vider le panier
@@ -40,6 +46,19 @@ $(function () {
 
   });
 
+  $('.panier').on('submit', function(e) {
+
+    //Retrait du comportement par defaul du formulaire
+    e.preventDefault();
+
+    //On stock les données du formulaire dans une variable
+    var datas = $(this).serializeArray();
+
+    //On appel une function pour formater les datas en JSON
+    var formatData = formatDatasJson(datas);
+
+    //Ajouter la function qui gere l'AJAX
+  });
 });
 
 //Function Ajax pour l'autocomplementation
@@ -67,7 +86,8 @@ var autoComple = function(credentials) {
               '<li class="auto_ing">'
               + ingredient[i]['ing_name']
               + '</li>');
-
+              //Ajout de la classe Block pour le design
+              $('.auto_complete').addClass('block');
           }
         }
 
@@ -129,6 +149,20 @@ var selectIng = function(credentials) {
       }
   });
 }
+
+//Requete pour trouver les recipe
+// var recipeFind = function(credentials) {
+//
+//   $.ajax({
+//     method : 'POST',
+//     url : '',
+//     data : credentials,
+//     success : function(response) {
+//
+//     }
+//
+//   });
+// }
 
 //Création de la function pour formater les data en JSON
 var formatDatasJson = function(datas) {
