@@ -67,7 +67,7 @@ var autoComple = function(credentials) {
               '<li class="auto_ing">'
               + ingredient[i]['ing_name']
               + '</li>');
-
+              
           }
         }
 
