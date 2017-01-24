@@ -7,7 +7,7 @@ use \W\Security\AuthentificationModel;
 
 class UserModel
 {
-  public function signUp($pseudo, $email, $password, $password_check){
+  public function signUp($pseudo, $email, $password, $password_check, $route){
     //methode pour s'inscrire
       //vérifier la taille du pseudo
     if (strlen($pseudo) >=5 && strlen($pseudo) <= 20){
@@ -16,7 +16,11 @@ class UserModel
         $usersModel = new UsersModel();
         //verifier que l'email et le pseudo n'existe pas déja en bdd
         if ($usersModel -> usernameExists($pseudo) || $usersModel ->emailExists($email)) {
-          echo "pseudo ou email existe déja";
+          $data = array(
+            "success" => false,
+            "error" => "pseudo ou email existe déja",
+          );
+          return $data;
         }else{
           // methode pour hasher le mdp
           $authentification = new AuthentificationModel();
@@ -31,15 +35,20 @@ class UserModel
           $insert = $model -> insert($arrayData, $stripTags = true);
 
 
-          header('Location:http://fond-de-placard.local/recette_afficher');
-        }
+          }
       }else{
-        echo "2 mdp pas identique";
-        header('Location:http://fond-de-placard.local/utilisateur_afficher');
+        $data = array(
+          "success" => false,
+          "error" => "erreur mdp",
+        );
+        return $data;
       }
     }else{
-      echo "taille du pseudo faux";
-      header('Location:http://fond-de-placard.local/utilisateur_afficher');
+      $data = array(
+        "success" => false,
+        "error" => "information incorrect",
+      );
+      return $data;
     }
   }
 

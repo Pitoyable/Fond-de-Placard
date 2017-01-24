@@ -6,15 +6,21 @@ use \W\Controller\Controller;
 use \W\Model\UsersModel;
 use \Model\UserModel;
 use \W\Security\AuthentificationModel;
-
+use W\View\Plates\PlatesExtensions;
 
 class UserController extends Controller
 {
   public function signUp(){
     //methode pour s'inscrire
-    $authentification = new UserModel();
-    $test = $authentification -> signUp($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password_check']);
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('default_home');
 
+    $authentification = new UserModel();
+    $data = $authentification -> signUp($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password_check'], $route);
+
+    $controller = new UserController();
+    //On revoie les données obtenue
+    $controller -> showJson($data);
   }
   public function login(){
     //methode pour se connecté
@@ -50,7 +56,7 @@ class UserController extends Controller
   public function acess(){
     //methode pour afficher les formulaire d'inscription
 
-    $this->show('user/user_acess');
+
   }
 
 }

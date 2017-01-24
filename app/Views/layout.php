@@ -18,7 +18,7 @@
 		<!-- Script Javascript -->
 		<script src="<?= $this -> assetUrl('js/script.js') ?>"></script>
 		<script src="<?= $this -> assetUrl('js/master.js') ?>"></script>
-
+		<script src="<?= $this -> assetUrl('js/scriptUser.js') ?>"></script>
 		<!-- Google Font -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
@@ -115,6 +115,9 @@
 							 <button>S'inscrire</button>
 						 </p>
 					 </form>
+				 </div>
+				 <div id="error">
+				 	
 				 </div>
 			</div> <!-- Fin de l'overlay -->
 			<div class="main">
