@@ -25,8 +25,11 @@ class UserController extends Controller
   public function login(){
     //methode pour se connecté
     $authentification = new UserModel();
-    $test = $authentification -> login($_POST['email'], $_POST['password']);
+    $data = $authentification -> login($_POST['email'], $_POST['password']);
 
+    $controller = new UserController();
+    //On revoie les données obtenue
+    $controller -> showJson($data);
 
   }
   public function logout(){

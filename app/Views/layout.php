@@ -47,7 +47,7 @@
 					<?php } ?>
 				</nav>
 			</aside>
-
+			<?= var_dump($_SESSION);?>
 			<header class="header-nav">
 				<nav class="desktop-nav">
 					<a href="<?= $this -> url ('default_home') ?>">Accueil</a>
@@ -117,7 +117,7 @@
 					 </form>
 				 </div>
 				 <div id="error">
-				 	
+				 	<!--div pour placer les erreur retourné en ajax  -->
 				 </div>
 			</div> <!-- Fin de l'overlay -->
 			<div class="main">

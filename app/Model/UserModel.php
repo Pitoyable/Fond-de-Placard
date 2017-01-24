@@ -34,6 +34,10 @@ class UserModel
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
 
+          $data = array(
+            "success" => true,
+          );
+          return $data;
 
           }
       }else{
@@ -59,16 +63,25 @@ class UserModel
     $test = $authentification -> isValidLoginInfo($email, $password);
 
     if ($test == 0){
-      echo"erreur";
+      $data = array(
+        "success" => false,
+        "error" => "information incorrect",
+      );
+      return $data;
     }else{
-      echo 'good';
-      header('Location:http://fond-de-placard.local/recette_afficher');
       $model = new UsersModel();
       //on cherche l'utilisateur en bdd avec son email
       $emailValide = $model -> getUserByUsernameOrEmail($email);
       //on met les information en session
       $authentification ->logUserIn($emailValide);
-      }
+      var_dump($_SESSION);
+      $data = array(
+        "success" => true,
+        "info" => $_SESSION
+      );
+      return $data;
+
+    }
   }
 
   public function update($array, $id){
