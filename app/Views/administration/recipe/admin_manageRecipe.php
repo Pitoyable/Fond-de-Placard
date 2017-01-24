@@ -16,9 +16,15 @@
         <h2><?= $array[$i]['rec_type'] ?></h2>
         <p><?= $array[$i]['rec_html'] ?></p>
       </section>
-      <form class="" action="" method="post">
+      <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="modifier">
+          <input type="hidden" name="id" value="">
+        </label>
+      </form>
+      <form class="" action="" method="post">
+        <label for="">
+          <input type="submit" name="" value="supprimer">
           <input type="hidden" name="id" value="">
         </label>
       </form>
@@ -34,9 +40,21 @@
         <h2><?= $array[$i]['rec_type'] ?></h2>
         <p><?= $array[$i]['rec_html'] ?></p>
       </section>
-      <form class="" action="" method="post">
+      <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
         <label for="">
           <input type="submit" name="" value="modifier">
+          <input type="hidden" name="id" value="">
+        </label>
+      </form>
+      <form class="" action="" method="post">
+        <label for="">
+          <input type="submit" name="" value="supprimer">
+          <input type="hidden" name="id" value="">
+        </label>
+      </form>
+      <form class="" action="" method="post">
+        <label for="">
+          <input type="submit" name="" value="valider recette">
           <input type="hidden" name="id" value="">
         </label>
       </form>

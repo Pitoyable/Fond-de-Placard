@@ -19,24 +19,34 @@
 		 //Page avec les formulaire de d'inscription et connexion
 	 	['GET|POST', '/utilisateur_acces', 'User#acess', 'User_acess'],
 
+
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
-			//gerer les utililsateur et leur droit
-		['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
-			//route pour formulaire de modification de l'user
-		['GET|POST', '/administration_gerer_user/modifier', 'administration#editUser', 'Administration_editUser'],
-			//mettre à jour es information de l'utilisateur
-		['GET|POST', '/administration_gerer_user/mise_a_jour', 'administration#updateUser', 'Administration_updateUser'],
-			//supprimer l'utilisateur
-		['GET|POST', '/administration_gerer_user/supprimer', 'administration#deleteUser', 'Administration_deleteUser'],
-			//gerer les themes
-		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
-			// affiche les recettes valide et non-valide
-		['GET|POST', '/administration_gerer_Recette', 'administration#manageRecipe', 'Administration_manageRecipe'],
-			// modifier recette
-		['GET|POST', '/administration_gerer_Recette/modifier', 'administration#editRecipe', 'Administration_editRecipe'],
+			//admin - user
+				//gerer les utililsateur et leur droit
+			['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
+				//route pour formulaire de modification de l'user
+			['GET|POST', '/administration_gerer_user/modifier', 'administration#editUser', 'Administration_editUser'],
+				//mettre à jour es information de l'utilisateur
+			['GET|POST', '/administration_gerer_user/mise_a_jour', 'administration#updateUser', 'Administration_updateUser'],
+				//supprimer l'utilisateur
+			['GET|POST', '/administration_gerer_user/supprimer', 'administration#deleteUser', 'Administration_deleteUser'],
+
+			//Admin - theme
+				//gerer les themes
+			['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
+
+			//Admin - Recette
+				// affiche les recettes valide et non-valide
+			['GET|POST', '/administration_gerer_Recette', 'administration#manageRecipe', 'Administration_manageRecipe'],
+				// modifier recette
+			['GET|POST', '/administration_gerer_Recette/modifier', 'administration#editRecipe', 'Administration_editRecipe'],
+				// mise à jour recette
+			['GET|POST', '/administration_gerer_Recette/mise_a_jour', 'administration#updateRecipe', 'Administration_updateRecipe'],
+				// supprimer recette
+			['GET|POST', '/administration_gerer_Recette/supprimer', 'administration#deleteRecipe', 'Administration_deleteRecipe'],
 			// valider recette
-		['GET|POST', '/administration_gerer_Recette/mise_a_jour', 'administration#updateRecipe', 'Administration_updateRecipe'],
+			['GET|POST', '/administration_gerer_Recette/valider', 'administration#validateRecipe', 'Administration_validateRecipe'],
 
 		//recette
 			// montrer

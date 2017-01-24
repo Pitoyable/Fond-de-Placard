@@ -63,9 +63,19 @@ class AdministrationController extends Controller
     $model = new UsersModel();
     $model -> setTable('recipe');
     $array = $model -> findAll($orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null);
-    
-    $this->show('administration/recette/admin_manageRecipe', ['array' => $array]);
+
+    $this->show('administration/recipe/admin_manageRecipe', ['array' => $array]);
   }
+
+  public function editRecipe(){
+    //methode pour modifier la recette
+    $this->show('administration/recipe/admin_editRecipe');
+  }
+
+  public function updateRecipe(){
+    //methode pour mettre a jour  la recette
+  }
+
 
   public function manageTheme(){
     $authorization = new AuthorizationModel();
