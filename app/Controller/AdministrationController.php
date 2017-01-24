@@ -6,7 +6,7 @@ use \W\Controller\Controller;
 use Model\AdministrationModel;
 use \W\Model\UsersModel;
 use W\Security\AuthorizationModel;
-
+use W\View\Plates\PlatesExtensions;
 
 class AdministrationController extends Controller
 {
@@ -46,9 +46,10 @@ class AdministrationController extends Controller
       "use_email" => $_POST['email'],
       "group_id" => $_POST['groupe'],
     );
-
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageUser');
     $model = new AdministrationModel ();
-    $model -> updateAdmin($info, $id, $table);
+    $model -> updateAdmin($info, $id, $table, $route);
   }
 
   public function deleteUser(){
@@ -56,9 +57,12 @@ class AdministrationController extends Controller
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageUser');
+
     $model = new AdministrationModel ();
     $table = 'user';
-    $model -> deleteAdmin($_POST['id'], $table);
+    $model -> deleteAdmin($_POST['id'], $table, $route);
   }
 
 
@@ -77,7 +81,10 @@ class AdministrationController extends Controller
 
   public function editRecipe(){
     //methode pour modifier la recette
-    $this->show('administration/recipe/admin_editRecipe');
+    $model = new UsersModel();
+    $model -> setTable('recipe');
+    $array = $model -> find($_POST['id']);
+    $this->show('administration/recipe/admin_editRecipe', ['array' => $array]);
   }
 
   public function updateRecipe(){
@@ -91,7 +98,11 @@ class AdministrationController extends Controller
 
     $model = new AdministrationModel ();
     $table = 'recipe';
-    $model -> deleteAdmin($_POST['id'], $table);
+
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageRecipe');
+
+    $model -> deleteAdmin($_POST['id'], $table, $route);
   }
 
   public function validateRecipe(){
@@ -107,10 +118,54 @@ class AdministrationController extends Controller
     $model = new AdministrationModel ();
     $model -> updateAdmin($info, $id, $table);
   }
+
   public function manageTheme(){
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
 
-    $this->show('administration/theme/admin_manageTheme');
+    $model = new UsersModel();
+    $model -> setTable('theme');
+    $array = $model -> findAll($orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null);
+
+    $this->show('administration/theme/admin_manageTheme', ['array' => $array]);
+  }
+
+  public function editTheme(){
+    //methode pour modifier le theme
+    $model = new UsersModel();
+    $model -> setTable('theme');
+    $array = $model -> find($_POST['id']);
+    $this->show('administration/theme/admin_editTheme', ['array' => $array]);
+  }
+
+  public function updateTheme(){
+    //methode pour mettre a jour le theme
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
+    $table = 'theme';
+    $id =  $_POST['id'];
+    $info = array (
+      "the_name" => $_POST['name'],
+    );
+
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageTheme');
+
+    $model = new AdministrationModel ();
+    $model -> updateAdmin($info, $id, $table, $route);
+  }
+
+  public function deleteTheme(){
+    //methode pour mettre a jour  le theme
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
+
+    $model = new AdministrationModel ();
+    $table = 'theme';
+
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageTheme');
+
+    $model -> deleteAdmin($_POST['id'], $table, $route);
   }
 }

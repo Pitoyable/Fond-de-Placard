@@ -35,6 +35,12 @@
 			//Admin - theme
 				//gerer les themes
 			['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
+				// modifier recette
+			['GET|POST', '/administration_gerer_Theme/modifier', 'administration#editTheme', 'Administration_editTheme'],
+				// mise à jour recette
+			['GET|POST', '/administration_gerer_Theme/mise_a_jour', 'administration#updateTheme', 'Administration_updateTheme'],
+				// supprimer recette
+			['GET|POST', '/administration_gerer_Theme/supprimer', 'administration#deleteTheme', 'Administration_deleteTheme'],
 
 			//Admin - Recette
 				// affiche les recettes valide et non-valide

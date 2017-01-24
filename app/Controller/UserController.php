@@ -22,7 +22,6 @@ class UserController extends Controller
     $test = $authentification -> login($_POST['email'], $_POST['password']);
 
 
-
   }
   public function logout(){
     //methode pour se déconnecté
