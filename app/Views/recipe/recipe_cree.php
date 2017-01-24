@@ -31,10 +31,9 @@
   </div>
 
   <p>
-    <label for="">Thème : </label>
-    <select class="" name="">
-      <?= $themes ?>
-    </select>
+    <p>Thème : </p>
+    <label for="none">Aucun<input type="checkbox" name="none" value="none"></label>
+    <?= $themes ?>
   </p>
 
   <p>

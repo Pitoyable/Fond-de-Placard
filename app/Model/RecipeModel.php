@@ -16,7 +16,7 @@ class RecipeModel extends \W\Model\Model
     for ($i=0; $i < count($argument) ; $i++) {
 
       //On concatene les different themes
-      $theme .= "<option value='" . $argument[$i]['id'] . "'>" . $argument[$i]['the_name'] . "</option>";
+      $theme .= "<label for='" . $argument[$i]['the_name'] . "'>" . $argument[$i]['the_name'] . "<input type='checkbox' value='" . $argument[$i]['id'] . "'></label>";
 
     }
 
