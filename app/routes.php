@@ -31,8 +31,12 @@
 		['GET|POST', '/administration_gerer_user/supprimer', 'administration#deleteUser', 'Administration_deleteUser'],
 			//gerer les themes
 		['GET|POST', '/administration_gerer_theme', 'administration#manageTheme', 'Administration_manageTheme'],
-			// valider et modifier less recettes
+			// affiche les recettes valide et non-valide
 		['GET|POST', '/administration_gerer_Recette', 'administration#manageRecipe', 'Administration_manageRecipe'],
+			// modifier recette
+		['GET|POST', '/administration_gerer_Recette/modifier', 'administration#editRecipe', 'Administration_editRecipe'],
+			// valider recette
+		['GET|POST', '/administration_gerer_Recette/mise_a_jour', 'administration#updateRecipe', 'Administration_updateRecipe'],
 
 		//recette
 			// montrer
@@ -41,6 +45,8 @@
 		['GET|POST', '/recette_mise_a_jour', 'Recipe#update', 'Recipe_update'],
 			// crée
 		['GET|POST', '/recette_cree', 'Recipe#written', 'Recipe_written'],
+			// crée test de theo
+		['GET|POST', '/recette_cree', 'Recipe#writtenTest', 'Recipe_writtenTest'],
 
 		//theme
 			// montrer
