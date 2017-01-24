@@ -29,7 +29,7 @@ class AdministrationController extends Controller
   }
 
   public function editUser(){
-    var_dump($_POST);
+
     // on recupere les informatino de l'utilisateur avec sont id
     $model = new UsersModel();
     $array = $model -> find($_POST['id']);
@@ -39,9 +39,16 @@ class AdministrationController extends Controller
     //methode pour mettre à jour un utilisateur
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
+    $table = 'user';
+    $id =  $_POST['id'];
+    $info = array (
+      "use_pseudo" => $_POST['pseudo'],
+      "use_email" => $_POST['email'],
+      "group_id" => $_POST['groupe'],
+    );
 
     $model = new AdministrationModel ();
-    $model -> updateUser($_POST['pseudo'], $_POST['email'], $_POST['groupe']);
+    $model -> updateAdmin($info, $id, $table);
   }
 
   public function deleteUser(){
@@ -50,7 +57,8 @@ class AdministrationController extends Controller
     $authorization -> isGranted(1);
 
     $model = new AdministrationModel ();
-    $model -> deleteUser($_POST['id']);
+    $table = 'user';
+    $model -> deleteAdmin($_POST['id'], $table);
   }
 
 
@@ -76,7 +84,13 @@ class AdministrationController extends Controller
     //methode pour mettre a jour  la recette
   }
 
+  public function deleteRecipe(){
+    //methode pour mettre a jour  la recette
+  }
 
+  public function validateRecipe(){
+    //methode pour mettre a jour  la recette
+  }
   public function manageTheme(){
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
