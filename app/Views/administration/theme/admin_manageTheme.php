@@ -9,8 +9,13 @@
 
 <h2>Theme</h2>
 <!-- Boucle sur les utilisateurs -->
+  <form class="" action="<?= $this -> url('Administration_addTheme') ?>" method="post">
+    <label for="">Nom :
+      <input type="text" name="name" value="">
+    </label>
+    <input type="submit" name="" value="Ajouter">
+  </form>
 <?php
-
 for ($i=0; $i <count($array) ; $i++) { ?>
     <section>
       <h1><?= $array[$i]['the_name'] ?></h1>

@@ -8,7 +8,7 @@ class AdministrationModel extends \W\Model\Model
 
   public function updateAdmin($info, $id, $table, $route){
     //methode pour mettre à jour un utilisateur
-    var_dump($info);
+
     //on insert les donner en bdd
     $model = new UsersModel();
     $model -> setTable($table);
@@ -20,7 +20,7 @@ class AdministrationModel extends \W\Model\Model
 
   public function deleteAdmin($id, $table, $route){
     //methode pour supprimer un utilisateur
-    var_dump($id);
+
     $model = new UsersModel();
     $model -> setTable($table);
     $model -> delete($id);
@@ -28,5 +28,13 @@ class AdministrationModel extends \W\Model\Model
     header('Location:'.$route.'');
   }
 
+  public function addAdmin($arrayData, $table, $route){
+
+    $model = new UsersModel();
+    $model -> setTable($table);
+    $insert = $model -> insert($arrayData, $stripTags = true);
+
+    header('Location:'.$route.'');
+  }
 
 }

@@ -130,6 +130,23 @@ class AdministrationController extends Controller
     $this->show('administration/theme/admin_manageTheme', ['array' => $array]);
   }
 
+  public function addTheme(){
+    //methode pour ajouter un theme
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
+
+    $arrayData = array (
+      "the_name" => $_POST['name'],
+    );
+
+    $table = 'theme';
+
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageTheme');
+
+    $model = new AdministrationModel ();
+    $model -> addAdmin($arrayData, $table, $route);
+  }
   public function editTheme(){
     //methode pour modifier le theme
     $model = new UsersModel();
