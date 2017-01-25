@@ -91,6 +91,7 @@ var autoComple = function(credentials) {
 
           //Suppression de la liste existante
           $('.auto_complete').children().remove();
+          $('.auto_complete').removeClass('block');
         })
       //Ajout d'une function si la requete echoue
       } else {

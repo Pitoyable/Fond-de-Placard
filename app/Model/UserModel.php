@@ -34,6 +34,10 @@ class UserModel
           $model = new UsersModel();
           $insert = $model -> insert($arrayData, $stripTags = true);
 
+          $data = array(
+            "success" => true,
+          );
+          return $data;
 
           }
       }else{
@@ -52,23 +56,32 @@ class UserModel
     }
   }
 
-  public function login($email, $password){
+  public function login($email, $password, $route){
     //methode pour se connecté
     //verifier que l'email et password existe en bdd et sont liée
     $authentification = new AuthentificationModel();
     $test = $authentification -> isValidLoginInfo($email, $password);
 
     if ($test == 0){
-      echo"erreur";
+      $data = array(
+        "success" => false,
+        "error" => "information incorrect",
+      );
+      return $data;
     }else{
-      echo 'good';
-      header('Location:http://fond-de-placard.local/recette_afficher');
       $model = new UsersModel();
       //on cherche l'utilisateur en bdd avec son email
       $emailValide = $model -> getUserByUsernameOrEmail($email);
       //on met les information en session
       $authentification ->logUserIn($emailValide);
-      }
+
+      $data = array(
+        "success" => true,
+
+      );
+      return $data;
+
+    }
   }
 
   public function update($array, $id){

@@ -7,15 +7,12 @@
   <div class="search_recipe">
 
     <form class="search_bar search" action="" method="post">
-      <!-- <p> -->
-      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ingredient">
-      <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-      <!-- </p> -->
-      <!-- <div> -->
-      <ul class="auto_complete results">
+      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex: ananas, asperge, banane...">
 
+      <ul class="auto_complete results">
       </ul>
-      <!-- </div> -->
+
+      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</i></button>
     </form>
 
   </div>

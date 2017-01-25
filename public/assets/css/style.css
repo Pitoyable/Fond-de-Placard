@@ -218,9 +218,6 @@ body {
   transform: rotate(360deg);
 }
 
-.block {
-  display: block;
-}
 /* -----------------------------------------------
   Container de chaques pages/nav tab
 ----------------------------------------------- */
@@ -286,6 +283,9 @@ body {
 }
 
 
+.block {
+  display: block;
+}
 /* -----------------------------------------------
   Form
 ----------------------------------------------- */
@@ -489,15 +489,6 @@ body:target .nav-button-close {
 }
 
 /* -----------------------------------------------
-  J'ai faim / receipe
------------------------------------------------ */
-
-.delete_panier {
-  display: inline-block;
-  padding: 3px;
-}
-
-/* -----------------------------------------------
   Info_display
 ----------------------------------------------- */
 
@@ -536,6 +527,98 @@ body:target .nav-button-close {
   J'ai faim / recipe_display
 ----------------------------------------------- */
 
+.delete_panier {
+  display: inline-block;
+  padding: 3px;
+}
+
+.search {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+
+.search input {
+  height: 40px;
+  width: 100%;
+  font-size: 1.2em;
+  padding: 0 12px 0 30px;
+  background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 10px 12px no-repeat;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a8acbc #babdcc #c0c3d2;
+  border-radius: 13px;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #66b1ee;
+  box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+
+.search .results {
+  position: absolute;
+  display: none;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbcfe2 #c8cee7 #c4c7d7;
+  border-radius: 3px;
+  background-color: #fdfdfd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.search .results li:first-child { margin-top: -1px }
+
+.search .results li:last-child { margin-bottom: -1px }
+
+.search .results li {
+  display: block;
+  position: relative;
+  margin: 0 -1px;
+  padding: 6px 40px 6px 10px;
+  color: #808394;
+  font-weight: 500;
+  text-shadow: 0 1px #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.search .results li:hover {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  border-color: #2380dd #2179d5 #1a60aa;
+  background-color: #338cdf;
+  background-image: linear-gradient(top, #59aaf4, #338cdf);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.search button[type="submit"] {
+  cursor: pointer;
+  width: calc(40% - 22px);
+  background: #cc2727;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 2px;
+  margin-top: 1%;
+  text-transform: uppercase;
+}
+
+.search .block {
+  display: block;
+}
 
 /* -----------------------------------------------
   Footer
@@ -739,111 +822,4 @@ footer {
   body:target .login-connect {
     transform: translateX(50vw);
   }
-}
-
-
-/*.search {
-    position: relative;
-}*/
-
-.search input {
-    height: 26px;
-    width: 100%;
-    padding: 0 12px 0 25px;
-    background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 8px 6px no-repeat;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #a8acbc #babdcc #c0c3d2;
-    border-radius: 13px;
-    box-sizing: border-box;
-    box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
-}
-
-.search input:focus {
-    outline: none;
-    border-color: #66b1ee;
-    box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
-}
-
-.search input:focus + .results { display: block }
-
-.search .results {
-    display: none;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    padding: 0;
-    margin: 0;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #cbcfe2 #c8cee7 #c4c7d7;
-    border-radius: 3px;
-    background-color: #fdfdfd;
-    background-image: linear-gradient(top, #fdfdfd, #eceef4);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.search .results li { display: block }
-
-.search .results li:first-child { margin-top: -1px }
-
-.search .results li:first-child:before, .search .results li:first-child:after {
-    display: block;
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    left: 50%;
-    margin-left: -5px;
-    border: 5px outset transparent;
-}
-
-.search .results li:first-child:before {
-    border-bottom: 5px solid #c4c7d7;
-    top: -11px;
-}
-
-.search .results li:first-child:after {
-    border-bottom: 5px solid #fdfdfd;
-    top: -10px;
-}
-
-.search .results li:first-child:hover:before, .search .results li:first-child:hover:after { display: none }
-
-.search .results li:last-child { margin-bottom: -1px }
-
-.search .results label {
-    display: block;
-    position: relative;
-    margin: 0 -1px;
-    padding: 6px 40px 6px 10px;
-    color: #808394;
-    font-weight: 500;
-    text-shadow: 0 1px #fff;
-    border: 1px solid transparent;
-    border-radius: 3px;
-}
-
-.search .results label:before {
-    content: '';
-    width: 18px;
-    height: 18px;
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -9px;
-}
-
-.search .results label:hover {
-    text-decoration: none;
-    color: #fff;
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
-    border-color: #2380dd #2179d5 #1a60aa;
-    background-color: #338cdf;
-    background-image: linear-gradient(top, #59aaf4, #338cdf);
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
-}
-
-.search .block {
-  display: block;
 }
