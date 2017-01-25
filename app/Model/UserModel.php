@@ -36,6 +36,8 @@ class UserModel
 
           $data = array(
             "success" => true,
+            "use_email" => $email,
+            "use_password" => $passwordHash,
           );
           return $data;
 
