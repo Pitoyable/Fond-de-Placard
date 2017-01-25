@@ -20,7 +20,7 @@ class UserController extends Controller
     $data = $authentification -> signUp($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password_check'], $route);
 
     //si l'inscription est ok on connect l'utilisateur
-    if ($data == true){
+    if ($data === true){
       $data = $authentification -> login($_POST['email'], $_POST['password'], $route);
     }
     $controller = new UserController();
@@ -34,9 +34,6 @@ class UserController extends Controller
 
     $authentification = new UserModel();
     $data = $authentification -> login($_POST['email'], $_POST['password'], $route);
-
-
-
 
     $controller = new UserController();
     //On revoie les données obtenue
@@ -61,10 +58,13 @@ class UserController extends Controller
 
   public function update(){
     //methode pour modifier le compte
-    var_dump($_SESSION);
-    $authentification = new UserModel();
-    $test = $authentification -> update($_POST, $_SESSION['user']['id']);
 
+    $authentification = new UserModel();
+    $data = $authentification -> update($_POST, $_SESSION['user']['id']);
+
+    $controller = new UserController();
+    //On revoie les données obtenue
+    $controller -> showJson($data);
   }
 
   public function acess(){

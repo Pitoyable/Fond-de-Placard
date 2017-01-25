@@ -37,6 +37,9 @@
 
       <button type="submit" name="update_user_submit">Valider</button>
     </form>
+    <div id="erreurMonCompte">
+
+    </div>
   </div> <!-- fin information -->
 
   <div id="receipe" class="tabs">
