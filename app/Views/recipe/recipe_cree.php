@@ -12,7 +12,7 @@
       <ul class="auto_complete results">
       </ul>
 
-      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter</i></button>
+      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i> <span> Ajouter</span></i></button>
     </form>
   </div>
   <!-- Fin de partie en autoComple -->

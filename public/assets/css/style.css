@@ -519,11 +519,23 @@ body:target .nav-button-close {
   text-align: justify;
 }
 
+.contact_address a {
+  text-decoration: none;
+  color: black;
+}
+
 /* -----------------------------------------------
   J'ai faim / recipe_display
 ----------------------------------------------- */
 .search_recipe {
   margin-top: 3%;
+}
+
+.search_recipe p:first-of-type {
+  text-align: justify;
+  width: 70%;
+  margin: auto;
+  margin-bottom: 3%;
 }
 
 .search {
@@ -619,6 +631,7 @@ body:target .nav-button-close {
 .paniertest {
   margin: auto;
   margin-top: 3%;
+  height: auto;
 }
 
 .panier-header {
@@ -643,8 +656,6 @@ body:target .nav-button-close {
 }
 
 .submitPanier {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -734,6 +745,10 @@ footer {
   .connected {
     font-size: 0.8em;
   }
+
+  .search_bar {
+    width: 80%;
+  }
 }
 
 @media (max-width: 987px) {
@@ -768,6 +783,12 @@ footer {
   }
 }
 
+@media (max-width: 910px) {
+  .search button[type="submit"] span{
+    display: none;
+  }
+}
+
 @media (max-width: 780px) {
   .logo {
     height: 10em;
@@ -780,6 +801,11 @@ footer {
   .login-connect {
     justify-content: flex-end;
     font-size: 1.2em;
+  }
+
+  .liste_ing_select p {
+    width: 100%;
+    display: block;
   }
 }
 
@@ -894,5 +920,9 @@ footer {
 
   body:target .login-connect {
     transform: translateX(50vw);
+  }
+
+  .theme label {
+    font-size: 0.8em;
   }
 }
