@@ -9,10 +9,8 @@ $(function () {
 
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
-
     //On appel une function pour formater les datas en JSON
     var formatData = formatDatasJson(datas);
-
     signUp(formatData);
   });
 
@@ -39,8 +37,7 @@ var signUp = function(credentials){
     data : credentials,
     success : function(response){
       if (response.success){
-        console.log('good');
-
+        window.location.assign("http://fond-de-placard.local/recette_afficher");
       } else{
         $('#error').append(
           '<p>'+response.error+'</p>');
