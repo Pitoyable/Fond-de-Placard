@@ -135,6 +135,10 @@ var selectIng = function(credentials) {
                   + '<i class="fa fa-times" aria-hidden="true"></i>'
                   + '</p>');
               //}
+                // Suppression des ingrédients
+                $(".fa-times").click(function() {
+                  $(this).parent().remove();
+                })
             }
           }
         //Ajout d'une function si la requete echoue

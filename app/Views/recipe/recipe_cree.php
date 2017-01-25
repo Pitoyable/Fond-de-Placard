@@ -31,22 +31,25 @@
       </p>
     </div>
 
-    <p>
-      <label for="nom">Titre de la recette : </label>
-      <input type="text" name="nom" value="">
-    </p>
+    <div class="writerecipe">
+      <h3>La recette du chef !</h3>
+      <p>
+        <label for="nom">Titre de la recette : </label>
+        <input type="text" name="nom" value="">
+      </p>
 
-    <p>
-      <label for="type">Type de la recette : </label>
-      <select name="type">
-        <option value="entree">Entrée</option>
-        <option value="plat">Plat</option>
-        <option value="dessert">Dessert</option>
-      </select>
-    </p>
+      <p>
+        <label for="type">Type de la recette : </label>
+        <select name="type">
+          <option value="entree">Entrée</option>
+          <option value="plat">Plat</option>
+          <option value="dessert">Dessert</option>
+        </select>
+      </p>
 
-    <textarea name="recipe_content" rows="8" cols="80"></textarea>
-    <input type="submit" name="add_recipe" class="submitPanier submitcreate" value="Envoyer">
+      <textarea name="recipe_content" rows="8" cols="80"></textarea>
+      <input type="submit" name="add_recipe" class="submitPanier submitcreate" value="Envoyer">
+    </div>
 
   </form>
   <!-- Fin de partie de création de recette -->

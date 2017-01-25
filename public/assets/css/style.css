@@ -648,6 +648,14 @@ body:target .nav-button-close {
   width: 100%;
 }
 
+.fa-times {
+  color: rgb(245, 37, 16);
+  cursor: pointer;
+}
+.fa-times:hover {
+  transform: scale(1.2, 1.2);
+}
+
 /* -----------------------------------------------
   Création de recette
 ----------------------------------------------- */
@@ -655,7 +663,7 @@ body:target .nav-button-close {
   text-align: center;
 }
 
-.liste_ing_select{
+.creation .liste_ing_select{
   text-align: left;
   width: 50%;
   margin: auto;
@@ -676,6 +684,11 @@ body:target .nav-button-close {
   margin-top: 1%;
   width: 50%;
   position: relative;
+}
+
+.writerecipe {
+  border-top: 1px dashed black;
+  margin-top: 3%;
 }
 /* -----------------------------------------------
   Footer
@@ -708,6 +721,12 @@ footer {
 
   .card {
     height: 230px;
+  }
+}
+
+@media (max-width: 1070px) {
+  .search button[type="submit"] {
+    font-size: 0.7em;
   }
 }
 
