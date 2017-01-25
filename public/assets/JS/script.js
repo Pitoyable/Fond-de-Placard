@@ -132,6 +132,7 @@ var selectIng = function(credentials) {
                   + '<input type="hidden" name="mp_ing[]" value= "'
                   + ingredient[i]['id']
                   + '" >'
+                  + '<i class="fa fa-times" aria-hidden="true"></i>'
                   + '</p>');
               //}
             }
@@ -152,7 +153,10 @@ var recipeFind = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxFindRecipe',
     data : credentials,
     success : function(response) {
-      console.log('bisous');
+      var list = response.list;
+      var listTest = response.listTest;
+      console.log(list);
+      console.log(listTest);
     }
   });
 }
