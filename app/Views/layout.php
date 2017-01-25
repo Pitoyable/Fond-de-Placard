@@ -56,6 +56,9 @@
 					<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
 					<?php if(!empty($_SESSION)) { ?>
 						<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
+						<?php if($_SESSION['user']['group_id'] === 1) { ?>
+							<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+						<?php } ?>
 					<?php } ?>
 				</nav>
 
@@ -68,13 +71,7 @@
 						<!-- A afficher uniquement si logué -->
 						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
 						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-
-						<!-- Si l'utilisateur est un admin -->
-						<?php if($_SESSION['user']['group_id'] == 1){ ?>
-							 <a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
-
-						<?php }
-					 } ?>
+						<?php } ?>
 
 				</div>
 			</header>

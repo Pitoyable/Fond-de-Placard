@@ -4,7 +4,7 @@
 <div class="container">
   <h1>J'ai faim</h1>
   <div class="search_recipe">
-    <p><em>Trouver une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
+    <p><em>Trouvez une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
 
     <form class="search_bar search" action="" method="post">
       <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">

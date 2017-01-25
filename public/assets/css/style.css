@@ -749,6 +749,10 @@ footer {
   .search_bar {
     width: 80%;
   }
+
+  .search_recipe p:first-of-type {
+    width: 80%;
+  }
 }
 
 @media (max-width: 987px) {
