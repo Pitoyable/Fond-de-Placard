@@ -7,12 +7,12 @@
   <div class="search_recipe">
 
     <form class="search_bar search" action="" method="post">
-      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex: ananas, asperge, banane...">
+      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
 
       <ul class="auto_complete results">
       </ul>
 
-      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</i></button>
+      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter</i></button>
     </form>
 
   </div>
@@ -55,7 +55,5 @@
       <!-- Ici se trouvera la liste des desserts -->
     </div>
   </div>
-
-
 </div> <!-- fin container -->
 <?php $this->stop('main_content') ?>
