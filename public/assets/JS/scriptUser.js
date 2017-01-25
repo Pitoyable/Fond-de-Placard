@@ -11,6 +11,7 @@ $(function () {
     var datas = $(this).serializeArray();
     //On appel une function pour formater les datas en JSON
     var formatData = formatDatasJson(datas);
+    
     signUp(formatData);
   });
 
@@ -37,8 +38,10 @@ var signUp = function(credentials){
     data : credentials,
     success : function(response){
       if (response.success){
+        //redirection sur la page j'ai faim
         window.location.assign("http://fond-de-placard.local/recette_afficher");
       } else{
+        //message d'erreur
         $('#error').append(
           '<p>'+response.error+'</p>');
         }
@@ -49,6 +52,7 @@ var signUp = function(credentials){
   var login = function(credentials){
     $.ajax({
       method : "POST",
+      //redirection sur la page j'ai faim
       url : 'http://fond-de-placard.local/utilisateur_connexion',
       data : credentials,
       success : function(response){
@@ -56,6 +60,7 @@ var signUp = function(credentials){
           window.location.assign("http://fond-de-placard.local/recette_afficher");
 
         } else{
+          //message d'erreur
           $('#error').append(
             '<p>'+response.error+'</p>');
           }

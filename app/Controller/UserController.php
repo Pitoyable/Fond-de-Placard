@@ -19,6 +19,7 @@ class UserController extends Controller
     $authentification = new UserModel();
     $data = $authentification -> signUp($_POST['pseudo'], $_POST['email'], $_POST['password'], $_POST['password_check'], $route);
 
+    //si l'inscription est ok on connect l'utilisateur
     if ($data == true){
       $data = $authentification -> login($_POST['email'], $_POST['password'], $route);
     }
