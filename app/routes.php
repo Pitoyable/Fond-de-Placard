@@ -60,7 +60,7 @@
 			// montrer
 		['GET|POST', '/recette_afficher', 'Recipe#display', 'Recipe_display'],
 			//mise à jour
-		['GET|POST', '/recette_mise_a_jour', 'Recipe#update', 'Recipe_update'],
+		['GET|POST', '/recette_show', 'Recipe#showRecipe', 'Recipe_show'],
 			// crée
 		['GET|POST', '/recette_cree', 'Recipe#written', 'Recipe_written'],
 			// crée test de theo

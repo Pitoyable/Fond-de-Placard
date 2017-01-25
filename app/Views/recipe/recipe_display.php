@@ -45,15 +45,21 @@
   <div class="content_recipe">
     <div class="starter">
       <h3>Les Entrées</h3>
-      <!-- Ici se trouvera la liste des entrées -->
+      <form class="form_starter" action="<?= $this -> url('Recipe_show') ?>" method="post">
+
+      </form>
     </div>
     <div class="main_dish">
       <h3>Les Plats</h3>
-      <!-- Ici se trouvera la liste des plats -->
+      <form class="form_main_dish" action="<?= $this -> url('Recipe_show') ?>" method="post">
+
+      </form>
     </div>
     <div class="dessert">
       <h3>Les Desserts</h3>
-      <!-- Ici se trouvera la liste des desserts -->
+      <form class="form_dessert" action="<?= $this -> url('Recipe_show') ?>" method="post">
+
+      </form>
     </div>
   </div>
 </div> <!-- fin container -->

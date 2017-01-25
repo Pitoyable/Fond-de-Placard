@@ -212,30 +212,52 @@ class RecipeModel extends \W\Model\Model
     $model = new RecipeModel();
     $model -> setTable('link_ing_rec');
 
-    $array = array();
-    $arrayPost = $_POST['mp_ing'];
+    //Preparation d'une tableau pour recuperé le resultat de la requete
+    $arrayTemp = array();
 
-    for ($i=0; $i < count($_POST['mp_ing']) ; $i++) {
+    //Requete SQL Sans aucune protection
+    $sql = "SELECT recipe_id AS id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][0];
 
-      $sql = "SELECT * FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i];
-
-      $sth = $this->dbh->prepare($sql);
-      // var_dump($sql);
-  		$sth->execute();
-  		$arrayFind = $sth->fetchAll();
-
-      array_push($array, $arrayFind);
+    //Condition en function du nombre d'ingredients dans le panier
+    if (count($_POST['mp_ing']) > 1) {
+      for ($i=1; $i < count($_POST['mp_ing']) ; $i++) {
+        //Concatenation de la requete SQL
+        $sql .= " AND recipe_id IN (  SELECT link_ing_rec.recipe_id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i]  . ")";
+      }
     }
 
+    $sth = $this->dbh->prepare($sql);
+		$sth->execute();
+		$findRecipe = $sth->fetchAll();
+
+    //Changemetn de la table
+    $model -> setTable('recipe');
+
+    //Boucle Pour recuperé l'integralité du contenue des recipes
+    for ($i=0; $i < count($findRecipe) ; $i++) {
+     array_push($arrayTemp ,$model -> search($findRecipe[$i]));
+    }
+
+    //Carotte NINJA pour retiré une dimension d'un tableau
+    foreach($arrayTemp as $tab1 => $val){
+      foreach($val as $tab2 => $val2) {
+        foreach($val2 as $tab3 => $val3) {
+          $recipeHtml2[$tab1][$tab3]=$val3;
+        }
+      }
+    }
 
     return $data = array(
       "success" => true,
-      "list" => $arrayPost,
-      "listTest" => $array
+      "list" => $recipeHtml2
     );
 
   }
 
+  //Method pour afficher les recettes sur la page
+  public function showRecipe() {
+    var_dump($_POST);
+  }
 
 
 }

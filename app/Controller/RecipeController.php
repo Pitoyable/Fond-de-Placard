@@ -45,7 +45,6 @@ class RecipeController extends Controller
 
   public function addWritten() {
 
-
     $model = new RecipeModel();
     $model -> addRecipe();
 
@@ -96,4 +95,14 @@ class RecipeController extends Controller
     //On revoie les données obtenue
     $controller -> showJson($data);
   }
+
+  public function showRecipe() {
+
+    $model = new RecipeModel();
+    $model -> showRecipe();
+
+    $this->show('recipe/recipe_show');
+
+  }
+
 }

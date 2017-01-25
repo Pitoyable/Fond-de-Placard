@@ -157,10 +157,67 @@ var recipeFind = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxFindRecipe',
     data : credentials,
     success : function(response) {
-      var list = response.list;
-      var listTest = response.listTest;
-      console.log(list);
-      console.log(listTest);
+
+      if (response.success) {
+
+        var list = response.list;
+
+        for (var i = 0; i < list.length; i++) {
+
+          if (list[i]['rec_type'] === "entree") {
+
+            $('.form_starter').append(
+              "<p>"
+              + "<label for='"
+              + list[i]['rec_name']
+              + "'>"
+              + list[i]['rec_name']
+              + "</label>"
+              + "<input type='hidden' name='RecipeId' value='"
+              + list[i]['id']
+              + "'>"
+              + "<input type='submit' name='"
+              + list[i]['rec_name']
+              + "' value ='Voir La Recette'>"
+              + "</p>"
+            );
+          } else if (list[i]['rec_type'] === "plat") {
+
+            $('.form_main_dish').append(
+              "<p>"
+              + "<label for='"
+              + list[i]['rec_name']
+              + "'>"
+              + list[i]['rec_name']
+              + "</label>"
+              + "<input type='hidden' name='RecipeId' value='"
+              + list[i]['id']
+              + "'>"
+              + "<input type='submit' name='"
+              + list[i]['rec_name']
+              + "' value ='Voir La Recette'>"
+              + "</p>"
+            );
+          } else if (list[i]['rec_type'] === "dessert") {
+
+            $('.form_dessert').append(
+              "<p>"
+              + "<label for='"
+              + list[i]['rec_name']
+              + "'>"
+              + list[i]['rec_name']
+              + "</label>"
+              + "<input type='hidden' name='RecipeId' value='"
+              + list[i]['id']
+              + "'>"
+              + "<input type='submit' name='"
+              + list[i]['rec_name']
+              + "' value ='Voir La Recette'>"
+              + "</p>"
+            );
+          }
+        }
+      }
     }
   });
 }
