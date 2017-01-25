@@ -83,4 +83,6 @@
 		['GET|POST', '/recipe_ajaxFind', 'Recipe#findIngredient', 'Recipe_findIngredient'],
 			//autocomplementation
 		['GET|POST', '/recipe_ajaxComplete', 'Recipe#autoComplete', 'Recipe_autocomplete'],
+			//Recherche de recette
+		['GET|POST', '/recipe_ajaxFindRecipe', 'Recipe#findRecipe', 'Recipe_findRecipe'],
 	);

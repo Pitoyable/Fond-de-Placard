@@ -207,28 +207,21 @@ class RecipeModel extends \W\Model\Model
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
-  public function findRecipe() {
+  public function findRecipe($argument) {
 
-    //Recuperation des ingredients du panier
+    $model = new RecipeModel();
+    $model -> setTable('link_ing_rec');
 
-    //Trouver les recettes en fonction des ingredients
 
-    //Stockage dans un tableau des resultats
-
-      //Si la recette return est une entré, stockage dans un tableau entrée
-
-        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
-
-      //Si la recette return est une plat, stockage dans un tableau plat
-
-        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
-
-      //Si la recette return est une dessert, stockage dans un tableau dessert
-
-        //Envoie ensuite dans une requete AJAX pour l'afficher sur la page?
-
-    //Envoyer la liste des recettes vers un function de tri?
-
+    // if ($listRecIng) {
+    //
+    //   //On return les datas obtenue
+    //   return $data = array(
+    //     "success" => true,
+    //     "listRecIng" => $listRecIng
+    //   );
+    //
+    // }
   }
 
 

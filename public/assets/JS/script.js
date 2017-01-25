@@ -1,64 +1,57 @@
 $(function () {
 
+
   //Preparation pour l'auto complementation
   $('.input_search').on('keyup submit',function() {
 
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
-
     //On appel une function pour formater les datas en JSON
     var formatData = formatDatasJson(datas);
-
     //On appel la function AJAX pour recuperé les resultat
     autoComple(formatData);
 
+    //Vider la liste du panier si aucun element n'est present dans l'input
+    if ($('.input_search').val() === "") {
+      $('.auto_complete').children().remove();
+      $('.auto_complete').removeClass('block');
+    }
   });
 
   //Preparation des données recuperé du formulaire
   $('.search_bar').on('submit', function (e) {
 
-    //Retrait du comportement par defaul du formulaire
     e.preventDefault();
-
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
-
     //On appel une function pour formater les datas en JSON
     var formatData = formatDatasJson(datas);
-
     //On appel la method AJAX pour ajouter un ingredient trouver au panier
     selectIng(formatData);
-
     //Remplacement de la valeur de l'input
     $('.input_search').val("");
-
     //Suppression de la liste existante ainsi que suppresion de la classe block
-    $('.auto_complete').children().remove().removeClass('block');
+    $('.auto_complete').children().remove();
+    $('.auto_complete').removeClass('block');
+  });
 
+  //Function AJAX pour chercher les recette par ingredient
+  $('.panier').on('submit', function(e) {
+
+    e.preventDefault();
+    //On stock les données du formulaire dans une variable
+    var datas = $(this).serializeArray();
+    //Ajouter la function qui gere l'AJAX
+    recipeFind(datas);
   });
 
   //Recuperation du button pour vider le panier
   $('.delete_panier').on('click', function(e) {
-
     e.preventDefault();
     //Delete des freres, soit les ingredients ajouter en Ajax dans le panier
-    $(this).siblings().remove();
-
+    $('.liste_ing_select').children().remove();
   });
 
-  $('.panier').on('submit', function(e) {
-
-    //Retrait du comportement par defaul du formulaire
-    e.preventDefault();
-
-    //On stock les données du formulaire dans une variable
-    var datas = $(this).serializeArray();
-
-    //On appel une function pour formater les datas en JSON
-    var formatData = formatDatasJson(datas);
-
-    //Ajouter la function qui gere l'AJAX
-  });
 });
 
 //Function Ajax pour l'autocomplementation
@@ -151,18 +144,17 @@ var selectIng = function(credentials) {
 }
 
 //Requete pour trouver les recipe
-// var recipeFind = function(credentials) {
-//
-//   $.ajax({
-//     method : 'POST',
-//     url : '',
-//     data : credentials,
-//     success : function(response) {
-//
-//     }
-//
-//   });
-// }
+var recipeFind = function(credentials) {
+
+  $.ajax({
+    method : 'POST',
+    url : 'http://fond-de-placard.local/recipe_ajaxFindRecipe',
+    data : credentials,
+    success : function(response) {
+      console.log('bisous');
+    }
+  });
+}
 
 //Création de la function pour formater les data en JSON
 var formatDatasJson = function(datas) {

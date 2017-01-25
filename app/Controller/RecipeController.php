@@ -20,7 +20,7 @@ class RecipeController extends Controller
 
 
     $model = new RecipeModel();
-    
+
     //On recupere et on traite les different themes
     $model -> setTable('theme');
     $allTheme = $model -> findAll();
@@ -86,4 +86,14 @@ class RecipeController extends Controller
     }
   }
 
+  //Controller pour trovuer une recette dans j'ai faim
+  public function findRecipe() {
+
+    $controller = new RecipeController();
+    $model = new RecipeModel();
+    // $data = $model -> findRecipe($_POST);
+    //
+    // //On revoie les données obtenue
+    // $controller -> showJson($data);
+  }
 }
