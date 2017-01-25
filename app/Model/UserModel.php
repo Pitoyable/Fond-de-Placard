@@ -56,7 +56,7 @@ class UserModel
     }
   }
 
-  public function login($email, $password){
+  public function login($email, $password, $route){
     //methode pour se connecté
     //verifier que l'email et password existe en bdd et sont liée
     $authentification = new AuthentificationModel();
@@ -74,10 +74,10 @@ class UserModel
       $emailValide = $model -> getUserByUsernameOrEmail($email);
       //on met les information en session
       $authentification ->logUserIn($emailValide);
-      var_dump($_SESSION);
+
       $data = array(
         "success" => true,
-        "info" => $_SESSION
+
       );
       return $data;
 

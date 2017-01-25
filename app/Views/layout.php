@@ -47,7 +47,6 @@
 					<?php } ?>
 				</nav>
 			</aside>
-			<?= var_dump($_SESSION);?>
 			<header class="header-nav">
 				<nav class="desktop-nav">
 					<a href="<?= $this -> url ('default_home') ?>">Accueil</a>

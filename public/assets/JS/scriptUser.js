@@ -30,20 +30,20 @@ $(function () {
 
     login(formatData);
   });
+});
 
+var signUp = function(credentials){
+  $.ajax({
+    method : "POST",
+    url : 'http://fond-de-placard.local/utilisateur_inscription',
+    data : credentials,
+    success : function(response){
+      if (response.success){
+        console.log('good');
 
-
-  var signUp = function(credentials){
-    $.ajax({
-      method : "POST",
-      url : 'http://fond-de-placard.local/utilisateur_inscription',
-      data : credentials,
-      success : function(response){
-        if (response.success){
-          console.log('good');
-        } else{
-          $('#error').append(
-            '<p>'+response.error+'</p>');
+      } else{
+        $('#error').append(
+          '<p>'+response.error+'</p>');
         }
       }
     });
@@ -56,12 +56,12 @@ $(function () {
       data : credentials,
       success : function(response){
         if (response.success){
-          console.log('good');
+          window.location.assign("http://fond-de-placard.local/recette_afficher");
+
         } else{
           $('#error').append(
             '<p>'+response.error+'</p>');
+          }
         }
-      }
     });
   };
-});

@@ -8,6 +8,7 @@ use \Model\UserModel;
 use \W\Security\AuthentificationModel;
 use W\View\Plates\PlatesExtensions;
 
+
 class UserController extends Controller
 {
   public function signUp(){
@@ -24,8 +25,14 @@ class UserController extends Controller
   }
   public function login(){
     //methode pour se connecté
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('default_home');
+
     $authentification = new UserModel();
-    $data = $authentification -> login($_POST['email'], $_POST['password']);
+    $data = $authentification -> login($_POST['email'], $_POST['password'], $route);
+
+
+
 
     $controller = new UserController();
     //On revoie les données obtenue
