@@ -207,23 +207,34 @@ class RecipeModel extends \W\Model\Model
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
-  public function findRecipe($argument) {
+  public function findRecipe() {
 
     $model = new RecipeModel();
     $model -> setTable('link_ing_rec');
 
+    $array = array();
+    $arrayPost = $_POST['mp_ing'];
 
-    // if ($listRecIng) {
-    //
-    //   //On return les datas obtenue
-    //   return $data = array(
-    //     "success" => true,
-    //     "listRecIng" => $listRecIng
-    //   );
-    //
-    // }
+    for ($i=0; $i < count($_POST['mp_ing']) ; $i++) {
+
+      $sql = "SELECT * FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i];
+
+      $sth = $this->dbh->prepare($sql);
+      // var_dump($sql);
+  		$sth->execute();
+  		$arrayFind = $sth->fetchAll();
+
+      array_push($array, $arrayFind);
+    }
+
+
+    return $data = array(
+      "success" => true,
+      "list" => $arrayPost,
+      "listTest" => $array
+    );
+
   }
-
 
 
 
