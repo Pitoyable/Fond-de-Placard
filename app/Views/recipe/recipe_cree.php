@@ -2,59 +2,54 @@
 
 <?php $this->start('main_content') ?>
 
-
+<div class="container">
+<h2>Ajouter une recette</h2>
 <!-- Partie ingredients en autoComple -->
-<div class="search_recipe">
+  <div class="search_recipe">
+    <form class="search_bar search" action="" method="post">
+      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
 
-  <form class="search_bar" action="" method="post">
-
-    <p>
-      <label for="">Ingredient : </label>
-      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ingredient">
-      <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-    </p>
-
-    <div>
-      <ul class="auto_complete">
-
+      <ul class="auto_complete results">
       </ul>
+
+      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i> Ajouter</i></button>
+    </form>
+  </div>
+  <!-- Fin de partie en autoComple -->
+
+  <!-- Debut de partie de la création de recette -->
+  <form action="<?= $this->url('Recipe_addWritten') ?>" method="post" class="creation">
+    <h3>Ingrédients :</h3>
+    <div class="liste_ing_select">
     </div>
 
+    <div class="theme">
+      <h3>Thèmes :</h3>
+      <p>
+        <label for="none">Aucun<input type="checkbox" name="mp_checked[]" value="none"></label>
+        <?= $themes ?>
+      </p>
+    </div>
+
+    <p>
+      <label for="nom">Titre de la recette : </label>
+      <input type="text" name="nom" value="">
+    </p>
+
+    <p>
+      <label for="type">Type de la recette : </label>
+      <select name="type">
+        <option value="entree">Entrée</option>
+        <option value="plat">Plat</option>
+        <option value="dessert">Dessert</option>
+      </select>
+    </p>
+
+    <textarea name="recipe_content" rows="8" cols="80"></textarea>
+    <input type="submit" name="add_recipe" class="submitPanier submitcreate" value="Envoyer">
+
   </form>
+  <!-- Fin de partie de création de recette -->
 </div>
-
-<!-- Fin de partie en autoComple -->
-
-<!-- Debut de partie de la création de recette -->
-<form action="<?= $this->url('Recipe_addWritten') ?>" method="post">
-
-  <div class="liste_ing_select">
-
-  </div>
-
-  <p>Thème :
-    <label for="none">Aucun<input type="checkbox" name="mp_checked[]" value="none"></label>
-    <?= $themes ?>
-  </p>
-
-  <p>
-    <label for="nom">Titre de la recette : </label>
-    <input type="text" name="nom" value="">
-  </p>
-
-  <p>
-    <label for="type">Type de la recette : </label>
-    <select name="type">
-      <option value="entree">Entrée</option>
-      <option value="plat">Plat</option>
-      <option value="dessert">Dessert</option>
-    </select>
-  </p>
-
-  <textarea name="recipe_content" rows="8" cols="80"></textarea>
-  <input type="submit" name="add_recipe" value="Envoyer">
-
-</form>
-<!-- Fin de partie de création de recette -->
 
 <?php $this->stop('main_content') ?>

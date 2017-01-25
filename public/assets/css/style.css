@@ -647,6 +647,36 @@ body:target .nav-button-close {
   bottom: 0;
   width: 100%;
 }
+
+/* -----------------------------------------------
+  Création de recette
+----------------------------------------------- */
+.creation {
+  text-align: center;
+}
+
+.liste_ing_select{
+  text-align: left;
+  width: 50%;
+  margin: auto;
+}
+
+.liste_ing_select p{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+}
+
+.theme p {
+  display: flex;
+  justify-content: space-around;
+}
+
+.submitcreate {
+  margin-top: 1%;
+  width: 50%;
+  position: relative;
+}
 /* -----------------------------------------------
   Footer
 ----------------------------------------------- */

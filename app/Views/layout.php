@@ -119,7 +119,7 @@
 				 	<!--div pour placer les erreur retourné en ajax  -->
 				 </div>
 			</div> <!-- Fin de l'overlay -->
-			
+
 			<div class="main">
 				<header class="header-main">
 					<!-- A masquer en desktop -->
@@ -137,9 +137,7 @@
 
 			</div>
 
-			<footer>
-				Copyright (c) 2017 Copyright Holder All Rights Reserved.
-			</footer>
+			<footer>Copyright (c) 2017 Copyright Holder All Rights Reserved.</footer>
 		</div>
 	</body>
 </html>
