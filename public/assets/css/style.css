@@ -22,7 +22,6 @@ body {
 /* -----------------------------------------------
   Wrapper
 ----------------------------------------------- */
-
 .wrapper {
   min-height: 100%;
   position: relative;
@@ -31,7 +30,6 @@ body {
 /* -----------------------------------------------
   Header
 ----------------------------------------------- */
-
 .header-nav {
   display: flex;
   justify-content: center;
@@ -102,7 +100,6 @@ body {
 /* -----------------------------------------------
   Overlay
 ----------------------------------------------- */
-
 .overlay {
   position: fixed;
   top: 0;
@@ -136,6 +133,7 @@ body {
   border-radius: 15px;
   box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
 }
+
 .lb-header{
   position:relative;
   color: #00415d;
@@ -145,6 +143,7 @@ body {
   text-align:center;
   height:28px;
 }
+
 .lb-header a{
   margin: 0 25px;
   padding: 0 20px;
@@ -154,6 +153,7 @@ body {
   font-size: 1.5em;
   transition: all 0.1s linear;
 }
+
 .lb-header .active{
   color: #cc2727;
   font-size: 1.5em;
@@ -166,10 +166,12 @@ body {
   height:auto;
   text-align:center;
 }
+
 .u-form-group{
   width:100%;
   margin-bottom: 10px;
 }
+
 .u-form-group input[type="email"],
 .u-form-group input[type="text"],
 .u-form-group input[type="password"]
@@ -184,9 +186,11 @@ body {
   font-size:0.8rem;
   transition:all 0.1s linear;
 }
+
 .u-form-group input:focus{
   border-color: #358efb;
 }
+
 .u-form-group button{
   width: calc(70% - 22px);
   background: #cc2727;
@@ -203,7 +207,6 @@ body {
 /* -----------------------------------------------
   Main
 ----------------------------------------------- */
-
 .header-main {
   text-align: center;
   padding: 3%;
@@ -221,7 +224,6 @@ body {
 /* -----------------------------------------------
   Container de chaques pages/nav tab
 ----------------------------------------------- */
-
 .container {
   width: 100%;
   margin: auto;
@@ -282,14 +284,12 @@ body {
   font-size: 1.6em;
 }
 
-
 .block {
   display: block;
 }
 /* -----------------------------------------------
   Form
 ----------------------------------------------- */
-
 .form {
   font-size: 1.3em;
 }
@@ -332,7 +332,6 @@ body {
 /* -----------------------------------------------
   Nav et animation nav-mobile
 ----------------------------------------------- */
-
 .sidebar {
   position: absolute;
   top: 0;
@@ -354,7 +353,6 @@ body {
   will-change: transform;
 }
 
-/* Button deco */
 [class^="nav-button"] {
   display: block;
   z-index: 1;
@@ -381,7 +379,6 @@ body {
   background: rgba(255,255,255, 0.1);
 }
 
-/* animation effet */
 body:target .main {
   transform: translateX(25vw);
 }
@@ -406,7 +403,6 @@ body:target .nav-button-close {
 /* -----------------------------------------------
   Home
 ----------------------------------------------- */
-
 .card_container {
   width: 100%;
   display: flex;
@@ -491,7 +487,6 @@ body:target .nav-button-close {
 /* -----------------------------------------------
   Info_display
 ----------------------------------------------- */
-
 .container_contact {
   margin-top: 2%;
   display: flex;
@@ -527,10 +522,8 @@ body:target .nav-button-close {
 /* -----------------------------------------------
   J'ai faim / recipe_display
 ----------------------------------------------- */
-
-.delete_panier {
-  display: inline-block;
-  padding: 3px;
+.search_recipe {
+  margin-top: 3%;
 }
 
 .search {
@@ -605,7 +598,7 @@ body:target .nav-button-close {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
 }
 
-.search button[type="submit"] {
+.search button[type="submit"], .delete_panier, .submitPanier {
   cursor: pointer;
   width: calc(20% - 22px);
   background: #cc2727;
@@ -624,18 +617,39 @@ body:target .nav-button-close {
 }
 
 .paniertest {
-  width: 50%;
   margin: auto;
   margin-top: 3%;
 }
 
-.liste_ing_select p{
+.panier-header {
+  height: auto;
+}
 
+.panier-header h3 {
+  display: inline-block;
+}
+
+.delete_panier {
+  position: absolute;
+  right: 0;
+  height: auto;
+  font-size: 0.7em;
+  padding: 0;
+}
+
+.panier {
+  height: 70%;
+  position: relative;
+}
+
+.submitPanier {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 /* -----------------------------------------------
   Footer
 ----------------------------------------------- */
-
 footer {
   text-align: right;
   background-color: black;
@@ -720,7 +734,6 @@ footer {
   }
 }
 
-
 @media (max-width: 600px) {
   .card_container {
     display: flex;
@@ -742,7 +755,6 @@ footer {
     font-size: 0.8em;
   }
 }
-
 
 @media (min-width: 621px) {
   .nav-button-open, .nav-button-close {
@@ -822,7 +834,7 @@ footer {
     width: 50vw;
     left: -50vw;
   }
-  /* animation effet */
+
   body:target .main {
     transform: translateX(50vw);
   }

@@ -3,7 +3,6 @@
 <?php $this->start('main_content') ?>
 <div class="container">
   <h1>J'ai faim</h1>
-  <p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
   <div class="search_recipe">
 
     <form class="search_bar search" action="" method="post">
@@ -20,26 +19,25 @@
 
   <!-- Section pour le panier -->
 
-  <div class="paniertest">
+  <div class="paniertest login-box">
     <!-- Affichage des ingredients -->
     <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
+    <div class="lb-header panier-header">
+      <h3>Mon panier</h3>
+      <!-- Button pour vider la liste des ingredients du panier -->
+      <button type="button" name="button" class="delete_panier">
+        <p>Vider !</p>
+      </button>
+    </div>
     <form class="panier" action="" method="post">
-
       <!-- Partie pour le panier -->
       <div class="liste_ing_select">
-
-        <!-- Button pour vider la liste des ingredients du panier -->
-        <button type="button" name="button" class="delete_panier">
-          <p>Vider le panier !</p>
-        </button>
-
       </div>
 
       <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
-
     </form>
-
   </div>
+  <p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
   <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
   <div class="content_recipe">
     <div class="starter">

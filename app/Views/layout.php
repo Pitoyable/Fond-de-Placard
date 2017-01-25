@@ -119,6 +119,7 @@
 				 	<!--div pour placer les erreur retourné en ajax  -->
 				 </div>
 			</div> <!-- Fin de l'overlay -->
+			
 			<div class="main">
 				<header class="header-main">
 					<!-- A masquer en desktop -->
