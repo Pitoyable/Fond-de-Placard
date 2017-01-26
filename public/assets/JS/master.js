@@ -43,4 +43,6 @@ $(document).ready(function () {
     $(".nav-a").removeClass("onfocus");
     $('.tabs').removeClass("block");
   }
+
+  $('#paniertest').draggable({ cursor: "move", cursorAt: { top: 100, left: 250 } });
 })

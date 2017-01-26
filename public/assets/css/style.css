@@ -237,8 +237,6 @@ body {
   font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 2em;
-  /*border-top: 1px dashed black;
-  border-bottom: 1px dashed black;*/
   width: 100%;
   margin: auto;
 }
@@ -294,7 +292,6 @@ div.ribbon{
   position: relative;
   text-transform: uppercase;
   background: #d9d9d9;
-  /*background-image: url('../pictures/brickwall.png');*/
   border: 1px solid rgba(0,0,0,.3);
   box-shadow: 0px 1px 3px rgba(0,0,0,.2);
   padding: 10px 15px;
@@ -459,7 +456,6 @@ div.both_ribbon::after{
   outline: 0;
   border: 0;
   cursor: pointer;
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
 }
 
 .mobile-nav a {
@@ -617,6 +613,11 @@ body:target .nav-button-close {
 /* -----------------------------------------------
   J'ai faim / recipe_display
 ----------------------------------------------- */
+.search_panier {
+  display: flex;
+  justify-content: space-around;
+}
+
 .search_recipe {
   margin-top: 3%;
 }
@@ -1036,4 +1037,8 @@ table tr:not(:first-of-type):hover {
   .theme label {
     font-size: 0.8em;
   }
+}
+
+#paniertest {
+  position: absolute;
 }

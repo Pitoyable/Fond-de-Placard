@@ -5,40 +5,43 @@
   <div class="ribbon both_ribbon">
     <h1>J'ai faim</h1>
   </div>
-  <div class="search_recipe">
-    <p><em>Trouvez une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
+  <div class="search_panier">
 
-    <form class="search_bar search" action="" method="post">
-      <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
+    <div class="search_recipe">
+      <p><em>Trouvez une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
 
-      <ul class="auto_complete results">
-      </ul>
+      <form class="search_bar search" action="" method="post">
+        <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
 
-      <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i><span> Ajouter</span></i></button>
-    </form>
+        <ul class="auto_complete results">
+        </ul>
 
-  </div>
+        <button type="submit"><i class="fa fa-plus" aria-hidden="true"></i><span> Ajouter</span></i></button>
+      </form>
 
-
-  <!-- Section pour le panier -->
-
-  <div class="paniertest login-box">
-    <!-- Affichage des ingredients -->
-    <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
-    <div class="lb-header panier-header">
-      <h3>Mon panier</h3>
-      <!-- Button pour vider la liste des ingredients du panier -->
-      <button type="button" name="button" class="delete_panier">
-        <p><i class="fa fa-trash" aria-hidden="true"></i></p>
-      </button>
     </div>
-    <form class="panier" action="" method="post">
-      <!-- Partie pour le panier -->
-      <div class="liste_ing_select">
-      </div>
 
-      <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
-    </form>
+
+    <!-- Section pour le panier -->
+
+    <div class="paniertest login-box" id="paniertest">
+      <!-- Affichage des ingredients -->
+      <!-- Création d'un formulaire en dur pour tester les Methods, remplacer par l'ajax par la suite -->
+      <div class="lb-header panier-header">
+        <h3>Mon panier</h3>
+        <!-- Button pour vider la liste des ingredients du panier -->
+        <button type="button" name="button" class="delete_panier">
+          <p><i class="fa fa-trash" aria-hidden="true"></i></p>
+        </button>
+      </div>
+      <form class="panier" action="" method="post">
+        <!-- Partie pour le panier -->
+        <div class="liste_ing_select">
+        </div>
+
+        <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
+      </form>
+    </div>
   </div>
   <?php if(!empty($_SESSION))  { ?>
     <p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
