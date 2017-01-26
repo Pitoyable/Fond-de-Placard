@@ -2,6 +2,7 @@
 namespace Model;
 
 use \W\Model\Model;
+use \W\Model\ConnectionModel;
 
 class RecipeModel extends \W\Model\Model
 {
@@ -120,13 +121,37 @@ class RecipeModel extends \W\Model\Model
 
   }
 
-  //Ajouter une recette
-  public function addRecipe() {
+  public function recipeNameExists($nameRecipe)
+  {
+
+     $app = getApp();
+     $sql = "SELECT * FROM recipe WHERE rec_name = '" . $nameRecipe . "'";
+     $dbh = ConnectionModel::getDbh();
+     $sth = $dbh->prepare($sql);
+     if($sth->execute()){
+         $foundName = $sth->fetch();
+         if($foundName){
+             return false;
+         }
+     }
+     return true;
+  }
+
+  //Verification des info envoyer au moment d'ajotuer une recette
+  public function checkInfoRec() {
+
+    if (!empty($_POST['mp_ing']) && !empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['recipe_content']) && !empty($_SESSION['user'])) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  //Ajouter de la recette en BDD (table recipe)
+  public function addRecipeBdd() {
 
     $model = new RecipeModel();
-
-    //Verification des different champs et si l'utilisateur est connecter
-    if (!empty($_POST['mp_ing']) && !empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['recipe_content']) && !empty($_SESSION['user'])) {
 
       $array = array(
         "rec_name" => $_POST['nom'],
@@ -136,74 +161,93 @@ class RecipeModel extends \W\Model\Model
 
       //On definie la table à utiliser
       $model -> setTable('recipe');
+      if ($model -> recipeNameExists($_POST['nom'])) {
+        //On insert la recipe in BDD, on recupe son ID
+        $idRecipe = $model -> insert($array, $stripTags = false);
 
-      //On insert la recipe in BDD, on recupe son ID
-      $idRecipe = $model -> insert($array, $stripTags = false);
+        return $idRecipe;
 
-      //Si l'insertion est reussi
-      if ($idRecipe) {
+      } else {
 
+        return false;
+      }
+  }
+
+  //Ajout des ingredients en BDD pour la recipe
+  public function addIngRecipeBdd($idRecipeAdd) {
+
+    $model = new RecipeModel();
+
+    //On definie la table a utiliser
+    $model -> setTable('link_rec_use');
+
+    //On crée un tableau pour remplir la table 'link_rec_use'
+    $array = array(
+      "recipe_id" => $idRecipeAdd,
+      "user_id" => $_SESSION['user']['id']
+    );
+
+    $model -> insertBDD($array);
+
+    //On crée une boucle pour remplir la table 'link_ing_rec'
+    for ($i=0; $i < count($_POST['mp_ing']) ; $i++) {
+
+      //On definie la table a utiliser
+      $model -> setTable('link_ing_rec');
+
+      //On crée le tableau pour insert
+      $array = array(
+        "recipe_id" => $idRecipeAdd,
+        "ingredients_id" => $_POST['mp_ing'][$i]
+      );
+
+      //On lance les differentes insert necessaire
+      $model -> insertBDD($array);
+    }
+
+  }
+
+  //Vérification que des themes selectionner
+  public function checkThemeSelectedRecipe($idRecipeAdd) {
+
+    //On verifie que $_POST['mp_checked'] existe
+    if (isset($_POST['mp_checked'])) {
+
+      //On verifie si aucun theme n'est selectionner
+      if ($_POST['mp_checked'][0] != 'none') {
+
+        $model = new RecipeModel();
         //On definie la table a utiliser
-        $model -> setTable('link_rec_use');
+        $model -> setTable('link_rec_the');
+        //On crée une boucle pour remplir la table 'link_rec_theme'
+        for ($i=0; $i < count($_POST['mp_checked']) ; $i++) {
 
-        //On crée un tableau pour remplir la table 'link_rec_use'
-        $array = array(
-          "recipe_id" => $idRecipe['id'],
-          "user_id" => $_SESSION['user']['id']
-        );
-
-        $model -> insertBDD($array);
-
-        //On crée une boucle pour remplir la table 'link_ing_rec'
-        for ($i=0; $i < count($_POST['mp_ing']) ; $i++) {
-
-          //On definie la table a utiliser
-          $model -> setTable('link_ing_rec');
 
           //On crée le tableau pour insert
           $array = array(
-            "recipe_id" => $idRecipe['id'],
-            "ingredients_id" => $_POST['mp_ing'][$i]
+            "recipe_id" => $idRecipeAdd,
+            "theme_id" => $_POST['mp_checked'][$i]
           );
 
           //On lance les differentes insert necessaire
           $model -> insertBDD($array);
 
         }
-
-        //On verifie que $_POST['mp_checked'] existe
-        if (isset($_POST['mp_checked'])) {
-
-          //On verifie si aucun theme n'est selectionner
-          if ($_POST['mp_checked'][0] == 'none') {
-
-            echo 'aucun theme select';
-
-          //Si un theme est selectionner
-          } else {
-
-            //On definie la table a utiliser
-            $model -> setTable('link_rec_the');
-
-            //On crée une boucle pour remplir la table 'link_rec_theme'
-            for ($i=0; $i < count($_POST['mp_checked']) ; $i++) {
-
-              //On crée le tableau pour insert
-              $array = array(
-                "recipe_id" => $idRecipe['id'],
-                "theme_id" => $_POST['mp_checked'][$i]
-              );
-
-              //On lance les differentes insert necessaire
-              $model -> insertBDD($array);
-
-            }
-          }
-        }
       }
-    } else {
-      echo 'erreur';
     }
+
+  }
+
+  //Ajouter une recette
+  public function addRecipe($idRecipeAdd) {
+
+    $model = new RecipeModel();
+
+    //Ajout de la previalisation de la recette
+    $model -> setTable('recipe');
+    $recipeAdd = $model -> find($idRecipeAdd);
+    return $recipeAdd;
+
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
@@ -256,7 +300,15 @@ class RecipeModel extends \W\Model\Model
 
   //Method pour afficher les recettes sur la page
   public function showRecipe() {
-    var_dump($_POST);
+
+    if (!empty($_POST['RecipeId'])) {
+
+      $model = new RecipeModel();
+      $model -> setTable('recipe');
+      $recipeFind = $model -> find($_POST['RecipeId']);
+      return $recipeFind;
+    }
+
   }
 
 

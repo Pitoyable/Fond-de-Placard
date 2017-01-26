@@ -3,8 +3,9 @@
 <?php $this->start('main_content') ?>
 
 <div class="container">
-<h2>Ajouter une recette</h2>
-<!-- Partie ingredients en autoComple -->
+  <p><a href="<?= $this -> url ('Recipe_display') ?>">Retour à J'ai Faim !</a></p>
+  <h2>Ajouter une recette</h2>
+  <!-- Partie ingredients en autoComple -->
   <div class="search_recipe">
     <form class="search_bar search" action="" method="post">
       <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
@@ -47,7 +48,16 @@
         </select>
       </p>
 
-      <textarea name="recipe_content" rows="8" cols="80"></textarea>
+      <textarea name="recipe_content" rows="8" cols="80">
+        <p>Bonjour</p>
+        <ul>
+          <li>Ingredients</li>
+          <li>Ingredients</li>
+          <li>Ingredients</li>
+          <li>Ingredients</li>
+          <li>Ingredients</li>
+        </ul>
+      </textarea>
       <input type="submit" name="add_recipe" class="submitPanier submitcreate" value="Envoyer">
     </div>
 

@@ -63,7 +63,7 @@
 		['GET|POST', '/recette_show', 'Recipe#showRecipe', 'Recipe_show'],
 			// crée
 		['GET|POST', '/recette_cree', 'Recipe#written', 'Recipe_written'],
-			// crée test de theo
+			// Visualisation de la recette Crée
 		['GET|POST', '/recette_confirme', 'Recipe#addWritten', 'Recipe_addWritten'],
 
 		//theme
