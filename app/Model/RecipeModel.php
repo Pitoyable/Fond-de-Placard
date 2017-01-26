@@ -125,8 +125,8 @@ class RecipeModel extends \W\Model\Model
 
   }
 
-  public function recipeNameExists($nameRecipe)
-  {
+  //Function pour verifier
+  public function recipeNameExists($nameRecipe) {
 
      $app = getApp();
      $sql = "SELECT * FROM recipe WHERE rec_name = '" . $nameRecipe . "'";
