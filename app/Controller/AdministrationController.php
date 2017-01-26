@@ -116,7 +116,7 @@ class AdministrationController extends Controller
       );
       $plate = new PlatesExtensions;
       $route = $plate -> generateUrl('Administration_manageRecipe');
-      
+
       $AdministrationModel -> updateAdmin($info, $id, $table, $route);
     }else {
         $arrayRecipe = array (
@@ -153,8 +153,11 @@ class AdministrationController extends Controller
       "rec_valide" => 1,
     );
 
+    $plate = new PlatesExtensions;
+    $route = $plate -> generateUrl('Administration_manageRecipe');
+    
     $model = new AdministrationModel ();
-    $model -> updateAdmin($info, $id, $table);
+    $model -> updateAdmin($info, $id, $table, $route);
   }
 
   public function manageTheme(){
