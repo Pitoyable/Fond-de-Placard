@@ -121,8 +121,7 @@ var selectIng = function(credentials) {
             if (ingredient[i]['id'] && ingredient[i]['ing_name']) {
 
               //Condition pour ne pas dupliquer les ingredients à revoir
-              //if () {
-
+              if ( $('.liste_ing_select').children('p').length <= 5 ) {
                 $('.liste_ing_select').append(
                   '<p>'
                   + '<label>'
@@ -133,13 +132,16 @@ var selectIng = function(credentials) {
                   + '" >'
                   + '<i class="fa fa-times" aria-hidden="true"></i>'
                   + '</p>');
-              }
 
-              // Suppression des ingrédients
-              $(".fa-times").click(function() {
-                $(this).parent().remove();
-              })
-            //}
+                // Suppression des ingrédients
+                $(".fa-times").click(function() {
+                  $(this).parent().remove();
+                })
+
+              } else {
+                console.log('max');
+              }
+            }
           }
         //Ajout d'une function si la requete echoue
         } else {
@@ -166,6 +168,7 @@ var recipeFind = function(credentials) {
 
           if (list[i]['rec_type'] === "entree") {
 
+            $('.form_starter').children().remove();
             $('.form_starter').append(
               "<p>"
               + "<label for='"
@@ -183,6 +186,7 @@ var recipeFind = function(credentials) {
             );
           } else if (list[i]['rec_type'] === "plat") {
 
+            $('.form_main_dish').children().remove();
             $('.form_main_dish').append(
               "<p>"
               + "<label for='"
@@ -200,6 +204,7 @@ var recipeFind = function(credentials) {
             );
           } else if (list[i]['rec_type'] === "dessert") {
 
+            $('.form_dessert').children().remove();
             $('.form_dessert').append(
               "<p>"
               + "<label for='"
