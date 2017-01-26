@@ -4,7 +4,7 @@
 
 
 <?php $this->start('main_content') ?>
-<div class="container">
+<div class="container admin-nav">
 
   <h1>Gestion des utilisateurs</h1>
   <a href="<?= $this -> url('Administration_manageUser') ?>">Gestion des utilisateurs</a>

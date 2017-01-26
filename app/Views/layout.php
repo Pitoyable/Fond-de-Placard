@@ -64,18 +64,7 @@
 					<?php } ?>
 				</nav>
 
-				<div class="login-connect">
-					<?php if(empty($_SESSION)){ ?>
 
-						<!-- A masquer si l'utilisateur est co -->
-						<button id="connect_button" class="connect_button" type="button">Login</button>
-					<?php }else { ?>
-						<!-- A afficher uniquement si logué -->
-						<h3 class="connected">Bienvenue <?= $_SESSION['user']['use_pseudo'] ?></h3>
-						<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
-						<?php } ?>
-
-				</div>
 			</header>
 
 			<div id="overlay" class="overlay">
@@ -127,6 +116,18 @@
 					<!-- Pas à masquer -->
 					<div class="div_logo">
 						<a href="<?= $this -> url ('default_home') ?>"><img class="logo" src="<?= $this->assetUrl('pictures/test3.png') ?>" alt=""></a>
+					</div>
+					<div class="login-connect">
+						<?php if(empty($_SESSION)){ ?>
+
+							<!-- A masquer si l'utilisateur est co -->
+							<button id="connect_button" class="connect_button" type="button">Login</button>
+						<?php }else { ?>
+							<!-- A afficher uniquement si logué -->
+							<h3 class="connected"><?= $_SESSION['user']['use_pseudo'] ?></h3>
+							<a class="connected" href="<?= $this->url('User_logout') ?>"><i class="fa fa-power-off" aria-hidden="true"></i></a>
+							<?php } ?>
+
 					</div>
 				</header>
 

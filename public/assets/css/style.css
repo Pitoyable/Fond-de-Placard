@@ -70,7 +70,7 @@ body {
   align-self: center;
   justify-content: space-around;
   align-items: baseline;
-  width: 15%;
+  width: 20%;
 }
 
 .login-connect a {
@@ -79,6 +79,7 @@ body {
 
 .fa-power-off {
   color: #fff;
+  align-self: center;
 }
 
 .connect_button {
@@ -701,6 +702,33 @@ body:target .nav-button-close {
   border-top: 1px dashed black;
   margin-top: 3%;
 }
+
+/* -----------------------------------------------
+  ADMIN
+----------------------------------------------- */
+.admin-nav {
+  text-align: center;
+}
+
+.admin-nav table {
+  width: 100%;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  width: 33%;
+}
+
+table tr:not(:first-of-type):hover {
+  background-color: #dad7d7;
+}
 /* -----------------------------------------------
   Footer
 ----------------------------------------------- */
@@ -742,10 +770,6 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  .connected {
-    font-size: 0.8em;
-  }
-
   .search_bar {
     width: 80%;
   }
@@ -804,7 +828,6 @@ footer {
 
   .login-connect {
     justify-content: flex-end;
-    font-size: 1.2em;
   }
 
   .liste_ing_select p {
@@ -835,26 +858,29 @@ footer {
   }
 }
 
-@media (min-width: 621px) {
+@media (min-width: 764px) {
   .nav-button-open, .nav-button-close {
     display: none;
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 764px) {
   .desktop-nav {
     display: none;
   }
+
+}
+.login-connect {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  right: 15px;
+  width: 120px;
+}
+
+@media (max-width: 620px) {
   .receipe h3 {
     font-size: 1.7em;
-  }
-
-  .login-connect {
-    position: absolute;
-    z-index: 2;
-    top: 15px;
-    right: 15px;
-    width: 120px;
   }
 
   .u-form-group input[type="email"],
@@ -877,6 +903,12 @@ footer {
 @media (max-width: 490px) {
   .container_contact_dev {
     width: 80%;
+  }
+  .search {
+    justify-content: flex-start;
+  }
+  .search button[type="submit"]{
+    flex: 1;
   }
 }
 
@@ -929,4 +961,7 @@ footer {
   .theme label {
     font-size: 0.8em;
   }
+}
+
+@media (max-width: 305px) {
 }

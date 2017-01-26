@@ -27,7 +27,7 @@
       <h3>Mon panier</h3>
       <!-- Button pour vider la liste des ingredients du panier -->
       <button type="button" name="button" class="delete_panier">
-        <p>Vider !</p>
+        <p><i class="fa fa-trash" aria-hidden="true"></i></p>
       </button>
     </div>
     <form class="panier" action="" method="post">
