@@ -43,7 +43,9 @@
 					<a href="<?= $this -> url ('Info_display') ?>">Nous contacter</a>
 					<?php if (!empty($_SESSION)) {?>
 					<a href="<?= $this -> url ('User_display') ?>">Mon compte</a>
-					<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+						<?php if($_SESSION['user']['group_id'] == 1) { ?>
+							<a href="<?= $this -> url ('Administration_home') ?>">Admin</a>
+						<?php } ?>
 					<?php } ?>
 				</nav>
 			</aside>
