@@ -13,11 +13,13 @@ class UserModel
     if (strlen($pseudo) >=5 && strlen($pseudo) <= 20){
       //vérifier que les 2 champ mdp sont indentique
       if ($password === $password_check){
+        //vérifier que la longueur du mdp est supérieux ou égal à 5 caractère
         if(strlen($password) >=5){
           $usersModel = new UsersModel();
           //verifier que l'email et le pseudo n'existe pas déja en bdd
           if ($usersModel -> usernameExists($pseudo) || $usersModel ->emailExists($email)) {
             $data = array(
+              //donné à renvoyer en json pour le js
               "success" => false,
               "error" => "pseudo ou email existe déja",
             );
@@ -37,8 +39,6 @@ class UserModel
 
             $data = array(
               "success" => true,
-              "use_email" => $email,
-              "use_password" => $passwordHash,
             );
             return $data;
           }
@@ -70,7 +70,7 @@ class UserModel
     //verifier que l'email et password existe en bdd et sont liée
     $authentification = new AuthentificationModel();
     $test = $authentification -> isValidLoginInfo($email, $password);
-
+    //si egal à 0 ancun utilisateur n'a cette email et ce mdp en bdd sinon il renvoie l'id du compte
     if ($test == 0){
       $data = array(
         "success" => false,
@@ -116,20 +116,28 @@ class UserModel
         );
         return $data;
       }else {
-        //on hash le nouveau mdp pour le rentré dans la bdd
-        $passwordHash = $authentification -> hashPassword($array['use_password']);
-        $info = array (
-          "use_email" => $array['use_email'],
-          "use_password" => $passwordHash,
-        );
-        //on insert les donner en bdd
-        $model = new UsersModel();
-        $model -> update($info, $id, $stripTags = true);
+        if(strlen($array['use_password']) >=5){
+          //on hash le nouveau mdp pour le rentré dans la bdd
+          $passwordHash = $authentification -> hashPassword($array['use_password']);
+          $info = array (
+            "use_email" => $array['use_email'],
+            "use_password" => $passwordHash,
+          );
+          //on insert les donner en bdd
+          $model = new UsersModel();
+          $model -> update($info, $id, $stripTags = true);
 
-        $data = array(
-          "success" => true,
-        );
-        return $data;
+          $data = array(
+            "success" => true,
+          );
+          return $data;
+        }else{
+          $data = array(
+            "success" => false,
+            "error" => "longueur nouveau mdp fausse",
+          );
+          return $data;
+        }
       }
     }
 

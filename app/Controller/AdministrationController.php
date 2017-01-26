@@ -29,6 +29,8 @@ class AdministrationController extends Controller
   }
 
   public function editUser(){
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
 
     // on recupere les informatino de l'utilisateur avec sont id
     $model = new UsersModel();
@@ -80,6 +82,8 @@ class AdministrationController extends Controller
   }
 
   public function editRecipe(){
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
     //methode pour modifier la recette
     $model = new UsersModel();
     $model -> setTable('recipe');
@@ -89,6 +93,8 @@ class AdministrationController extends Controller
 
   public function updateRecipe(){
     //methode pour mettre a jour  la recette
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
   }
 
   public function deleteRecipe(){

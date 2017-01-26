@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 20 Janvier 2017 à 15:25
+-- Généré le :  Jeu 26 Janvier 2017 à 09:35
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -154,6 +154,13 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `use_pseudo`, `use_email`, `use_password`, `use_valide`, `group_id`) VALUES
+(1, 'Admin', 'admin@gmail.com', '$2y$10$nFwj087qSMzLQWOGIgPi2O5p9r0/y009mSu.RizL9mxxFdUBhKHMi', 0, 1);
+
+--
 -- Index pour les tables exportées
 --
 
@@ -271,7 +278,7 @@ ALTER TABLE `theme`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
