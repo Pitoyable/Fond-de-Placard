@@ -723,7 +723,12 @@ th, td {
   text-align: left;
   padding: 5px;
   border-bottom: 1px solid black;
-  width: 33%;
+  width: 40%;
+}
+
+tr th:last-of-type, tr td:last-of-type {
+  width: 20%;
+  text-align: center;
 }
 
 table tr:not(:first-of-type):hover {

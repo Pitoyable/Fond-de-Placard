@@ -23,19 +23,13 @@
           <td>
             <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
               <label for="">
-                <input type="submit" name="" value="modifier">
+                <button type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                 <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
               </label>
             </form>
             <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
               <label for="">
-                <input type="submit" name="" value="supprimer">
-                <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
-              </label>
-            </form>
-            <form class="" action="<?= $this -> url('Administration_validateRecipe') ?>" method="post">
-              <label for="">
-                <input type="submit" name="" value="valider recette">
+                <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
               </label>
             </form>
@@ -60,19 +54,19 @@
         <td>
           <form class="" action="<?= $this -> url('Administration_editRecipe') ?>" method="post">
             <label for="">
-              <input type="submit" name="" value="modifier">
+              <button type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
               <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
             </label>
           </form>
           <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
             <label for="">
-              <input type="submit" name="" value="supprimer">
+              <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
               <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
             </label>
           </form>
           <form class="" action="<?= $this -> url('Administration_validateRecipe') ?>" method="post">
             <label for="">
-              <input type="submit" name="" value="valider recette">
+              <button type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
               <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
             </label>
           </form>

@@ -137,7 +137,7 @@
 
 			</div>
 
-			<footer>Copyright (c) 2017 Copyright Holder All Rights Reserved.</footer>
+			<footer>Copyright © 2017 Copyright Holder All Rights Reserved.</footer>
 		</div>
 	</body>
 </html>
