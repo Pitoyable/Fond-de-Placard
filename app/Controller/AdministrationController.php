@@ -62,7 +62,7 @@ class AdministrationController extends Controller
 
     $plate = new PlatesExtensions;
     $route = $plate -> generateUrl('Administration_manageUser');
-    
+
     $model = new AdministrationModel ();
     $table = 'user';
     $model -> deleteAdmin($_POST['id'], $table, $route);
