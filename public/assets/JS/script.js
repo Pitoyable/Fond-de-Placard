@@ -121,9 +121,8 @@ var selectIng = function(credentials) {
             if (ingredient[i]['id'] && ingredient[i]['ing_name']) {
 
               //Condition pour ne pas dupliquer les ingredients à revoir
-              //if ($(".panier_add input[name = '"+ingredient[i]['ing_name']+"']") == true) {
+              //if () {
 
-                //Un peu tricky sur l'ecriture, revenir dessus plus tard pour faire sa plus proprement !
                 $('.liste_ing_select').append(
                   '<p>'
                   + '<label>'
@@ -134,12 +133,13 @@ var selectIng = function(credentials) {
                   + '" >'
                   + '<i class="fa fa-times" aria-hidden="true"></i>'
                   + '</p>');
-              //}
-                // Suppression des ingrédients
-                $(".fa-times").click(function() {
-                  $(this).parent().remove();
-                })
-            }
+              }
+
+              // Suppression des ingrédients
+              $(".fa-times").click(function() {
+                $(this).parent().remove();
+              })
+            //}
           }
         //Ajout d'une function si la requete echoue
         } else {

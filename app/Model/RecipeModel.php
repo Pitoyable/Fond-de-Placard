@@ -258,7 +258,7 @@ class RecipeModel extends \W\Model\Model
     $arrayTemp = array();
 
     //Requete SQL Sans aucune protection
-    $sql = "SELECT recipe_id AS id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][0];
+    $sql = "SELECT recipe_id AS id FROM link_ing_rec INNER JOIN recipe ON recipe.id = link_ing_rec.recipe_id WHERE recipe.rec_valide = 1 AND ingredients_id = " . $_POST['mp_ing'][0];
 
     //Condition en function du nombre d'ingredients dans le panier
     if (count($_POST['mp_ing']) > 1) {
