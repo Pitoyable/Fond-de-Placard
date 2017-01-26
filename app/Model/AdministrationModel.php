@@ -42,13 +42,15 @@ class AdministrationModel extends \W\Model\Model
     $model = new UsersModel();
     $model -> setTable('recipe');
     $arrayRecipe = $model -> find($id);
-  
+
     if ($nouveauNom === $arrayRecipe['rec_name']){
+      // verifie que le pseudo en valeur est en bdd
       return true;
     }else {
+      //on utilise la methode pour verifier que le nouveau pseudo existe deja ou pas en bdd
       $recipeModel = new RecipeModel();
       $data = $recipeModel -> recipeNameExists($nouveauNom);
-      return false;
+      return $data;
     }
 
   }

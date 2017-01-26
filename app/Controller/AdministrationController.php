@@ -62,7 +62,7 @@ class AdministrationController extends Controller
 
     $plate = new PlatesExtensions;
     $route = $plate -> generateUrl('Administration_manageUser');
-
+    
     $model = new AdministrationModel ();
     $table = 'user';
     $model -> deleteAdmin($_POST['id'], $table, $route);
@@ -106,9 +106,10 @@ class AdministrationController extends Controller
     $table = 'recipe';
     $id =  $_POST['id'];
     $AdministrationModel = new AdministrationModel();
+    //appelle de methode pour verifier le nouveau et ancien pseudo
     $data = $AdministrationModel -> recipeEdit($_POST['nom'], $_POST['id']);
 
-
+    //si vrai on modifie la recette en bdd
     if ($data == true){
       $info = array (
         "rec_name" => $_POST['nom'],
@@ -119,6 +120,7 @@ class AdministrationController extends Controller
 
       $AdministrationModel -> updateAdmin($info, $id, $table, $route);
     }else {
+      //sinon on renvoie sur la page avec le message d'erreur
         $arrayRecipe = array (
           "rec_name" => $_POST['nom'],
           "rec_html" => $_POST['recipe_content'],
@@ -155,7 +157,7 @@ class AdministrationController extends Controller
 
     $plate = new PlatesExtensions;
     $route = $plate -> generateUrl('Administration_manageRecipe');
-    
+
     $model = new AdministrationModel ();
     $model -> updateAdmin($info, $id, $table, $route);
   }
