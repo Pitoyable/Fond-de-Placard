@@ -58,8 +58,8 @@
       <input type="submit" name="add_recipe" class="submitPanier submitcreate" value="Envoyer">
     </div>
     <?php
-    // var_dump($arrayRecipe);
-    // var_dump($_POST);
+    var_dump($arrayRecipe);
+    var_dump($_POST);
     if (isset($error)){
       echo $error; ?>
       <input type="hidden" name="id" value="<?= $arrayRecipe['id'] ?>">

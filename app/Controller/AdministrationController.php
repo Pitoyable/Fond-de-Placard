@@ -105,8 +105,9 @@ class AdministrationController extends Controller
 
     $table = 'recipe';
     $id =  $_POST['id'];
-    $recipeModel = new RecipeModel();
-    $data = $recipeModel -> recipeNameExists($_POST['nom']);
+    $AdministrationModel = new AdministrationModel();
+    $data = $AdministrationModel -> recipeEdit($_POST['nom'], $_POST['id']);
+
 
     if ($data == true){
       $info = array (
@@ -115,8 +116,8 @@ class AdministrationController extends Controller
       );
       $plate = new PlatesExtensions;
       $route = $plate -> generateUrl('Administration_manageRecipe');
-      $model = new AdministrationModel ();
-      $model -> updateAdmin($info, $id, $table, $route);
+      
+      $AdministrationModel -> updateAdmin($info, $id, $table, $route);
     }else {
         $arrayRecipe = array (
           "rec_name" => $_POST['nom'],

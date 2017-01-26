@@ -2,6 +2,7 @@
 namespace Model;
 use \W\Model\ConnectionModel;
 use W\Model\UsersModel;
+use Model\RecipeModel;
 
 class AdministrationModel extends \W\Model\Model
 {
@@ -35,6 +36,21 @@ class AdministrationModel extends \W\Model\Model
     $insert = $model -> insert($arrayData, $stripTags = true);
 
     header('Location:'.$route.'');
+  }
+
+  public function recipeEdit($nouveauNom, $id){
+    $model = new UsersModel();
+    $model -> setTable('recipe');
+    $arrayRecipe = $model -> find($id);
+  
+    if ($nouveauNom === $arrayRecipe['rec_name']){
+      return true;
+    }else {
+      $recipeModel = new RecipeModel();
+      $data = $recipeModel -> recipeNameExists($nouveauNom);
+      return false;
+    }
+
   }
 
 }
