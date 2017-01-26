@@ -18,13 +18,10 @@ class RecipeController extends Controller
 
   public function written() {
 
-
     $model = new RecipeModel();
 
     //On recupere et on traite les different themes
-    $model -> setTable('theme');
-    $allTheme = $model -> findAll();
-    $listTheme = $model -> createThemeList($allTheme);
+    $listTheme = $model -> createThemeList();
 
     //On verifie que $_POST['search_bar']) n'est pas vide
     if (!empty($_POST['search_bar'])) {
@@ -46,8 +43,37 @@ class RecipeController extends Controller
   public function addWritten() {
 
     $model = new RecipeModel();
-    $model -> addRecipe();
+    $checkInfo = $model -> checkInfoRec();
 
+    //verification des infos envoyer
+    if ($checkInfo) {
+      //On verifie que le nom n'est pas deja utilisé
+      if ($model -> recipeNameExists($_POST['nom'])) {
+
+        $idRecipeAdd = $model -> addRecipeBdd();
+        if (!empty($idRecipeAdd['id'])) {
+
+          $model -> addIngUserRecipeBdd($idRecipeAdd['id']);
+          $model -> checkThemeSelectedRecipe($idRecipeAdd['id']);
+          $idRecipe = $model -> addRecipe($idRecipeAdd['id']);
+
+          if ($idRecipe) {
+            $this->show('recipe/Recipe_addWritten',
+            ['recipeName' => $idRecipe['rec_name'],
+            'recipeType' => $idRecipe['rec_type'],
+            'recipeHtml' => $idRecipe['rec_html']]);
+          }
+        }
+      } else {
+          $this->show('recipe/Recipe_addWritten', ['erreur' => 'Le nom de la recette est deja pris']);
+      }
+
+    } else {
+      $this->show('recipe/Recipe_addWritten', ['erreur' => 'Veuillez remplir tous les champs']);
+    }
+
+
+    $this->show('recipe/Recipe_addWritten');
   }
 
   //Controller pour la recuperation des données AJAX
@@ -99,9 +125,14 @@ class RecipeController extends Controller
   public function showRecipe() {
 
     $model = new RecipeModel();
-    $model -> showRecipe();
+    $recipeSelected = $model -> showRecipe();
 
-    $this->show('recipe/recipe_show');
+
+    $this->show('recipe/recipe_show',
+      ['recipeName' => $recipeSelected['rec_name'],
+      'recipeType' => $recipeSelected['rec_type'],
+      'recipeHtml' => $recipeSelected['rec_html']]
+    );
 
   }
 

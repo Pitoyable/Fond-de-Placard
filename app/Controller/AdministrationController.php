@@ -7,6 +7,7 @@ use Model\AdministrationModel;
 use \W\Model\UsersModel;
 use W\Security\AuthorizationModel;
 use W\View\Plates\PlatesExtensions;
+use Model\RecipeModel;
 
 class AdministrationController extends Controller
 {
@@ -78,6 +79,7 @@ class AdministrationController extends Controller
     $model -> setTable('recipe');
     $array = $model -> findAll($orderBy = 'id', $orderDir = 'ASC', $limit = null, $offset = null);
 
+
     $this->show('administration/recipe/admin_manageRecipe', ['array' => $array]);
   }
 
@@ -87,14 +89,43 @@ class AdministrationController extends Controller
     //methode pour modifier la recette
     $model = new UsersModel();
     $model -> setTable('recipe');
-    $array = $model -> find($_POST['id']);
-    $this->show('administration/recipe/admin_editRecipe', ['array' => $array]);
+    $arrayRecipe = $model -> find($_POST['id']);
+
+    $recipeModel = new RecipeModel();
+    $theme = $recipeModel -> createThemeList();
+
+    $this->show('administration/recipe/admin_editRecipe', ['arrayRecipe' => $arrayRecipe, 'theme' => $theme]);
   }
 
   public function updateRecipe(){
     //methode pour mettre a jour  la recette
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
+
+
+    $table = 'recipe';
+    $id =  $_POST['id'];
+    $recipeModel = new RecipeModel();
+    $data = $recipeModel -> recipeNameExists($_POST['nom']);
+
+    if ($data == true){
+      $info = array (
+        "rec_name" => $_POST['nom'],
+        "rec_html" => $_POST['recipe_content'],
+      );
+      $plate = new PlatesExtensions;
+      $route = $plate -> generateUrl('Administration_manageRecipe');
+      $model = new AdministrationModel ();
+      $model -> updateAdmin($info, $id, $table, $route);
+    }else {
+        $arrayRecipe = array (
+          "rec_name" => $_POST['nom'],
+          "rec_html" => $_POST['recipe_content'],
+          "id" => $_POST['id'],
+        );
+        $error = "nom de la recette existe déjà";
+        $this->show('administration/recipe/admin_editRecipe', ['error' => $error, 'arrayRecipe' => $arrayRecipe]);
+    }
   }
 
   public function deleteRecipe(){

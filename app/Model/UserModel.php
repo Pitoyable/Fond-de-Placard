@@ -140,9 +140,5 @@ class UserModel
         }
       }
     }
-
-
   }
-
-
 }
