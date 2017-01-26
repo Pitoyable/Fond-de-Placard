@@ -36,16 +36,20 @@ class RecipeModel extends \W\Model\Model
   }
 
   //Function pour traiter les données retourner par findAll() pour les themes
-  public function createThemeList($argument) {
+  public function createThemeList() {
+
+    $model = new RecipeModel();
+    $model -> setTable('theme');
+    $allTheme = $model -> findAll();
 
     //Creation d'une variable theme
     $theme = "";
 
     //On boucle pour parcourir les themes
-    for ($i=0; $i < count($argument) ; $i++) {
+    for ($i=0; $i < count($allTheme) ; $i++) {
 
       //On concatene les different themes
-      $theme .= "<label for='" . $argument[$i]['the_name'] . "'>" . $argument[$i]['the_name'] . "<input type='checkbox' name='mp_checked[]' value='" . $argument[$i]['id'] . "'></label>";
+      $theme .= "<label for='" . $allTheme[$i]['the_name'] . "'>" . $allTheme[$i]['the_name'] . "<input type='checkbox' name='mp_checked[]' value='" . $allTheme[$i]['id'] . "'></label>";
 
     }
 
@@ -153,28 +157,22 @@ class RecipeModel extends \W\Model\Model
 
     $model = new RecipeModel();
 
-      $array = array(
-        "rec_name" => $_POST['nom'],
-        "rec_html" => $_POST['recipe_content'],
-        "rec_type" => $_POST['type']
-      );
+    $array = array(
+      "rec_name" => $_POST['nom'],
+      "rec_html" => $_POST['recipe_content'],
+      "rec_type" => $_POST['type']
+    );
 
-      //On definie la table à utiliser
-      $model -> setTable('recipe');
-      if ($model -> recipeNameExists($_POST['nom'])) {
-        //On insert la recipe in BDD, on recupe son ID
-        $idRecipe = $model -> insert($array, $stripTags = false);
+    //On definie la table à utiliser
+    $model -> setTable('recipe');
 
-        return $idRecipe;
-
-      } else {
-
-        return false;
-      }
+    //On insert la recipe in BDD, on recupe son ID
+    $idRecipe = $model -> insert($array, $stripTags = false);
+    return $idRecipe;
   }
 
   //Ajout des ingredients en BDD pour la recipe
-  public function addIngRecipeBdd($idRecipeAdd) {
+  public function addIngUserRecipeBdd($idRecipeAdd) {
 
     $model = new RecipeModel();
 

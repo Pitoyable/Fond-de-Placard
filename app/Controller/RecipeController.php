@@ -18,13 +18,10 @@ class RecipeController extends Controller
 
   public function written() {
 
-
     $model = new RecipeModel();
 
     //On recupere et on traite les different themes
-    $model -> setTable('theme');
-    $allTheme = $model -> findAll();
-    $listTheme = $model -> createThemeList($allTheme);
+    $listTheme = $model -> createThemeList();
 
     //On verifie que $_POST['search_bar']) n'est pas vide
     if (!empty($_POST['search_bar'])) {
@@ -50,13 +47,13 @@ class RecipeController extends Controller
 
     //verification des infos envoyer
     if ($checkInfo) {
-
+      //On verifie que le nom n'est pas deja utilisé
       if ($model -> recipeNameExists($_POST['nom'])) {
 
         $idRecipeAdd = $model -> addRecipeBdd();
         if (!empty($idRecipeAdd['id'])) {
 
-          $model -> addIngRecipeBdd($idRecipeAdd['id']);
+          $model -> addIngUserRecipeBdd($idRecipeAdd['id']);
           $model -> checkThemeSelectedRecipe($idRecipeAdd['id']);
           $idRecipe = $model -> addRecipe($idRecipeAdd['id']);
 
@@ -70,7 +67,7 @@ class RecipeController extends Controller
       } else {
           $this->show('recipe/Recipe_addWritten', ['erreur' => 'Le nom de la recette est deja pris']);
       }
-  
+
     } else {
       $this->show('recipe/Recipe_addWritten', ['erreur' => 'Veuillez remplir tous les champs']);
     }
