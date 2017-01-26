@@ -5,7 +5,9 @@
 <!-- Page mon compte / modification des infos -->
 <!-- div global de tout le contenu -->
 <div class="container container_mon_compte">
-  <h1>Mon compte</h1>
+  <div class="ribbon both_ribbon">
+    <h1>Mon compte</h1>
+  </div>
   <h2><?= $_SESSION['user']['use_pseudo'] ?></h2><!--mettre le pseudo du user en cour-->
 
   <nav id="tabs" class="nav-tab">

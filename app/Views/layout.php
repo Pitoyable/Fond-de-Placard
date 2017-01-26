@@ -20,7 +20,7 @@
 		<script src="<?= $this -> assetUrl('js/master.js') ?>"></script>
 		<script src="<?= $this -> assetUrl('js/scriptUser.js') ?>"></script>
 		<!-- Google Font -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -137,7 +137,6 @@
 
 			</div>
 
-			<footer>Copyright © 2017 Copyright Holder All Rights Reserved.</footer>
 		</div>
 	</body>
 </html>

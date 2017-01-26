@@ -2,7 +2,9 @@
 
 <?php $this->start('main_content') ?>
 <div class="container">
-  <h1>J'ai faim</h1>
+  <div class="ribbon both_ribbon">
+    <h1>J'ai faim</h1>
+  </div>
   <div class="search_recipe">
     <p><em>Trouvez une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
 
@@ -44,19 +46,25 @@
   <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
   <div class="content_recipe">
     <div class="starter">
-      <h3>Les Entrées</h3>
+      <div class="ribbon left_ribbon">
+        <h3>Les entrées</h3>
+      </div>
       <form class="form_starter" action="<?= $this -> url('Recipe_show') ?>" method="post">
 
       </form>
     </div>
     <div class="main_dish">
-      <h3>Les Plats</h3>
+      <div class="ribbon left_ribbon">
+        <h3>Les plats</h3>
+      </div>
       <form class="form_main_dish" action="<?= $this -> url('Recipe_show') ?>" method="post">
 
       </form>
     </div>
     <div class="dessert">
-      <h3>Les Desserts</h3>
+      <div class="ribbon left_ribbon">
+        <h3>Les desserts</h3>
+      </div>
       <form class="form_dessert" action="<?= $this -> url('Recipe_show') ?>" method="post">
 
       </form>

@@ -1,11 +1,10 @@
 html {
   box-sizing: border-box;
-  height: 100%;
   font-family: 'Roboto Slab', serif;
 }
 
 *, *::before, *::after {
-  box-sizing: inherit;
+  box-sizing: content-box;
 }
 
 body {
@@ -226,11 +225,11 @@ body {
   Container de chaques pages/nav tab
 ----------------------------------------------- */
 .container {
-  width: 100%;
+  width: 90%;
   margin: auto;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: inset 0px 3px 5px -1px rgba(0,0,0,0.64);
-  padding: 15px;
+  padding: 1px 0;
   min-height: 600px;
 }
 
@@ -238,9 +237,9 @@ body {
   font-family: 'Oswald', sans-serif;
   text-align: center;
   font-size: 2em;
-  border-top: 1px dashed black;
-  border-bottom: 1px dashed black;
-  width: 70%;
+  /*border-top: 1px dashed black;
+  border-bottom: 1px dashed black;*/
+  width: 100%;
   margin: auto;
 }
 
@@ -288,6 +287,97 @@ body {
 .block {
   display: block;
 }
+
+div.ribbon{
+  color: #fff;
+  margin: 30px 0 50px;
+  position: relative;
+  text-transform: uppercase;
+  background: #d9d9d9;
+  /*background-image: url('../pictures/brickwall.png');*/
+  border: 1px solid rgba(0,0,0,.3);
+  box-shadow: 0px 1px 3px rgba(0,0,0,.2);
+  padding: 10px 15px;
+  clear: both;
+}
+
+div.left_ribbon{
+  color: #000;
+  margin-left: -10px;
+  width: 20%;
+}
+
+div.left_ribbon h3{
+  margin: 0 12px;
+  color: white;
+}
+
+div.left_ribbon::before{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  left: -11px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ababab;
+}
+
+div.left_ribbon::after{
+  display: block;
+  width: 6px;
+  height: 44px;
+  position: absolute;
+  bottom: 3px;
+  right: -1px;
+  content: "";
+  border: 1px solid rgba(0,0,0,.3);
+
+
+  transform: skew(0deg,45deg);
+  background: #ababab;
+}
+
+div.both_ribbon{
+  text-align: center;
+  color: #000;
+  padding: 10px 9px 10px 10px;
+  width: 100%;
+  margin-left: -10px;
+}
+
+div.both_ribbon h1 {
+  color: black;
+}
+
+div.both_ribbon::before{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  left: -11px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ababab;
+}
+
+div.both_ribbon::after{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #ababab;
+}
+
 /* -----------------------------------------------
   Form
 ----------------------------------------------- */
@@ -409,7 +499,6 @@ body:target .nav-button-close {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 0 10% 0 10%;
 }
 
 .card {
@@ -734,16 +823,6 @@ tr th:last-of-type, tr td:last-of-type {
 table tr:not(:first-of-type):hover {
   background-color: #dad7d7;
 }
-/* -----------------------------------------------
-  Footer
------------------------------------------------ */
-footer {
-  text-align: right;
-  background-color: black;
-  min-width: 100%;
-  color: #fff;
-  padding: 10px;
-}
 
 /* -----------------------------------------------
   Responsive
@@ -856,11 +935,6 @@ footer {
   .card-div:hover h3 {
     display: none;
   }
-
-  footer {
-    text-align: center;
-    font-size: 0.8em;
-  }
 }
 
 @media (min-width: 764px) {
@@ -934,10 +1008,6 @@ footer {
 }
 
 @media (max-width: 348px) {
-  footer {
-    position: relative;
-  }
-
   .contact h3 {
     font-size: 1.5em;
   }
@@ -966,7 +1036,4 @@ footer {
   .theme label {
     font-size: 0.8em;
   }
-}
-
-@media (max-width: 305px) {
 }

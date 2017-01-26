@@ -6,7 +6,9 @@
 <?php $this->start('main_content') ?>
 <div class="container admin-nav">
 
-  <h1>Gestion des utilisateurs</h1>
+  <div class="ribbon both_ribbon">
+    <h1>Gestion des utilisateurs</h1>
+  </div>
   <a href="<?= $this -> url('Administration_manageUser') ?>">Gestion des utilisateurs</a>
   <a href="<?= $this -> url('Administration_manageRecipe') ?>">Validation des recettes</a>
   <a href="<?= $this -> url('Administration_manageTheme') ?>">Gestion des thèmes</a>
@@ -31,12 +33,16 @@
 
           <td>
             <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
-              <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
-              <button type="submit" name="modif">Modifier</button>
+              <label for="">
+                <button type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
+              </label>
             </form>
             <form class="" action<?= $this -> url('Administration_deleteUser') ?> method="post">
-              <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
-              <button type="submit" name="delete">Supprimer</button>
+              <label for="">
+                <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
+              </label>
             </form>
           </td>
         </tr>
@@ -62,12 +68,16 @@
           <td><?= $array[$i]['group_id'] ?></td>
           <td>
             <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
-              <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
-              <button type="submit" name="modif">Modifier</button>
+              <label for="">
+                <button type="submit"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
+              </label>
             </form>
             <form class="" action="<?= $this -> url('Administration_deleteUser') ?>" method="post">
-              <input type="hidden" name="id" value="<?=$array[$i]['id']?>">
-              <button type="submit" name="delete">Supprimer</button>
+              <label for="">
+                <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
+              </label>
             </form>
           </td>
         </tr>

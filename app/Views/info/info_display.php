@@ -3,7 +3,9 @@
 <?php $this->start('main_content') ?>
 
 <div class="container">
-  <h1>Contact</h1>
+  <div class="ribbon both_ribbon">
+    <h1>Contact</h1>
+  </div>
   <div class="container_contact">
 
     <div class="container_contact_dev">
@@ -56,7 +58,9 @@
 </div>
 <div class="container">
   <div class="container_contact_support">
-    <h1>Fond De Placard</h1>
+    <div class="ribbon both_ribbon">
+      <h1>Fond de Placard</h1>
+    </div>
     <p>Dans le cadre de notre formation developpeur integrateur web, le concept de notre projet nous est venu à la suite d'une facétie de Théo. Formulant avec éloquence que son nom serait "fond de placard". Partant de cette illumination saugrenue, s'ensuivirent les balbuties de Paul ainsi que toutes les élucubrations possibles et imaginables des membres du groupe. l'idée fut longtemps mûrie, réfléchie, rebâtie et refleurie avec des desseins toujours plus utopiques les uns que les autres. La synthèse de toutes ces réflexions a donner naissance à "fond de placard" que vous pouvez apprécier dès à présent.</p>
 
     <p>fdp.support@mail.com</p>

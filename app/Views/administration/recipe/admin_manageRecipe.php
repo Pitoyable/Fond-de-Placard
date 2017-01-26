@@ -2,7 +2,9 @@
 
 <?php $this->start('main_content') ?>
 <div class="container admin-nav">
-  <h1>Administration</h1>
+  <div class="ribbon both_ribbon">
+    <h1>Gestion des recettes :</h1>
+  </div>
   <a href="<?= $this -> url('Administration_manageUser') ?>">Gestion des utilisateurs</a>
   <a href="<?= $this -> url('Administration_manageRecipe') ?>">Validation des recettes</a>
   <a href="<?= $this -> url('Administration_manageTheme') ?>">Gestion des thèmes</a>
