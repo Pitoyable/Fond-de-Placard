@@ -100,6 +100,7 @@ var autoComple = function(credentials) {
     }
   })
 };
+
 //Function Ajax pour ajouter un ingredient trouver au panier
 var selectIng = function(credentials) {
 
@@ -111,16 +112,13 @@ var selectIng = function(credentials) {
     success : function(response) {
         //Si la reponse est true on appel la function
         if (response.success) {
-
           //Création d'une variable pour simplifier la lisibilité
           var ingredient = response.ingredient;
-
           //Exec d'une boucle pour séparé les valeurs
           for (var i = 0; i <ingredient.length; i++) {
-
-            if (ingredient[i]['id'] && ingredient[i]['ing_name']) {
-
-              //Condition pour ne pas dupliquer les ingredients à revoir
+            //Verification que le panier ne contient pas deja l'ingredients
+            if (!$('input[value="'+ingredient[i]['id']+'"]').length) {
+              //Verification que le panier ne contient pas plus de 6 ingredients
               if ( $('.liste_ing_select').children('p').length <= 5 ) {
                 $('.liste_ing_select').append(
                   '<p>'
@@ -132,24 +130,17 @@ var selectIng = function(credentials) {
                   + '" >'
                   + '<i class="fa fa-times" aria-hidden="true"></i>'
                   + '</p>');
-
                 // Suppression des ingrédients
                 $(".fa-times").click(function() {
                   $(this).parent().remove();
                 })
-
-              } else {
-                console.log('max');
               }
             }
           }
-        //Ajout d'une function si la requete echoue
-        } else {
-          console.log('false auto');
         }
       }
-  });
-}
+    });
+  }
 
 //Requete pour trouver les recipe
 var recipeFind = function(credentials) {
