@@ -614,25 +614,29 @@ body:target .nav-button-close {
   J'ai faim / recipe_display
 ----------------------------------------------- */
 .search_panier {
-  display: flex;
-  justify-content: space-around;
+  padding: 15px;
+  /*display: flex;*/
+  text-align: center;
 }
 
 .search_recipe {
-  margin-top: 3%;
+  width: 50%;
+  display: inline-block;
 }
 
 .search_recipe p:first-of-type {
   text-align: justify;
-  width: 70%;
-  margin: auto;
+  width: 100%;
+  /*margin: auto;*/
+  margin: 0;
   margin-bottom: 3%;
 }
 
 .search {
   position: relative;
-  width: 50%;
-  margin: auto;
+  width: 100%;
+  /*margin: auto;*/
+  margin: 0;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -720,9 +724,10 @@ body:target .nav-button-close {
 }
 
 .paniertest {
-  margin: auto;
-  margin-top: 3%;
   height: auto;
+  width: 20%;
+  display: inline-block;
+  margin-left: 3%;
 }
 
 .panier-header {
@@ -771,10 +776,14 @@ body:target .nav-button-close {
   margin: auto;
 }
 
+.liste_ing_select {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .liste_ing_select p{
-  width: 33%;
-  display: inline-block;
-  text-align: center;
+  margin: 0 3px 0 3px;
+  display: flex;
 }
 
 .theme p {
@@ -856,10 +865,6 @@ table tr:not(:first-of-type):hover {
 
 @media (max-width: 1024px) {
   .search_bar {
-    width: 80%;
-  }
-
-  .search_recipe p:first-of-type {
     width: 80%;
   }
 }
@@ -1037,8 +1042,4 @@ table tr:not(:first-of-type):hover {
   .theme label {
     font-size: 0.8em;
   }
-}
-
-#paniertest {
-  position: absolute;
 }
