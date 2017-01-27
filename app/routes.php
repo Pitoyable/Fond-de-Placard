@@ -85,4 +85,6 @@
 		['GET|POST', '/recipe_ajaxComplete', 'Recipe#autoComplete', 'Recipe_autocomplete'],
 			//Recherche de recette
 		['GET|POST', '/recipe_ajaxFindRecipe', 'Recipe#findRecipe', 'Recipe_findRecipe'],
+			//Ajout de favoris
+		['GET|POST', '/recipe_ajaxAddFavoris', 'Recipe#addFavoris', 'Recipe_add_favoris'],
 	);

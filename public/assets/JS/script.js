@@ -52,6 +52,14 @@ $(function () {
     $('.liste_ing_select').children().remove();
   });
 
+  //Partie pour l'ajout au favoris
+  $('.add_favoris').on('submit', function(e) {
+    e.preventDefault();
+    //On stock les données du formulaire dans une variable
+    var datas = $(this).serializeArray();
+    //Appel de la function AJAX
+    addFavori(datas);
+  });
 });
 
 //Function Ajax pour l'autocomplementation
@@ -217,6 +225,23 @@ var recipeFind = function(credentials) {
     }
   });
 }
+
+//Requete AJAX pour l'ajout des favoris
+var addFavori = function(credentials) {
+
+  $.ajax({
+    method : 'POST',
+    url : 'http://fond-de-placard.local/recipe_ajaxAddFavoris',
+    data : credentials,
+    success : function(response) {
+      if (response.success) {
+
+        console.log('bisous Mon Nounours !');
+      }
+    }
+  });
+}
+
 
 //Création de la function pour formater les data en JSON
 var formatDatasJson = function(datas) {

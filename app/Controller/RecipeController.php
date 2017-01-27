@@ -128,8 +128,20 @@ class RecipeController extends Controller
     $this->show('recipe/recipe_show',
       ['recipeName' => $recipeSelected['rec_name'],
       'recipeType' => $recipeSelected['rec_type'],
+      'recipeId' => $recipeSelected['id'],
       'recipeHtml' => $recipeSelected['rec_html']]
     );
+  }
+
+  //Controller pour l'ajout des favoris
+  public function addFavoris() {
+
+    $model = new RecipeModel();
+    $controller = new RecipeController();
+    $addFav = $model -> addFavoris();
+    if ($addFav) {
+      $controller -> showJson($addFav);
+    }
   }
 
 }

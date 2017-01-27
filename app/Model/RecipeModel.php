@@ -6,7 +6,6 @@ use \W\Model\ConnectionModel;
 
 class RecipeModel extends \W\Model\Model
 {
-
   //Variante de la function insert() du framework
   public function insertBDD(array $data, $stripTags = true) {
 
@@ -52,7 +51,6 @@ class RecipeModel extends \W\Model\Model
       $theme .= "<label for='" . $allTheme[$i]['the_name'] . "'>" . $allTheme[$i]['the_name'] . "<input type='checkbox' name='mp_checked[]' value='" . $allTheme[$i]['id'] . "'></label>";
 
     }
-
     //On return le resultat
     return $theme;
   }
@@ -87,7 +85,6 @@ class RecipeModel extends \W\Model\Model
         "success" => false
       );
     }
-
   }
 
   //Method pour l'autocompletion des ingredients (AJAX)
@@ -122,7 +119,6 @@ class RecipeModel extends \W\Model\Model
         "success" => false
       );
     }
-
   }
 
   //Function pour verifier
@@ -138,7 +134,7 @@ class RecipeModel extends \W\Model\Model
              return false;
          }
      }
-     return true;
+    return true;
   }
 
   //Verification des info envoyer au moment d'ajotuer une recette
@@ -149,7 +145,6 @@ class RecipeModel extends \W\Model\Model
     } else {
       return false;
     }
-
   }
 
   //Ajouter de la recette en BDD (table recipe)
@@ -202,7 +197,6 @@ class RecipeModel extends \W\Model\Model
       //On lance les differentes insert necessaire
       $model -> insertBDD($array);
     }
-
   }
 
   //Vérification que des themes selectionner
@@ -233,7 +227,6 @@ class RecipeModel extends \W\Model\Model
         }
       }
     }
-
   }
 
   //Retourne les données de la recette ajouter
@@ -245,7 +238,6 @@ class RecipeModel extends \W\Model\Model
     $model -> setTable('recipe');
     $recipeAdd = $model -> find($idRecipeAdd);
     return $recipeAdd;
-
   }
 
   //Trouver les recettes avcec les ingredients prensent dans le panier
@@ -293,7 +285,6 @@ class RecipeModel extends \W\Model\Model
       "success" => true,
       "list" => $recipeHtml2
     );
-
   }
 
   //Method pour afficher les recettes sur la page
@@ -306,8 +297,24 @@ class RecipeModel extends \W\Model\Model
       $recipeFind = $model -> find($_POST['RecipeId']);
       return $recipeFind;
     }
-
   }
 
+  //Method pour l'ajout au favoris
+  public function addFavoris() {
+    $model = new RecipeModel();
+    $model -> setTable('comment');
 
+    $array = array(
+      "com_use_id" => $_SESSION['user']['id'],
+      "com_rec_id" => $_POST['recipeId'],
+      "com_fav" => 1
+    );
+
+    if ($model -> insert($array)) {
+      return $data = array(
+        "success" => true
+      );
+    }
+
+  }
 }

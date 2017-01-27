@@ -6,6 +6,16 @@
 
     <section class="recipe_selected">
 
+      <?php if (!empty($_SESSION['user'])) { ?>
+      <form class="add_favoris" action="<?= $this -> url('Recipe_add_favoris') ?>" method="post">
+        <input type="hidden" name="recipeId" value="<?= $recipeId ?>">
+        <p>
+          <label for="favoris">Ajouter au favoris : </label>
+          <button type="submit" name="favoris"><i class="fa fa-star-o" aria-hidden="true"></i></button>
+        </p>
+      </form>
+      <?php } ?>
+
       <?= $recipeName ?>
       <?= $recipeType ?>
       <?= $recipeHtml ?>
