@@ -44,5 +44,5 @@ $(document).ready(function () {
     $('.tabs').removeClass("block");
   }
 
-  $('#paniertest').draggable({ cursor: "move", cursorAt: { top: 100, left: 250 } });
+  $('#paniertest').draggable({ containment: "#body", scroll: true });
 })

@@ -9,7 +9,7 @@ html {
 
 body {
   margin: auto;
-  background-image: url('../pictures/tartines.jpg');
+  background-image: url('../pictures/pexels-photo-236557.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -95,6 +95,7 @@ body {
 
 .connected {
   font-size: 1.1em;
+  text-shadow: 2px 2px 4px black;
 }
 
 /* -----------------------------------------------
@@ -155,7 +156,7 @@ body {
 }
 
 .lb-header .active{
-  color: #cc2727;
+  color: #1178C2;
   font-size: 1.5em;
 }
 
@@ -193,7 +194,7 @@ body {
 
 .u-form-group button{
   width: calc(70% - 22px);
-  background: #cc2727;
+  background: #1178C2;
   border: none;
   outline: none;
   color: #fff;
@@ -227,10 +228,12 @@ body {
 .container {
   width: 90%;
   margin: auto;
+  margin-bottom: 3%;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: inset 0px 3px 5px -1px rgba(0,0,0,0.64);
   padding: 1px 0;
   min-height: 600px;
+  border-radius: 0 0 7px 7px;
 }
 
 .container h1 {
@@ -287,11 +290,13 @@ body {
 }
 
 div.ribbon{
+  display: inline-block;
   color: #fff;
   margin: 30px 0 50px;
   position: relative;
   text-transform: uppercase;
   background: #d9d9d9;
+  background-image: url('../pictures/swirl_pattern.png');
   border: 1px solid rgba(0,0,0,.3);
   box-shadow: 0px 1px 3px rgba(0,0,0,.2);
   padding: 10px 15px;
@@ -301,12 +306,12 @@ div.ribbon{
 div.left_ribbon{
   color: #000;
   margin-left: -10px;
-  width: 20%;
 }
 
 div.left_ribbon h3{
   margin: 0 12px;
   color: white;
+  text-shadow: 1px 2px 20px black;
 }
 
 div.left_ribbon::before{
@@ -346,7 +351,8 @@ div.both_ribbon{
 }
 
 div.both_ribbon h1 {
-  color: black;
+  color: white;
+  text-shadow: 1px 2px 20px black;
 }
 
 div.both_ribbon::before{
@@ -406,7 +412,7 @@ div.both_ribbon::after{
 .form button[type="submit"] {
   cursor: pointer;
   width: calc(50% - 22px);
-  background: #cc2727;
+  background: #0E609B;
   border: none;
   outline: none;
   color: #fff;
@@ -615,8 +621,9 @@ body:target .nav-button-close {
 ----------------------------------------------- */
 .search_panier {
   padding: 15px;
-  /*display: flex;*/
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .search_recipe {
@@ -624,10 +631,13 @@ body:target .nav-button-close {
   display: inline-block;
 }
 
+.recipe_cree {
+  margin-left: 25%;
+}
+
 .search_recipe p:first-of-type {
   text-align: justify;
   width: 100%;
-  /*margin: auto;*/
   margin: 0;
   margin-bottom: 3%;
 }
@@ -635,7 +645,6 @@ body:target .nav-button-close {
 .search {
   position: relative;
   width: 100%;
-  /*margin: auto;*/
   margin: 0;
   display: flex;
   align-items: baseline;
@@ -663,12 +672,13 @@ body:target .nav-button-close {
 }
 
 .search .results {
+  text-align: left;
   position: absolute;
   display: none;
   width: 80%;
   top: 40px;
   left: 0;
-  z-index: 10;
+  z-index: 30;
   padding: 0;
   margin: 0;
   border-width: 1px;
@@ -705,10 +715,10 @@ body:target .nav-button-close {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
 }
 
-.search button[type="submit"], .delete_panier, .submitPanier {
+.search button[type="submit"], .submitPanier {
   cursor: pointer;
   width: calc(20% - 22px);
-  background: #cc2727;
+  background: #0A4975;
   border: none;
   outline: none;
   color: #fff;
@@ -728,22 +738,23 @@ body:target .nav-button-close {
   width: 20%;
   display: inline-block;
   margin-left: 3%;
+  z-index: 23;
 }
 
 .panier-header {
-  height: auto;
+  height: 30px;
 }
 
 .panier-header h3 {
   display: inline-block;
+  margin: 0;
 }
 
 .delete_panier {
+  cursor: pointer;
   position: absolute;
   right: 0;
-  height: auto;
-  font-size: 0.7em;
-  padding: 0;
+  top: 0;
 }
 
 .panier {
@@ -758,11 +769,24 @@ body:target .nav-button-close {
 .fa-times {
   color: rgb(245, 37, 16);
   cursor: pointer;
+  margin-left: 3%;
 }
 .fa-times:hover {
   transform: scale(1.2, 1.2);
 }
 
+.form_starter, .form_main_dish, .form_dessert {
+  padding-left: 2%;
+}
+
+.addrecipe {
+  text-align: center;
+}
+
+.addrecipe a {
+  text-decoration: none;
+  color: #0E609B;
+}
 /* -----------------------------------------------
   Création de recette
 ----------------------------------------------- */
@@ -782,7 +806,7 @@ body:target .nav-button-close {
 }
 
 .liste_ing_select p{
-  margin: 0 3px 0 3px;
+  margin: 0 3% 0 3%;
   display: flex;
 }
 
@@ -865,7 +889,23 @@ table tr:not(:first-of-type):hover {
 
 @media (max-width: 1024px) {
   .search_bar {
-    width: 80%;
+    width: 100%;
+  }
+
+  .search_panier {
+    flex-direction: column;
+  }
+
+  .search_recipe {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .paniertest {
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
   }
 }
 
@@ -982,6 +1022,20 @@ table tr:not(:first-of-type):hover {
 
   .form-input {
     width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  .lb-header {
+    border-bottom: 0;
+  }
+
+  .email-login {
+    margin-top: 3%;
   }
 }
 

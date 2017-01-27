@@ -116,7 +116,7 @@
 					<a href="#" class="nav-button-close" aria-label="close navigation"></a>
 					<!-- Pas à masquer -->
 					<div class="div_logo">
-						<a href="<?= $this -> url ('default_home') ?>"><img class="logo" src="<?= $this->assetUrl('pictures/test3.png') ?>" alt=""></a>
+						<a href="<?= $this -> url ('default_home') ?>"><img class="logo" src="<?= $this->assetUrl('pictures/logo03.png') ?>" alt=""></a>
 					</div>
 					<div class="login-connect">
 						<?php if(empty($_SESSION)){ ?>

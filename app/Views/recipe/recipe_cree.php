@@ -3,10 +3,10 @@
 <?php $this->start('main_content') ?>
 
 <div class="container">
-  <p><a href="<?= $this -> url ('Recipe_display') ?>">Retour à J'ai Faim !</a></p>
+  <p class="addrecipe"><a href="<?= $this -> url ('Recipe_display') ?>">Retour à J'ai Faim !</a></p>
   <h2>Ajouter une recette</h2>
   <!-- Partie ingredients en autoComple -->
-  <div class="search_recipe">
+  <div class="search_recipe recipe_cree">
     <form class="search_bar search" action="" method="post">
       <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
 

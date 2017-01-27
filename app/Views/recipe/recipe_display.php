@@ -8,7 +8,7 @@
   <div class="search_panier">
 
     <div class="search_recipe">
-      <p><em>Trouvez une recette en fonction de vos ingrédients ! Ajouter un ingrédient dans votre panier grâce à la barre de recherche et une fois que votre panier est prêt cliquez sur trouver une recette.</em></p>
+      <p><em>Selectionnez un ingrédient parmis la base de données et ajoutez le au panier !</em></p>
 
       <form class="search_bar search" action="" method="post">
         <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
@@ -30,9 +30,7 @@
       <div class="lb-header panier-header">
         <h3>Mon panier</h3>
         <!-- Button pour vider la liste des ingredients du panier -->
-        <button type="button" name="button" class="delete_panier">
-          <p><i class="fa fa-trash" aria-hidden="true"></i></p>
-        </button>
+        <p><i class="fa fa-trash delete_panier" aria-hidden="true"></i></p>
       </div>
       <form class="panier" action="" method="post">
         <!-- Partie pour le panier -->
@@ -44,7 +42,7 @@
     </div>
   </div>
   <?php if(!empty($_SESSION))  { ?>
-    <p><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
+    <p class="addrecipe"><a href="<?= $this -> url('Recipe_written') ?>"> Ajouter une recette</a></p>
     <?php } ?>
   <!-- Les containers seront masqués de base et seront visibles en fonction de la recherche -->
   <div class="content_recipe">
