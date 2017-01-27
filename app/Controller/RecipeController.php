@@ -11,9 +11,7 @@ class RecipeController extends Controller
 
   public function display() {
 
-    //Affichage de la page
     $this->show('recipe/recipe_display');
-
   }
 
   public function written() {
@@ -55,7 +53,7 @@ class RecipeController extends Controller
 
           $model -> addIngUserRecipeBdd($idRecipeAdd['id']);
           $model -> checkThemeSelectedRecipe($idRecipeAdd['id']);
-          $idRecipe = $model -> addRecipe($idRecipeAdd['id']);
+          $idRecipe = $model -> searchRecipeLastInsert($idRecipeAdd['id']);
 
           if ($idRecipe) {
             $this->show('recipe/Recipe_addWritten',
@@ -91,7 +89,6 @@ class RecipeController extends Controller
       //On revoie les données obtenue
       $controller -> showJson($data);
     }
-
   }
 
   //Controller pour la recuperation des données AJAX
@@ -111,7 +108,7 @@ class RecipeController extends Controller
     }
   }
 
-  //Controller pour trovuer une recette dans j'ai faim
+  //Controller pour trouver une recette dans j'ai faim
   public function findRecipe() {
 
     $controller = new RecipeController();
@@ -122,18 +119,17 @@ class RecipeController extends Controller
     $controller -> showJson($data);
   }
 
+  //Controller pour afficher la recette selectionner
   public function showRecipe() {
 
     $model = new RecipeModel();
     $recipeSelected = $model -> showRecipe();
-
 
     $this->show('recipe/recipe_show',
       ['recipeName' => $recipeSelected['rec_name'],
       'recipeType' => $recipeSelected['rec_type'],
       'recipeHtml' => $recipeSelected['rec_html']]
     );
-
   }
 
 }

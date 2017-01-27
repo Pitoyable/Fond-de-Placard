@@ -90,7 +90,7 @@ class RecipeModel extends \W\Model\Model
 
   }
 
-  //Method pour l'auto complementation des ingredients (AJAX)
+  //Method pour l'autocompletion des ingredients (AJAX)
   public function autoFindIngredient() {
 
     //Initialisation du model RecipdeModel
@@ -236,8 +236,8 @@ class RecipeModel extends \W\Model\Model
 
   }
 
-  //Ajouter une recette
-  public function addRecipe($idRecipeAdd) {
+  //Retourne les données de la recette ajouter
+  public function searchRecipeLastInsert($idRecipeAdd) {
 
     $model = new RecipeModel();
 
@@ -280,7 +280,7 @@ class RecipeModel extends \W\Model\Model
      array_push($arrayTemp ,$model -> search($findRecipe[$i]));
     }
 
-    //Carotte NINJA pour retiré une dimension d'un tableau
+    //method NINJA pour retiré une dimension d'un tableau
     foreach($arrayTemp as $tab1 => $val){
       foreach($val as $tab2 => $val2) {
         foreach($val2 as $tab3 => $val3) {
