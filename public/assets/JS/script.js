@@ -62,12 +62,12 @@ $(function () {
   });
 });
 
-//Function Ajax pour l'autocomplementation
+//Function Ajax pour l'autocompletion
 var autoComple = function(credentials) {
 
   $.ajax({
     method : 'POST',
-    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
+    url : 'http://fond-de-placard.local/recipe_ajaxFind',
     data : credentials,
     success : function(response) {
       if (response.success) {
@@ -141,8 +141,10 @@ var selectIng = function(credentials) {
                 // Suppression des ingrédients
                 $(".fa-times").click(function() {
                   $(this).parent().remove();
-                })
+                });
               }
+            } else {
+              console.log('fuck');
             }
           }
         }
@@ -234,9 +236,10 @@ var addFavori = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxAddFavoris',
     data : credentials,
     success : function(response) {
-      if (response.success) {
-
+      if (response.favoris) {
         console.log('bisous Mon Nounours !');
+      } else {
+        console.log('fail');
       }
     }
   });

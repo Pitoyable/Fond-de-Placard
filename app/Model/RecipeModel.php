@@ -299,6 +299,24 @@ class RecipeModel extends \W\Model\Model
     }
   }
 
+  //Method pour verifier si le favoris est deja present en BDD
+  public function checkFavoris() {
+    $app = getApp();
+    //On crée la requete sql qui va verifier si le favoris existe deja ou non
+    $sql = "SELECT * FROM comment WHERE com_rec_id = '" . $_POST['recipeId'] . "' AND com_use_id = '" . $_SESSION['user']['id'] . "' AND com_fav = 1 OR com_fav = 0";
+    $dbh = ConnectionModel::getDbh();
+    $sth = $dbh->prepare($sql);
+    //S'il existe, on recupere les données du favoris
+    if($sth->execute()){
+        $foundName = $sth->fetch();
+        if($foundName){
+            return $foundName;
+        }
+    }
+    //S'il n'existe pas, on return NULL
+   return NULL;
+  }
+
   //Method pour l'ajout au favoris
   public function addFavoris() {
     $model = new RecipeModel();
@@ -312,7 +330,8 @@ class RecipeModel extends \W\Model\Model
 
     if ($model -> insert($array)) {
       return $data = array(
-        "success" => true
+        "success" => true,
+        "favoris" => true
       );
     }
 

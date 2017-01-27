@@ -23,7 +23,7 @@
     </section>
 
   <?php } else { ?>
-    <p>Aucun recette selectionner</p>
+    <p>Aucun recette selectionnée</p>
   <?php } ?>
 
 </div>
