@@ -1,7 +1,7 @@
 $(function () {
 
 
-  //Preparation pour l'auto complementation
+  //Preparation pour l'autocompletion
   $('.input_search').on('keyup submit',function() {
 
     //On stock les données du formulaire dans une variable
@@ -67,7 +67,7 @@ var autoComple = function(credentials) {
 
   $.ajax({
     method : 'POST',
-    url : 'http://fond-de-placard.local/recipe_ajaxFind',
+    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
     data : credentials,
     success : function(response) {
       if (response.success) {
@@ -115,7 +115,7 @@ var selectIng = function(credentials) {
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
+    url : 'http://fond-de-placard.local/recipe_ajaxFind',
     data : credentials,
     success : function(response) {
         //Si la reponse est true on appel la function

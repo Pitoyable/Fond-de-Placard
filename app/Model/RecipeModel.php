@@ -95,12 +95,10 @@ class RecipeModel extends \W\Model\Model
 
     //Utilisation de la method setTable() pour chercher dans la table ingredients
     $model -> setTable('ingredients');
-
     //Création de la requete SQL
-    $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '";
-    //Limitation à 3 ingreedients renvoyer
-    $sql .=  $_POST['search_bar'] . "%' LIMIT 3";
+    $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '" . $_POST['search_bar'] . "%' LIMIT 3";
 
+    //Limitation à 3 ingreedients renvoyer
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 
@@ -259,7 +257,6 @@ class RecipeModel extends \W\Model\Model
         $sql .= " AND recipe_id IN (  SELECT link_ing_rec.recipe_id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i]  . ")";
       }
     }
-
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		$findRecipe = $sth->fetchAll();
@@ -276,7 +273,7 @@ class RecipeModel extends \W\Model\Model
     foreach($arrayTemp as $tab1 => $val){
       foreach($val as $tab2 => $val2) {
         foreach($val2 as $tab3 => $val3) {
-          $recipeHtml2[$tab1][$tab3]=$val3;
+           $recipeHtml2[$tab1][$tab3]=$val3;
         }
       }
     }
@@ -334,6 +331,6 @@ class RecipeModel extends \W\Model\Model
         "favoris" => true
       );
     }
-
   }
+
 }

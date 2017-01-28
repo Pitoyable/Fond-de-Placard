@@ -114,7 +114,6 @@ class RecipeController extends Controller
     $controller = new RecipeController();
     $model = new RecipeModel();
     $data = $model -> findRecipe();
-
     //On revoie les données obtenue
     $controller -> showJson($data);
   }
