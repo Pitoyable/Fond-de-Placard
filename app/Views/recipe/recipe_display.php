@@ -8,7 +8,7 @@
   <div class="search_panier">
 
     <div class="search_recipe">
-      <p><em>Selectionnez un ingrédient parmis la base de données et ajoutez le au panier !</em></p>
+      <p><em>Selectionnez un ingrédient parmi la base de données et ajoutez le au panier !</em></p>
 
       <form class="search_bar search" action="" method="post">
         <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">

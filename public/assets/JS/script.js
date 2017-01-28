@@ -171,7 +171,7 @@ var recipeFind = function(credentials) {
 
             $('.form_starter').children().remove();
             $('.form_starter').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
@@ -189,7 +189,7 @@ var recipeFind = function(credentials) {
 
             $('.form_main_dish').children().remove();
             $('.form_main_dish').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
@@ -207,7 +207,7 @@ var recipeFind = function(credentials) {
 
             $('.form_dessert').children().remove();
             $('.form_dessert').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
