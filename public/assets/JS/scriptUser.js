@@ -56,7 +56,7 @@ $(function () {
       success : function(response){
         if (response.success){
           //redirection sur la page j'ai faim
-          window.location.assign("http://fond-de-placard.local/recette_afficher");
+           window.location.assign("http://fond-de-placard.local/recette_afficher");
         } else{
           //message d'erreur
           $('#error').append(
