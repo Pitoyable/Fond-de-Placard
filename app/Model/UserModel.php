@@ -57,7 +57,7 @@ class UserModel extends \W\Model\Model
 
             $data = array(
               "success" => true,
-              "mail" => $mail,
+              
             );
             return $data;
           }
