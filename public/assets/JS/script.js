@@ -180,9 +180,9 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           } else if (list[i]['rec_type'] === "plat") {
@@ -198,9 +198,9 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           } else if (list[i]['rec_type'] === "dessert") {
@@ -216,9 +216,9 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           }

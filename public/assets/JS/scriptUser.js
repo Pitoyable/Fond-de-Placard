@@ -59,6 +59,7 @@ $(function () {
            window.location.assign("http://fond-de-placard.local/recette_afficher");
         } else{
           //message d'erreur
+          $('#error').children().remove();
           $('#error').append(
             '<p>'+response.error+'</p>');
         }
@@ -77,6 +78,7 @@ $(function () {
 
         } else{
           //message d'erreur
+          $('#error').children().remove();
           $('#error').append(
             '<p>'+response.error+'</p>');
           }
@@ -94,6 +96,7 @@ $(function () {
           window.location.assign("http://fond-de-placard.local/utilisateur_afficher");
         } else{
           //message d'erreur
+          $('#errorMonCompte').children().remove();
           $('#erreurMonCompte').append(
             '<p>'+response.error+'</p>');
         }

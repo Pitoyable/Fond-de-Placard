@@ -57,7 +57,7 @@ class UserModel extends \W\Model\Model
 
             $data = array(
               "success" => true,
-              
+
             );
             return $data;
           }
@@ -93,7 +93,7 @@ class UserModel extends \W\Model\Model
     if ($test == 0){
       $data = array(
         "success" => false,
-        "error" => "information incorrect",
+        "error" => "informations incorrectes",
       );
       return $data;
     }else{
@@ -104,7 +104,7 @@ class UserModel extends \W\Model\Model
       if($emailValide['use_valide'] == 0){
         $data = array(
           "success" => false,
-          "error" => "email non valider",
+          "error" => "email non validé",
         );
         return $data;
       }else{
@@ -139,7 +139,7 @@ class UserModel extends \W\Model\Model
 
         $data = array(
           "success" => false,
-          "error" => "information fausse",
+          "error" => "informations fausses",
         );
         return $data;
       }else {

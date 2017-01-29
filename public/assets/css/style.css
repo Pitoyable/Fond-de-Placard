@@ -128,7 +128,6 @@ body {
 .login-box{
   position:relative;
   width: 500px;
-  height: 380px;
   background-color: #fff;
   padding: 10px;
   border-radius: 15px;
@@ -205,6 +204,10 @@ body {
   text-transform: uppercase;
 }
 
+.error p {
+  text-align: center;
+  color: rgb(238, 21, 21);
+}
 /* -----------------------------------------------
   Main
 ----------------------------------------------- */
@@ -292,7 +295,7 @@ body {
 div.ribbon{
   display: inline-block;
   color: #fff;
-  margin: 10px 0 50px;
+  margin: 10px 0 5px;
   position: relative;
   text-transform: uppercase;
   background-image: url('../pictures/swirl_pattern.png');
@@ -380,9 +383,26 @@ div.both_ribbon::after{
   border-left: 10px solid #ababab;
 }
 
+.form_recipe {
+  height: 230px;
+  overflow-x: auto;
+}
+
 .card_recipe {
   height: 200px;
   width: 300px;
+  border: 1px dashed black;
+  background: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.card_recipe button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
 }
 /* -----------------------------------------------
   Form

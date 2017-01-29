@@ -103,9 +103,9 @@
 							 <button>S'inscrire</button>
 						 </p>
 					 </form>
-				 </div>
-				 <div id="error">
-				 	<!--div pour placer les erreur retourné en ajax  -->
+					 <div id="error" class="error">
+						 <!--div pour placer les erreur retourné en ajax  -->
+					 </div>
 				 </div>
 			</div> <!-- Fin de l'overlay -->
 
