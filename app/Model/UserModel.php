@@ -169,7 +169,7 @@ class UserModel extends \W\Model\Model
     }
   }
 
-  public function mail($clef){
+  public function validate($clef){
     // pn regarde sur la valeur de clef est vide ou pas
     if (!empty($clef)){
         //on met a jour l'utilisateur qui a cette clef

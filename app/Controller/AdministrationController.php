@@ -12,7 +12,8 @@ use Model\RecipeModel;
 class AdministrationController extends Controller
 {
   public function adminHome(){
-
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
     //methode pour se connecté a la partie administration
     $this->show('administration/admin_home');
   }

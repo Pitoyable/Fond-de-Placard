@@ -63,11 +63,11 @@ class UserController extends Controller
     $controller -> showJson($data);
   }
 
-  public function mail(){
+  public function validate(){
     //methode pour afficher les formulaire d'inscription
-    //on utilise la metohde mail en lui donnant la valeur de clef qui est dans l'url renvoyer de l'email
+    //on utilise la methode mail en lui donnant la valeur de clef qui est dans l'url renvoyer de l'email
     $authentification = new UserModel();
-    $data = $authentification -> mail($_GET['clef']);
+    $data = $authentification ->validate($_GET['clef']);
 
     if($data == true){
       $this->show('user/user_email');
