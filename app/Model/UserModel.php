@@ -100,15 +100,23 @@ class UserModel extends \W\Model\Model
       $model = new UsersModel();
       //on cherche l'utilisateur en bdd avec son email
       $emailValide = $model -> getUserByUsernameOrEmail($email);
-      //on met les information en session
-      $authentification ->logUserIn($emailValide);
+      //on verifie que l'email est valide
+      if($emailValide['use_valide'] == 0){
+        $data = array(
+          "success" => false,
+          "error" => "email non valider",
+        );
+        return $data;
+      }else{
+        //on met les information en session
+        $authentification ->logUserIn($emailValide);
 
-      $data = array(
-        "success" => true,
+        $data = array(
+          "success" => true,
 
-      );
-      return $data;
-
+        );
+        return $data;
+      }
     }
   }
 

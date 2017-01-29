@@ -16,7 +16,7 @@
 		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],
 			//Afficher
 		['GET|POST', '/utilisateur_afficher', 'User#display', 'User_display'],
-		 //Pageretoru d'email
+		 //Page retour d'email
 	 	['GET|POST', '/utilisateur_email', 'User#mail', 'User_mail'],
 
 
