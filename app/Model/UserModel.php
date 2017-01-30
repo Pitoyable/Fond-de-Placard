@@ -64,21 +64,21 @@ class UserModel extends \W\Model\Model
         }else{
           $data = array(
             "success" => false,
-            "error" => "erreur longueur mdp",
+            "error" => "Le mot de passe doit contenir au moins 5 caractères",
           );
           return $data;
         }
       }else{
         $data = array(
           "success" => false,
-          "error" => "erreur mdp",
+          "error" => "Les deux mots de passe ne sont pas identique ",
         );
         return $data;
       }
     }else{
       $data = array(
         "success" => false,
-        "error" => "pseudo incorrect",
+        "error" => "Le pseudo doit contenir entre 5 et 20 caratères",
       );
       return $data;
     }
@@ -93,7 +93,7 @@ class UserModel extends \W\Model\Model
     if ($test == 0){
       $data = array(
         "success" => false,
-        "error" => "informations incorrectes",
+        "error" => "Informations incorrectes",
       );
       return $data;
     }else{
@@ -104,7 +104,7 @@ class UserModel extends \W\Model\Model
       if($emailValide['use_valide'] == 0){
         $data = array(
           "success" => false,
-          "error" => "email non validé",
+          "error" => "Email non validé",
         );
         return $data;
       }else{
@@ -127,7 +127,7 @@ class UserModel extends \W\Model\Model
     if ($array['old_use_password'] == $array['use_password']){
       $data = array(
         "success" => false,
-        "error" => "ancien et nouveau mdp identique",
+        "error" => "Ancien et nouveau mdp identiques",
       );
       return $data;
     }else{
@@ -139,7 +139,7 @@ class UserModel extends \W\Model\Model
 
         $data = array(
           "success" => false,
-          "error" => "informations fausses",
+          "error" => "Informations incorrectes",
         );
         return $data;
       }else {
@@ -161,7 +161,7 @@ class UserModel extends \W\Model\Model
         }else{
           $data = array(
             "success" => false,
-            "error" => "longueur nouveau mdp fausse",
+            "error" => "Le nouveau mot de passe doit contenir au moins 5 caractères",
           );
           return $data;
         }

@@ -96,7 +96,7 @@ $(function () {
           window.location.assign("http://fond-de-placard.local/utilisateur_afficher");
         } else{
           //message d'erreur
-          $('#errorMonCompte').children().remove();
+          $('#erreurMonCompte').children().remove();
           $('#erreurMonCompte').append(
             '<p>'+response.error+'</p>');
         }

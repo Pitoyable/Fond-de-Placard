@@ -39,7 +39,7 @@
 
       <button type="submit" name="update_user_submit">Valider</button>
     </form>
-    <div id="erreurMonCompte">
+    <div id="erreurMonCompte" class="error">
 
     </div>
   </div> <!-- fin information -->
