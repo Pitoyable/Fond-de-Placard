@@ -49,11 +49,23 @@
     <table>
       <tr>
         <th>Nom</th>
-        <th>Etat</th> <!-- etat validé ou non -->
+        <th>Type</th>
+        <th>Valider</th>
       </tr>
-      <tr>
-        <!-- Boucle avec les recettes de relative à l'utilisateur validé ou non -->
-      </tr>
+      <?php for ($i=0; $i <count($array) ; $i++) { ?>
+        <tr>
+          <td><?= $array[$i]['rec_name']?></td>
+          <td><?= $array[$i]['rec_type']?></td>
+          <?php
+          if($array[$i]['rec_valide'] == 0){
+            $valide = 'Non';
+          }else{
+            $valide = 'Oui';
+          } ?>
+          <td><?= $valide ?></td>
+        </tr>
+
+    <?php  } ?>
     </table>
   </div> <!-- fin receipe -->
 

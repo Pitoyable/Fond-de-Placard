@@ -176,7 +176,7 @@ class UserModel extends \W\Model\Model
         $sql = "UPDATE user SET use_valide = 1 WHERE use_key = :clef";
 
         $sth = $this->dbh->prepare($sql);
-        	$sth->bindValue(':clef', $get['clef']);
+        $sth->bindValue(':clef', $get['clef']);
         if(!$sth->execute()){
     			return false;
     		}
@@ -184,5 +184,19 @@ class UserModel extends \W\Model\Model
     }else{
       return false;
     }
+  }
+
+  public function findRecipeByUSer($id){
+
+    $sql = "SELECT * FROM recipe
+    INNER JOIN link_rec_use ON link_rec_use.recipe_id = recipe.id
+    WHERE link_rec_use.user_id = $id";
+
+
+		$sth = $this->dbh->prepare($sql);
+    $sth->execute();
+    $recipeUser = $sth->fetchAll();
+
+    return $recipeUser;
   }
 }

@@ -46,9 +46,13 @@ class UserController extends Controller
     //methode pour afficher le compte
 
     if (!isset($_SESSION['user'])){
-      $this->show('user/user_acess');
+      $this->show('defaut/home');
     }else{
-       $this->show('user/user_display');
+
+      $model = new UserModel();
+      $array = $model ->findRecipeByUSer($_SESSION['user']['id']);
+      
+      $this->show('user/user_display', ['array' => $array]);
     }
   }
 
