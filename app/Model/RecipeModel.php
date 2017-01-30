@@ -97,7 +97,6 @@ class RecipeModel extends \W\Model\Model
     $model -> setTable('ingredients');
     //Création de la requete SQL
     $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '" . $_POST['search_bar'] . "%' LIMIT 3";
-
     //Limitation à 3 ingreedients renvoyer
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
@@ -138,7 +137,7 @@ class RecipeModel extends \W\Model\Model
   //Verification des info envoyer au moment d'ajotuer une recette
   public function checkInfoRec() {
 
-    if (!empty($_POST['mp_ing']) && !empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['recipe_content']) && !empty($_SESSION['user'])) {
+    if (!empty($_POST['mp_ing']) && !empty($_POST['nom']) && !empty($_POST['type']) && !empty($_POST['recipe_content']) && !empty($_POST['caption']) && !empty($_SESSION['user'])) {
       return true;
     } else {
       return false;
@@ -153,7 +152,8 @@ class RecipeModel extends \W\Model\Model
     $array = array(
       "rec_name" => $_POST['nom'],
       "rec_html" => $_POST['recipe_content'],
-      "rec_type" => $_POST['type']
+      "rec_type" => $_POST['type'],
+      "rec_caption" => $_POST['caption']
     );
 
     //On definie la table à utiliser
@@ -254,7 +254,7 @@ class RecipeModel extends \W\Model\Model
     if (count($_POST['mp_ing']) > 1) {
       for ($i=1; $i < count($_POST['mp_ing']) ; $i++) {
         //Concatenation de la requete SQL
-        $sql .= " AND recipe_id IN (  SELECT link_ing_rec.recipe_id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i]  . ")";
+        $sql .= " AND recipe_id IN (SELECT link_ing_rec.recipe_id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i]  . ")";
       }
     }
     $sth = $this->dbh->prepare($sql);
@@ -296,6 +296,17 @@ class RecipeModel extends \W\Model\Model
     }
   }
 
+  //Method pour trouver l'utilisateur qui a poster la recette
+  public function findUserRecipe($param) {
+    if (!empty($param)) {
+      $model = new RecipeModel();
+      $model -> setTable('lin_rec_use');
+      $sql = "SELECT * FROM link_rec_use INNER JOIN user ON link_rec_use.user_id = user.id WHERE link_rec_use.recipe_id = " . $param;
+      $sth = $this->dbh->prepare($sql);
+  		$sth->execute();
+  		return $sth->fetch();
+    }
+  }
   //Method pour verifier si le favoris est deja present en BDD
   public function checkFavoris() {
     $app = getApp();

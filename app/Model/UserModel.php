@@ -169,14 +169,14 @@ class UserModel extends \W\Model\Model
     }
   }
 
-  public function validate($clef){
+  public function validate($get){
     // pn regarde sur la valeur de clef est vide ou pas
-    if (!empty($clef)){
+    if (!empty($get['clef'])){
         //on met a jour l'utilisateur qui a cette clef
         $sql = "UPDATE user SET use_valide = 1 WHERE use_key = :clef";
 
         $sth = $this->dbh->prepare($sql);
-        	$sth->bindValue(':clef', $clef);
+        	$sth->bindValue(':clef', $get['clef']);
         if(!$sth->execute()){
     			return false;
     		}

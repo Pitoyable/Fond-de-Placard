@@ -2,8 +2,9 @@ $(function () {
 
 
   //Preparation pour l'autocompletion
-  $('.input_search').on('keyup submit',function() {
+  $('.input_search').on('keyup submit',function(e) {
 
+    e.preventDefault();
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
     //On appel une function pour formater les datas en JSON
@@ -18,7 +19,6 @@ $(function () {
     }
   });
 
-  //Preparation des données recuperé du formulaire
   $('.search_bar').on('submit', function (e) {
 
     e.preventDefault();
@@ -143,8 +143,6 @@ var selectIng = function(credentials) {
                   $(this).parent().remove();
                 });
               }
-            } else {
-              console.log('fuck');
             }
           }
         }
@@ -180,6 +178,7 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
+              + "<p>" + list[i]['rec_caption'] + "</p>"
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"

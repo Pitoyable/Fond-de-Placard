@@ -67,7 +67,7 @@ class UserController extends Controller
     //methode pour afficher les formulaire d'inscription
     //on utilise la methode mail en lui donnant la valeur de clef qui est dans l'url renvoyer de l'email
     $authentification = new UserModel();
-    $data = $authentification ->validate($_GET['clef']);
+    $data = $authentification ->validate($_GET);
 
     if($data == true){
       $this->show('user/user_email');

@@ -34,8 +34,7 @@
       </div>
       <form class="panier" action="" method="post">
         <!-- Partie pour le panier -->
-        <div class="liste_ing_select">
-        </div>
+        <div class="liste_ing_select"></div>
 
         <input class="submitPanier" type="submit" name="search_recipe" value="Trouver Une recette !">
       </form>
@@ -52,7 +51,7 @@
       </div>
       <form class="form_starter form_recipe" action="<?= $this -> url('Recipe_show') ?>" method="post"></form>
     </div>
-    
+
     <div class="main_dish">
       <div class="ribbon left_ribbon">
         <h3>Les plats</h3>

@@ -19,6 +19,7 @@
       <?= $recipeName ?>
       <?= $recipeType ?>
       <?= $recipeHtml ?>
+      <?= $pseudoUser ?>
 
     </section>
 
