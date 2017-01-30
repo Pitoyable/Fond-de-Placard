@@ -405,11 +405,14 @@ div.both_ribbon::after{
   display: block;
   margin: auto;
   padding: 5px;
-  height: 80px;
 }
 
 .fa-eye {
   font-size: 2em;
+}
+
+.favoris {
+  color: rgb(238, 225, 46);
 }
 /* -----------------------------------------------
   Form

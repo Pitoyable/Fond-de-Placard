@@ -44,13 +44,13 @@
     </div>
   </div> <!-- fin information -->
 
-  <div id="receipe" class="tabs">
+  <div id="receipe" class="tabs admin-nav ">
     <h3>Mes recettes</h3>
     <table>
       <tr>
         <th>Nom</th>
         <th>Type</th>
-        <th>Valider</th>
+        <th>Validée</th>
       </tr>
       <?php for ($i=0; $i <count($array) ; $i++) { ?>
         <tr>

@@ -12,8 +12,8 @@
   <a href="<?= $this -> url('Administration_manageUser') ?>">Gestion des utilisateurs</a>
   <a href="<?= $this -> url('Administration_manageRecipe') ?>">Validation des recettes</a>
   <a href="<?= $this -> url('Administration_manageTheme') ?>">Gestion des thèmes</a>
-  <table>
     <h2>Admin</h2>
+    <table>
     <tr>
       <th>Pseudo</th>
       <th>Email</th>
