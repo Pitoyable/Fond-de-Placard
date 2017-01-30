@@ -411,6 +411,14 @@ div.both_ribbon::after{
   font-size: 2em;
 }
 
+button[name="favoris"]{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1em;
+}
+
 .favoris {
   color: rgb(238, 225, 46);
 }
@@ -870,6 +878,11 @@ body:target .nav-button-close {
 .admin-nav table {
   width: 100%;
   text-align: left;
+}
+
+.admin-nav a {
+  /*text-decoration: none;*/
+  color: black;
 }
 
 table {

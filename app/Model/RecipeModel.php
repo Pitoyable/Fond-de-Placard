@@ -238,19 +238,19 @@ class RecipeModel extends \W\Model\Model
     return $recipeAdd;
   }
 
-  //Trouver les recettes avcec les ingredients prensent dans le panier
+  //Trouver les recettes avec les ingredients présents dans le panier
   public function findRecipe() {
 
     $model = new RecipeModel();
     $model -> setTable('link_ing_rec');
 
-    //Preparation d'une tableau pour recuperé le resultat de la requete
+    //Preparation d'un tableau pour recuperer le resultat de la requete
     $arrayTemp = array();
 
-    //Requete SQL Sans aucune protection
+    //Requete SQL pour obtenir l'id des recettes valides
     $sql = "SELECT recipe_id AS id FROM link_ing_rec INNER JOIN recipe ON recipe.id = link_ing_rec.recipe_id WHERE recipe.rec_valide = 1 AND ingredients_id = " . $_POST['mp_ing'][0];
 
-    //Condition en function du nombre d'ingredients dans le panier
+    //Condition en fonction du nombre d'ingredients dans le panier
     if (count($_POST['mp_ing']) > 1) {
       for ($i=1; $i < count($_POST['mp_ing']) ; $i++) {
         //Concatenation de la requete SQL
@@ -259,31 +259,32 @@ class RecipeModel extends \W\Model\Model
     }
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
+    //  Récupération dans un tableau des id
 		$findRecipe = $sth->fetchAll();
 
     $model -> setTable('recipe');
 
-    //Boucle Pour recuperé l'integralité du contenue des recipes
+    //Boucle Pour recuperer l'integralité du contenue des recettes
     for ($i=0; $i < count($findRecipe) ; $i++) {
      array_push($arrayTemp ,$model -> search($findRecipe[$i]));
     }
 
-    //method NINJA pour retiré une dimension d'un tableau
+    //Astuce pour retirer une dimension d'un tableau
     foreach($arrayTemp as $tab1 => $val){
       foreach($val as $tab2 => $val2) {
         foreach($val2 as $tab3 => $val3) {
-           $recipeHtml2[$tab1][$tab3]=$val3;
+           $recipeFound[$tab1][$tab3]=$val3;
         }
       }
     }
 
     return $data = array(
       "success" => true,
-      "list" => $recipeHtml2
+      "list" => $recipeFound
     );
   }
 
-  //Method pour afficher les recettes sur la page
+  //Methode pour afficher les recettes sur la page
   public function showRecipe() {
 
     if (!empty($_POST['recipeId'])) {
@@ -295,7 +296,7 @@ class RecipeModel extends \W\Model\Model
     }
   }
 
-  //Method pour trouver l'utilisateur qui a poster la recette
+  //Methode pour trouver l'utilisateur qui à posté la recette
   public function findUserRecipe($param) {
     if (!empty($param)) {
       $model = new RecipeModel();
@@ -307,7 +308,7 @@ class RecipeModel extends \W\Model\Model
     }
   }
 
-  //Method pour verifier si le favoris est deja present en BDD
+  //Methode pour verifier si le favori est deja present en BDD
   public function checkFavoris() {
     if (!empty($_SESSION['user'])) {
 
