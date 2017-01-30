@@ -197,6 +197,7 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
+              + "<p>" + list[i]['rec_caption'] + "</p>"
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
@@ -215,6 +216,7 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
+              + "<p>" + list[i]['rec_caption'] + "</p>"
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"

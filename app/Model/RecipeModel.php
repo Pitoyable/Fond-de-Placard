@@ -260,8 +260,7 @@ class RecipeModel extends \W\Model\Model
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		$findRecipe = $sth->fetchAll();
-
-    //Changemetn de la table
+    
     $model -> setTable('recipe');
 
     //Boucle Pour recuperé l'integralité du contenue des recipes
