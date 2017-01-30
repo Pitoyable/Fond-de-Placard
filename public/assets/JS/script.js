@@ -2,8 +2,9 @@ $(function () {
 
 
   //Preparation pour l'autocompletion
-  $('.input_search').on('keyup submit',function() {
+  $('.input_search').on('keyup submit',function(e) {
 
+    e.preventDefault();
     //On stock les données du formulaire dans une variable
     var datas = $(this).serializeArray();
     //On appel une function pour formater les datas en JSON
@@ -18,7 +19,6 @@ $(function () {
     }
   });
 
-  //Preparation des données recuperé du formulaire
   $('.search_bar').on('submit', function (e) {
 
     e.preventDefault();
@@ -143,8 +143,6 @@ var selectIng = function(credentials) {
                   $(this).parent().remove();
                 });
               }
-            } else {
-              console.log('fuck');
             }
           }
         }

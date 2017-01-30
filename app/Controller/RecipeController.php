@@ -114,7 +114,6 @@ class RecipeController extends Controller
     $controller = new RecipeController();
     $model = new RecipeModel();
     $data = $model -> findRecipe();
-    //On revoie les données obtenue
     $controller -> showJson($data);
   }
 
@@ -123,12 +122,14 @@ class RecipeController extends Controller
 
     $model = new RecipeModel();
     $recipeSelected = $model -> showRecipe();
+    $userFind = $model -> findUserRecipe($_POST['RecipeId']);
 
     $this->show('recipe/recipe_show',
       ['recipeName' => $recipeSelected['rec_name'],
       'recipeType' => $recipeSelected['rec_type'],
       'recipeId' => $recipeSelected['id'],
-      'recipeHtml' => $recipeSelected['rec_html']]
+      'recipeHtml' => $recipeSelected['rec_html'],
+      'pseudoUser' => $userFind['use_pseudo']]
     );
   }
 
