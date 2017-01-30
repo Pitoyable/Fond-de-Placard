@@ -16,10 +16,11 @@
       </form>
       <?php } ?>
 
-      <?= $recipeName ?>
-      <?= $recipeType ?>
+      <div class="ribbon both_ribbon">
+        <h1><?= $recipeName ?></h1>
+      </div>
+      <h2>Créée par : <?= $pseudoUser ?></h2>
       <?= $recipeHtml ?>
-      <?= $pseudoUser ?>
 
     </section>
 

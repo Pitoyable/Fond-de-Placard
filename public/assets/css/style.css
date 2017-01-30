@@ -389,6 +389,7 @@ div.both_ribbon::after{
 }
 
 .card_recipe {
+  margin-top: 20px;
   height: 200px;
   width: 300px;
   border: 1px dashed black;
@@ -404,6 +405,11 @@ div.both_ribbon::after{
   display: block;
   margin: auto;
   padding: 5px;
+  height: 80px;
+}
+
+.fa-eye {
+  font-size: 2em;
 }
 /* -----------------------------------------------
   Form

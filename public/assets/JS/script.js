@@ -169,12 +169,10 @@ var recipeFind = function(credentials) {
 
             $('.form_starter').children().remove();
             $('.form_starter').append(
-              "<p class='card_recipe'>"
-              + "<label for='"
+              "<div class='card_recipe'>"
+              + "<h3>"
               + list[i]['rec_name']
-              + "'>"
-              + list[i]['rec_name']
-              + "</label>"
+              + "</h3>"
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
@@ -182,18 +180,16 @@ var recipeFind = function(credentials) {
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
-              + "</p>"
+              + "</div>"
             );
           } else if (list[i]['rec_type'] === "plat") {
 
             $('.form_main_dish').children().remove();
             $('.form_main_dish').append(
-              "<p class='card_recipe'>"
-              + "<label for='"
+              "<div class='card_recipe'>"
+              + "<h3>"
               + list[i]['rec_name']
-              + "'>"
-              + list[i]['rec_name']
-              + "</label>"
+              + "</h3>"
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
@@ -201,18 +197,16 @@ var recipeFind = function(credentials) {
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
-              + "</p>"
+              + "</div>"
             );
           } else if (list[i]['rec_type'] === "dessert") {
 
             $('.form_dessert').children().remove();
             $('.form_dessert').append(
-              "<p class='card_recipe'>"
-              + "<label for='"
+              "<div class='card_recipe'>"
+              + "<h3>"
               + list[i]['rec_name']
-              + "'>"
-              + list[i]['rec_name']
-              + "</label>"
+              + "</h3>"
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
@@ -220,7 +214,7 @@ var recipeFind = function(credentials) {
               + "<button type='submit' name='"
               + list[i]['rec_name']
               + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
-              + "</p>"
+              + "</div>"
             );
           }
         }
