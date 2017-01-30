@@ -17,7 +17,7 @@
 			//Afficher
 		['GET|POST', '/utilisateur_afficher', 'User#display', 'User_display'],
 		 //Page retour d'email
-	 	['GET|POST', '/utilisateur_email', 'User#mail', 'User_mail'],
+	 	['GET|POST', '/utilisateur_email', 'User#validate', 'User_validate'],
 
 
 		//connexion a la partie administration du site
