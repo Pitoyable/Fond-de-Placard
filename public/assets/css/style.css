@@ -298,7 +298,8 @@ div.ribbon{
   background: #d9d9d9;
   background-image: url('../pictures/swirl_pattern.png');
   border: 1px solid rgba(0,0,0,.3);
-  box-shadow: 0px 1px 3px rgba(0,0,0,.2);
+  /*box-shadow: 0px 1px 3px rgba(0,0,0,.2);*/
+  box-shadow: 0px 3px 11px -2px rgba(0,0,0,0.75);
   padding: 10px 15px;
   clear: both;
 }
@@ -1051,11 +1052,16 @@ table tr:not(:first-of-type):hover {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 425px) {
   .form-input {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .container {
+    margin-bottom: 0;
+    border-radius: 0;
   }
 
   .form-input input {
