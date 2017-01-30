@@ -65,7 +65,6 @@
           <td><?= $array[$i]['use_pseudo'] ?></td>
           <td><?= $array[$i]['use_email'] ?></td>
           <td><?= $array[$i]['use_valide'] ?></td>
-          <td><?= $array[$i]['group_id'] ?></td>
           <td>
             <form class="" action="<?= $this -> url('Administration_editUser') ?>" method="post">
               <label for="">

@@ -1,5 +1,7 @@
 <?php $this->layout('layout', ['title' => 'Se fournir']) ?>
 
 <?php $this->start('main_content') ?>
-<h2 class ="container">Votre adresse email a bien ete valider</h2>
+<div class="container">
+  <h2>Votre adresse email a bien été validée, vous pouvez désormais vous connecter au site.</h2>
+</div>
 <?php $this->stop('main_content') ?>

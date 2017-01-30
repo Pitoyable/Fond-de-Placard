@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title><?= $this->e($title) ?></title>
 
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="<?= $this->assetUrl('pictures/favicon-32x32.png') ?>" />
+
 		<!-- JQ -->
 		<script
 	    src="http://code.jquery.com/jquery-3.1.1.min.js"
@@ -88,13 +91,13 @@
 					 </form>
 					 <form class="email-signup" action="<?= $this->url('User_signUp') ?>" method="post">
 						 <p class="u-form-group">
-							 <input type="text" placeholder="Pseudo" name="pseudo"  required/>
+							 <input type="text" placeholder="Pseudo entre 5 et 20 caractères" name="pseudo"  required/>
 						 </p>
 						 <p class="u-form-group">
 							 <input type="email" placeholder="Email" name="email"  required/>
 						 </p>
 						 <p class="u-form-group">
-							 <input type="password" placeholder="Mot de passe" name="password"  required/>
+							 <input type="password" placeholder="Le mot de passe doit contenir au moins 5 caractères" name="password"  required/>
 						 </p>
 						 <p class="u-form-group">
 							 <input type="password" placeholder="Confirmer votre mot de passe" name="password_check"  required/>

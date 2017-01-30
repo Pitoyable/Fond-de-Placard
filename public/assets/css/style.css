@@ -403,6 +403,7 @@ div.both_ribbon::after{
   cursor: pointer;
   display: block;
   margin: auto;
+  padding: 5px;
 }
 /* -----------------------------------------------
   Form
