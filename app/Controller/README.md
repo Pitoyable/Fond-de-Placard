@@ -95,5 +95,5 @@
   - updateTheme:
     - On met à jour les informations du thème
 
-    - deleteTheme:
-      - On appelle la méthode pour supprimer  le thème sélectionner
+  - deleteTheme:
+    - On appelle la méthode pour supprimer  le thème sélectionner
