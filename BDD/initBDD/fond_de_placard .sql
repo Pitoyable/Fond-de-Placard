@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 26 Janvier 2017 à 09:35
+-- Généré le :  Lun 30 Janvier 2017 à 08:27
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -123,7 +123,8 @@ CREATE TABLE `recipe` (
   `rec_html` text NOT NULL,
   `rec_type` varchar(45) NOT NULL,
   `rec_valide` tinyint(1) NOT NULL DEFAULT '0',
-  `picture_id` int(11) NOT NULL DEFAULT '1'
+  `picture_id` int(11) NOT NULL DEFAULT '1',
+  `rec_caption` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -150,15 +151,16 @@ CREATE TABLE `user` (
   `use_email` varchar(45) NOT NULL,
   `use_password` varchar(60) NOT NULL,
   `use_valide` tinyint(1) NOT NULL DEFAULT '0',
-  `group_id` int(11) NOT NULL DEFAULT '2'
+  `group_id` int(11) NOT NULL DEFAULT '2',
+  `use_key` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `use_pseudo`, `use_email`, `use_password`, `use_valide`, `group_id`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$10$nFwj087qSMzLQWOGIgPi2O5p9r0/y009mSu.RizL9mxxFdUBhKHMi', 0, 1);
+INSERT INTO `user` (`id`, `use_pseudo`, `use_email`, `use_password`, `use_valide`, `group_id`, `use_key`) VALUES
+(1, 'Admin', 'admin@gmail.com', '$2y$10$nFwj087qSMzLQWOGIgPi2O5p9r0/y009mSu.RizL9mxxFdUBhKHMi', 1, 1, NULL);
 
 --
 -- Index pour les tables exportées

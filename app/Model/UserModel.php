@@ -35,7 +35,7 @@ class UserModel extends \W\Model\Model
               'use_pseudo' => $pseudo,
               'use_email' => $email,
               'use_password' => $passwordHash,
-              'use_clef' => $clef,
+              'use_key' => $clef,
             );
             //methode pour inscrire en bdd
             $model = new UsersModel();
@@ -173,7 +173,7 @@ class UserModel extends \W\Model\Model
     // pn regarde sur la valeur de clef est vide ou pas
     if (!empty($clef)){
         //on met a jour l'utilisateur qui a cette clef
-        $sql = "UPDATE user SET use_valide = 1 WHERE use_clef = :clef";
+        $sql = "UPDATE user SET use_valide = 1 WHERE use_key = :clef";
 
         $sth = $this->dbh->prepare($sql);
         	$sth->bindValue(':clef', $clef);
