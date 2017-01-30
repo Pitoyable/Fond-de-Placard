@@ -123,6 +123,7 @@ class RecipeController extends Controller
     $model = new RecipeModel();
     $recipeSelected = $model -> showRecipe();
     $userFind = $model -> findUserRecipe($_POST['RecipeId']);
+    $checkFavoris = $model -> checkFavoris();
 
     $this->show('recipe/recipe_show',
       ['recipeName' => $recipeSelected['rec_name'],
@@ -157,7 +158,8 @@ class RecipeController extends Controller
       $model -> update($array, $checkFav['id']);
       $addFav = array(
         "success" => true,
-        "favoris" => false
+        "favoris" => $checkFav['com_fav'],
+        "class" => false,
       );
 
     //S'il la valeur est 0, on la passe à 1, se qui correspond à l'ajout du favoris
@@ -170,7 +172,8 @@ class RecipeController extends Controller
       $model -> update($array, $checkFav['id']);
       $addFav = array(
         "success" => true,
-        "favoris" => true
+        "favoris" => $checkFav['com_fav'],
+        "class" => true
       );
     }
 

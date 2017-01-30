@@ -231,10 +231,12 @@ var addFavori = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxAddFavoris',
     data : credentials,
     success : function(response) {
-      if (response.favoris) {
-        console.log('bisous Mon Nounours !');
+      if (response.class) {
+
+        $('.fa-star-o').addClass('favoris');
       } else {
-        console.log('fail');
+
+        $('.fa-star-o').removeClass('favoris');
       }
     }
   });
