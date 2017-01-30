@@ -304,6 +304,7 @@ class RecipeModel extends \W\Model\Model
       $sth = $this->dbh->prepare($sql);
   		$sth->execute();
   		return $sth->fetch();
+  		
     }
   }
 
@@ -314,6 +315,7 @@ class RecipeModel extends \W\Model\Model
       $app = getApp();
       //On crée la requete sql qui va verifier si le favoris existe deja ou non
       $sql = "SELECT * FROM comment WHERE com_rec_id = '" . $_POST['recipeId'] . "' AND com_use_id = '" . $_SESSION['user']['id'] . "' AND com_fav = 1 OR com_fav = 0";
+
       $dbh = ConnectionModel::getDbh();
       $sth = $dbh->prepare($sql);
       //S'il existe, on recupere les données du favoris

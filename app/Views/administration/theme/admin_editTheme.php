@@ -5,7 +5,7 @@
 <a href="<?= $this -> url('Administration_manageUser') ?>">Gestion des utilisateurs</a>
 <a href="<?= $this -> url('Administration_manageRecipe') ?>">Validation des recettes</a>
 <a href="<?= $this -> url('Administration_manageTheme') ?>">Gestion des thèmes</a>
-<?php var_dump($array); ?>
+
 <form class="" action="<?= $this -> url('Administration_updateTheme')?>" method="post">
   <label for="">
     <input type="text" name="name" value="<?= $array['the_name'] ?>">
