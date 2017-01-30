@@ -122,7 +122,7 @@ class RecipeController extends Controller
 
     $model = new RecipeModel();
     $recipeSelected = $model -> showRecipe();
-    $userFind = $model -> findUserRecipe($_POST['RecipeId']);
+    $userFind = $model -> findUserRecipe($_POST['recipeId']);
     $checkFavoris = $model -> checkFavoris();
 
     $this->show('recipe/recipe_show',
@@ -130,7 +130,8 @@ class RecipeController extends Controller
       'recipeType' => $recipeSelected['rec_type'],
       'recipeId' => $recipeSelected['id'],
       'recipeHtml' => $recipeSelected['rec_html'],
-      'pseudoUser' => $userFind['use_pseudo']]
+      'pseudoUser' => $userFind['use_pseudo'],
+      'favorisNumber' => $checkFavoris['com_fav']]
     );
   }
 

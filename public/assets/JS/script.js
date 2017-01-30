@@ -162,7 +162,7 @@ var recipeFind = function(credentials) {
       if (response.success) {
 
         var list = response.list;
-
+        console.log(list);
         for (var i = 0; i < list.length; i++) {
 
           if (list[i]['rec_type'] === "entree") {
@@ -173,7 +173,7 @@ var recipeFind = function(credentials) {
               + "<h3>"
               + list[i]['rec_name']
               + "</h3>"
-              + "<input type='hidden' name='RecipeId' value='"
+              + "<input type='hidden' name='recipeId' value='"
               + list[i]['id']
               + "'>"
               + "<p>" + list[i]['rec_caption'] + "</p>"
@@ -190,7 +190,7 @@ var recipeFind = function(credentials) {
               + "<h3>"
               + list[i]['rec_name']
               + "</h3>"
-              + "<input type='hidden' name='RecipeId' value='"
+              + "<input type='hidden' name='recipeId' value='"
               + list[i]['id']
               + "'>"
               + "<p>" + list[i]['rec_caption'] + "</p>"
@@ -207,7 +207,7 @@ var recipeFind = function(credentials) {
               + "<h3>"
               + list[i]['rec_name']
               + "</h3>"
-              + "<input type='hidden' name='RecipeId' value='"
+              + "<input type='hidden' name='recipeId' value='"
               + list[i]['id']
               + "'>"
               + "<p>" + list[i]['rec_caption'] + "</p>"

@@ -260,7 +260,7 @@ class RecipeModel extends \W\Model\Model
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		$findRecipe = $sth->fetchAll();
-    
+
     $model -> setTable('recipe');
 
     //Boucle Pour recuperé l'integralité du contenue des recipes
@@ -286,11 +286,11 @@ class RecipeModel extends \W\Model\Model
   //Method pour afficher les recettes sur la page
   public function showRecipe() {
 
-    if (!empty($_POST['RecipeId'])) {
+    if (!empty($_POST['recipeId'])) {
 
       $model = new RecipeModel();
       $model -> setTable('recipe');
-      $recipeFind = $model -> find($_POST['RecipeId']);
+      $recipeFind = $model -> find($_POST['recipeId']);
       return $recipeFind;
     }
   }
@@ -306,22 +306,26 @@ class RecipeModel extends \W\Model\Model
   		return $sth->fetch();
     }
   }
+
   //Method pour verifier si le favoris est deja present en BDD
   public function checkFavoris() {
-    $app = getApp();
-    //On crée la requete sql qui va verifier si le favoris existe deja ou non
-    $sql = "SELECT * FROM comment WHERE com_rec_id = '" . $_POST['recipeId'] . "' AND com_use_id = '" . $_SESSION['user']['id'] . "' AND com_fav = 1 OR com_fav = 0";
-    $dbh = ConnectionModel::getDbh();
-    $sth = $dbh->prepare($sql);
-    //S'il existe, on recupere les données du favoris
-    if($sth->execute()){
-        $foundName = $sth->fetch();
-        if($foundName){
-            return $foundName;
-        }
-    }
-    //S'il n'existe pas, on return NULL
-   return NULL;
+    if (!empty($_SESSION['user'])) {
+
+      $app = getApp();
+      //On crée la requete sql qui va verifier si le favoris existe deja ou non
+      $sql = "SELECT * FROM comment WHERE com_rec_id = '" . $_POST['recipeId'] . "' AND com_use_id = '" . $_SESSION['user']['id'] . "' AND com_fav = 1 OR com_fav = 0";
+      $dbh = ConnectionModel::getDbh();
+      $sth = $dbh->prepare($sql);
+      //S'il existe, on recupere les données du favoris
+      if($sth->execute()){
+          $foundName = $sth->fetch();
+          if($foundName){
+              return $foundName;
+          }
+      }
+      //S'il n'existe pas, on return NULL
+     return NULL;
+   }
   }
 
   //Method pour l'ajout au favoris
