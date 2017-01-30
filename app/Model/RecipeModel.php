@@ -95,12 +95,10 @@ class RecipeModel extends \W\Model\Model
 
     //Utilisation de la method setTable() pour chercher dans la table ingredients
     $model -> setTable('ingredients');
-
     //Création de la requete SQL
-    $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '";
-    //Limitation à 3 ingreedients renvoyer
-    $sql .=  $_POST['search_bar'] . "%' LIMIT 3";
+    $sql = "SELECT * FROM ingredients WHERE ing_name LIKE '" . $_POST['search_bar'] . "%' LIMIT 3";
 
+    //Limitation à 3 ingreedients renvoyer
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 
@@ -259,7 +257,6 @@ class RecipeModel extends \W\Model\Model
         $sql .= " AND recipe_id IN (  SELECT link_ing_rec.recipe_id FROM link_ing_rec WHERE ingredients_id = " . $_POST['mp_ing'][$i]  . ")";
       }
     }
-
     $sth = $this->dbh->prepare($sql);
 		$sth->execute();
 		$findRecipe = $sth->fetchAll();
@@ -276,7 +273,7 @@ class RecipeModel extends \W\Model\Model
     foreach($arrayTemp as $tab1 => $val){
       foreach($val as $tab2 => $val2) {
         foreach($val2 as $tab3 => $val3) {
-          $recipeHtml2[$tab1][$tab3]=$val3;
+           $recipeHtml2[$tab1][$tab3]=$val3;
         }
       }
     }
@@ -299,6 +296,24 @@ class RecipeModel extends \W\Model\Model
     }
   }
 
+  //Method pour verifier si le favoris est deja present en BDD
+  public function checkFavoris() {
+    $app = getApp();
+    //On crée la requete sql qui va verifier si le favoris existe deja ou non
+    $sql = "SELECT * FROM comment WHERE com_rec_id = '" . $_POST['recipeId'] . "' AND com_use_id = '" . $_SESSION['user']['id'] . "' AND com_fav = 1 OR com_fav = 0";
+    $dbh = ConnectionModel::getDbh();
+    $sth = $dbh->prepare($sql);
+    //S'il existe, on recupere les données du favoris
+    if($sth->execute()){
+        $foundName = $sth->fetch();
+        if($foundName){
+            return $foundName;
+        }
+    }
+    //S'il n'existe pas, on return NULL
+   return NULL;
+  }
+
   //Method pour l'ajout au favoris
   public function addFavoris() {
     $model = new RecipeModel();
@@ -312,9 +327,10 @@ class RecipeModel extends \W\Model\Model
 
     if ($model -> insert($array)) {
       return $data = array(
-        "success" => true
+        "success" => true,
+        "favoris" => true
       );
     }
-
   }
+
 }

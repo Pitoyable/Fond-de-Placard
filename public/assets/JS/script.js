@@ -1,7 +1,7 @@
 $(function () {
 
 
-  //Preparation pour l'auto complementation
+  //Preparation pour l'autocompletion
   $('.input_search').on('keyup submit',function() {
 
     //On stock les données du formulaire dans une variable
@@ -62,7 +62,7 @@ $(function () {
   });
 });
 
-//Function Ajax pour l'autocomplementation
+//Function Ajax pour l'autocompletion
 var autoComple = function(credentials) {
 
   $.ajax({
@@ -115,7 +115,7 @@ var selectIng = function(credentials) {
   $.ajax({
     method : 'POST',
     // Faire attention au route
-    url : 'http://fond-de-placard.local/recipe_ajaxComplete',
+    url : 'http://fond-de-placard.local/recipe_ajaxFind',
     data : credentials,
     success : function(response) {
         //Si la reponse est true on appel la function
@@ -141,8 +141,10 @@ var selectIng = function(credentials) {
                 // Suppression des ingrédients
                 $(".fa-times").click(function() {
                   $(this).parent().remove();
-                })
+                });
               }
+            } else {
+              console.log('fuck');
             }
           }
         }
@@ -169,7 +171,7 @@ var recipeFind = function(credentials) {
 
             $('.form_starter').children().remove();
             $('.form_starter').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
@@ -178,16 +180,16 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           } else if (list[i]['rec_type'] === "plat") {
 
             $('.form_main_dish').children().remove();
             $('.form_main_dish').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
@@ -196,16 +198,16 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           } else if (list[i]['rec_type'] === "dessert") {
 
             $('.form_dessert').children().remove();
             $('.form_dessert').append(
-              "<p>"
+              "<p class='card_recipe'>"
               + "<label for='"
               + list[i]['rec_name']
               + "'>"
@@ -214,9 +216,9 @@ var recipeFind = function(credentials) {
               + "<input type='hidden' name='RecipeId' value='"
               + list[i]['id']
               + "'>"
-              + "<input type='submit' name='"
+              + "<button type='submit' name='"
               + list[i]['rec_name']
-              + "' value ='Voir La Recette'>"
+              + "'><i class='fa fa-eye' aria-hidden='true'></i></button>"
               + "</p>"
             );
           }
@@ -234,9 +236,10 @@ var addFavori = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxAddFavoris',
     data : credentials,
     success : function(response) {
-      if (response.success) {
-
+      if (response.favoris) {
         console.log('bisous Mon Nounours !');
+      } else {
+        console.log('fail');
       }
     }
   });

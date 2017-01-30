@@ -114,7 +114,6 @@ class RecipeController extends Controller
     $controller = new RecipeController();
     $model = new RecipeModel();
     $data = $model -> findRecipe();
-
     //On revoie les données obtenue
     $controller -> showJson($data);
   }
@@ -138,10 +137,44 @@ class RecipeController extends Controller
 
     $model = new RecipeModel();
     $controller = new RecipeController();
-    $addFav = $model -> addFavoris();
-    if ($addFav) {
-      $controller -> showJson($addFav);
+    //Verification du favoris
+    $checkFav = $model -> checkFavoris();
+    $model -> setTable('comment');
+
+    //Verification si le favoris exist
+    if (is_null($checkFav)) {
+      //Création du favoris
+      $addFav = $model -> addFavoris();
+
+    //S'il la valeur est 1, on la passe à 0, se qui correspond au retrait de favoris
+    } elseif ($checkFav['com_fav'] == 1) {
+      //Création d'un tableau pour insert()
+      $array = array(
+        "com_fav" => 0
+      );
+
+      $model -> update($array, $checkFav['id']);
+      $addFav = array(
+        "success" => true,
+        "favoris" => false
+      );
+
+    //S'il la valeur est 0, on la passe à 1, se qui correspond à l'ajout du favoris
+    } elseif ($checkFav['com_fav'] == 0) {
+      //Création d'un tableau pour insert()
+      $array = array(
+        "com_fav" => 1
+      );
+
+      $model -> update($array, $checkFav['id']);
+      $addFav = array(
+        "success" => true,
+        "favoris" => true
+      );
     }
+
+
+    $controller -> showJson($addFav);
   }
 
 }

@@ -16,8 +16,8 @@
 		['GET|POST', '/utilisateur_mise_a_jour', 'User#update', 'User_update'],
 			//Afficher
 		['GET|POST', '/utilisateur_afficher', 'User#display', 'User_display'],
-		 //Page avec les formulaire de d'inscription et connexion
-	 	['GET|POST', '/utilisateur_acces', 'User#acess', 'User_acess'],
+		 //Page retour d'email
+	 	['GET|POST', '/utilisateur_email', 'User#mail', 'User_mail'],
 
 
 		//connexion a la partie administration du site

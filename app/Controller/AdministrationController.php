@@ -12,7 +12,8 @@ use Model\RecipeModel;
 class AdministrationController extends Controller
 {
   public function adminHome(){
-
+    $authorization = new AuthorizationModel();
+    $authorization -> isGranted(1);
     //methode pour se connecté a la partie administration
     $this->show('administration/admin_home');
   }
@@ -84,13 +85,14 @@ class AdministrationController extends Controller
   }
 
   public function editRecipe(){
+    //version incompte de la mise à jour pour le moment
     $authorization = new AuthorizationModel();
     $authorization -> isGranted(1);
     //methode pour modifier la recette
     $model = new UsersModel();
     $model -> setTable('recipe');
     $arrayRecipe = $model -> find($_POST['id']);
-
+    //methode pour recupere tous les theme
     $recipeModel = new RecipeModel();
     $theme = $recipeModel -> createThemeList();
 
@@ -106,7 +108,7 @@ class AdministrationController extends Controller
     $table = 'recipe';
     $id =  $_POST['id'];
     $AdministrationModel = new AdministrationModel();
-    //appelle de methode pour verifier le nouveau et ancien pseudo
+    //appelle de methode pour verifier le nouveau et ancien nom
     $data = $AdministrationModel -> recipeEdit($_POST['nom'], $_POST['id']);
 
     //si vrai on modifie la recette en bdd

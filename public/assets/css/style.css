@@ -128,7 +128,6 @@ body {
 .login-box{
   position:relative;
   width: 500px;
-  height: 380px;
   background-color: #fff;
   padding: 10px;
   border-radius: 15px;
@@ -205,6 +204,10 @@ body {
   text-transform: uppercase;
 }
 
+.error p {
+  text-align: center;
+  color: rgb(238, 21, 21);
+}
 /* -----------------------------------------------
   Main
 ----------------------------------------------- */
@@ -292,14 +295,12 @@ body {
 div.ribbon{
   display: inline-block;
   color: #fff;
-  margin: 30px 0 50px;
+  margin: 10px 0 5px;
   position: relative;
   text-transform: uppercase;
-  background: #d9d9d9;
   background-image: url('../pictures/swirl_pattern.png');
   border: 1px solid rgba(0,0,0,.3);
-  /*box-shadow: 0px 1px 3px rgba(0,0,0,.2);*/
-  box-shadow: 0px 3px 11px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.57);
   padding: 10px 15px;
   clear: both;
 }
@@ -382,6 +383,27 @@ div.both_ribbon::after{
   border-left: 10px solid #ababab;
 }
 
+.form_recipe {
+  height: 230px;
+  overflow-x: auto;
+}
+
+.card_recipe {
+  height: 200px;
+  width: 300px;
+  border: 1px dashed black;
+  background: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.card_recipe button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
 /* -----------------------------------------------
   Form
 ----------------------------------------------- */
@@ -506,7 +528,7 @@ body:target .nav-button-close {
 
 .card {
   margin-bottom: 3%;
-  width: 35%;
+  width: 34%;
   height: 300px;
   border: 3px dashed #fff;
   overflow: hidden;
@@ -582,6 +604,7 @@ body:target .nav-button-close {
 ----------------------------------------------- */
 .container_contact {
   margin-top: 2%;
+  margin-bottom: 2%;
   display: flex;
   justify-content: space-around;
 }

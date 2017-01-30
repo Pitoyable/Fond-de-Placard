@@ -8,7 +8,7 @@
   <div class="search_panier">
 
     <div class="search_recipe">
-      <p><em>Selectionnez un ingrédient parmis la base de données et ajoutez le au panier !</em></p>
+      <p><em>Selectionnez un ingrédient parmi la base de données et ajoutez le au panier !</em></p>
 
       <form class="search_bar search" action="" method="post">
         <input type="text" name="search_bar" class="input_search" value="" placeholder="Ex : ananas, asperge, banane...">
@@ -50,25 +50,21 @@
       <div class="ribbon left_ribbon">
         <h3>Les entrées</h3>
       </div>
-      <form class="form_starter" action="<?= $this -> url('Recipe_show') ?>" method="post">
-
-      </form>
+      <form class="form_starter form_recipe" action="<?= $this -> url('Recipe_show') ?>" method="post"></form>
     </div>
+    
     <div class="main_dish">
       <div class="ribbon left_ribbon">
         <h3>Les plats</h3>
       </div>
-      <form class="form_main_dish" action="<?= $this -> url('Recipe_show') ?>" method="post">
-
-      </form>
+      <form class="form_main_dish form_recipe" action="<?= $this -> url('Recipe_show') ?>" method="post"></form>
     </div>
+
     <div class="dessert">
       <div class="ribbon left_ribbon">
         <h3>Les desserts</h3>
       </div>
-      <form class="form_dessert" action="<?= $this -> url('Recipe_show') ?>" method="post">
-
-      </form>
+      <form class="form_dessert form_recipe" action="<?= $this -> url('Recipe_show') ?>" method="post"></form>
     </div>
   </div>
 </div> <!-- fin container -->
