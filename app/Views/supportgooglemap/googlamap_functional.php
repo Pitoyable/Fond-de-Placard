@@ -1,11 +1,68 @@
-<?php $this->layout('layout', ['title' => 'Se fournir']) ?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test final google map</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      .controls {
+      margin-top: 10px;
+      border: 1px solid transparent;
+      border-radius: 2px 0 0 2px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      height: 32px;
+      outline: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
 
-<?php $this->start('main_content') ?>
-<h1> Se Fournir</h1>
+      #pac-input {
+      background-color: #fff;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+      margin-left: 12px;
+      padding: 0 11px 0 13px;
+      text-overflow: ellipsis;
+      width: 300px;
+      }
 
-<p>Sur la carte cidessous, Vous trouverez les magasins alimentaire qui se trouve dans un rayon de 10km autour de vous.</p>
+      #pac-input:focus {
+      border-color: #4d90fe;
+      }
 
-<input id="pac-input" class="controls" type="text"
+      .pac-container {
+      font-family: Roboto;
+      }
+
+      #type-selector {
+      color: #fff;
+      background-color: #4d90fe;
+      padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+      font-family: Roboto;
+      font-size: 13px;
+      font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <input id="pac-input" class="controls" type="text"
         placeholder="Enter a location">
     <div id="type-selector" class="controls">
       <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -22,9 +79,6 @@
     </div>
     <div id="map"></div>
     <script>
-    // window.onload = function () {
-
-
 //[--------------------------------------------------------
 // {START} Déclaration des variables globals
 //--------------------------------------------------------]
@@ -225,9 +279,9 @@
 //[--------------------------------------------------------
 // {END} fonction needed
 //--------------------------------------------------------]
-    // }
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaChm9LkY-J9jbHX3P8NIkdlGaNf6W5HM&signed_in=true&libraries=places&callback=initMap">
     </script>
-<?php $this->stop('main_content') ?>
+  </body>
+</html>
