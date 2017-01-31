@@ -244,9 +244,6 @@ class RecipeModel extends \W\Model\Model
     $model = new RecipeModel();
     $model -> setTable('link_ing_rec');
 
-    //Preparation d'un tableau pour recuperer le resultat de la requete
-    $arrayTemp = array();
-
     //Requete SQL pour obtenir l'id des recettes valides
     $sql = "SELECT recipe_id AS id FROM link_ing_rec INNER JOIN recipe ON recipe.id = link_ing_rec.recipe_id WHERE recipe.rec_valide = 1 AND ingredients_id = " . $_POST['mp_ing'][0];
 
@@ -261,6 +258,9 @@ class RecipeModel extends \W\Model\Model
 		$sth->execute();
     //  Récupération dans un tableau des id
 		$findRecipe = $sth->fetchAll();
+
+    //Preparation d'un tableau pour recuperer le resultat de la requete
+    $arrayTemp = array();
 
     $model -> setTable('recipe');
 
@@ -305,7 +305,7 @@ class RecipeModel extends \W\Model\Model
       $sth = $this->dbh->prepare($sql);
   		$sth->execute();
   		return $sth->fetch();
-  		
+
     }
   }
 

@@ -385,6 +385,8 @@ div.both_ribbon::after{
 
 .form_recipe {
   height: 230px;
+  display: flex;
+  flex-wrap: wrap;
   overflow-x: auto;
 }
 

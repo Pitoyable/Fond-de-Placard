@@ -23,7 +23,7 @@
 		//connexion a la partie administration du site
 		['GET|POST', '/administration_admin_home', 'administration#adminHome', 'Administration_home'],
 			//admin - user
-				//gerer les utililsateur et leur droit
+				//gerer les utilisateurs et leur droit
 			['GET|POST', '/administration_gerer_user', 'administration#manageUser', 'Administration_manageUser'],
 				//route pour formulaire de modification de l'user
 			['GET|POST', '/administration_gerer_user/modifier', 'administration#editUser', 'Administration_editUser'],

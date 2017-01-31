@@ -162,12 +162,13 @@ var recipeFind = function(credentials) {
       if (response.success) {
 
         var list = response.list;
+        $('.form_dessert').children().remove();
+        $('.form_main_dish').children().remove();
+        $('.form_starter').children().remove();
 
         for (var i = 0; i < list.length; i++) {
 
           if (list[i]['rec_type'] === "entree") {
-
-            $('.form_starter').children().remove();
             $('.form_starter').append(
               "<div class='card_recipe'>"
               + "<h3>"
@@ -183,8 +184,6 @@ var recipeFind = function(credentials) {
               + "</div>"
             );
           } else if (list[i]['rec_type'] === "plat") {
-
-            $('.form_main_dish').children().remove();
             $('.form_main_dish').append(
               "<div class='card_recipe'>"
               + "<h3>"
@@ -200,8 +199,6 @@ var recipeFind = function(credentials) {
               + "</div>"
             );
           } else if (list[i]['rec_type'] === "dessert") {
-
-            $('.form_dessert').children().remove();
             $('.form_dessert').append(
               "<div class='card_recipe'>"
               + "<h3>"
