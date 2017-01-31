@@ -29,12 +29,12 @@
                 <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
               </label>
             </form>
-            <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
+            <!-- <form class="" action="<?= $this -> url('Administration_deleteRecipe') ?>" method="post">
               <label for="">
                 <button type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
               </label>
-            </form>
+            </form> -->
           </td>
         </tr>
     <?php }
@@ -66,12 +66,12 @@
               <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
             </label>
           </form>
-          <form class="" action="<?= $this -> url('Administration_validateRecipe') ?>" method="post">
+          <!-- <form class="" action="<?= $this -> url('Administration_validateRecipe') ?>" method="post">
             <label for="">
               <button type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
               <input type="hidden" name="id" value="<?=$array[$i]['id'] ?>">
             </label>
-          </form>
+          </form> -->
         </td>
       </tr>
       <?php }

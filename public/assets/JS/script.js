@@ -158,14 +158,12 @@ var recipeFind = function(credentials) {
     url : 'http://fond-de-placard.local/recipe_ajaxFindRecipe',
     data : credentials,
     success : function(response) {
-
+      $('.form_dessert').children().remove();
+      $('.form_main_dish').children().remove();
+      $('.form_starter').children().remove();
       if (response.success) {
 
         var list = response.list;
-        $('.form_dessert').children().remove();
-        $('.form_main_dish').children().remove();
-        $('.form_starter').children().remove();
-
         for (var i = 0; i < list.length; i++) {
 
           if (list[i]['rec_type'] === "entree") {

@@ -268,6 +268,8 @@ class RecipeModel extends \W\Model\Model
     for ($i=0; $i < count($findRecipe) ; $i++) {
      array_push($arrayTemp ,$model -> search($findRecipe[$i]));
     }
+    
+    $recipeFound = array();
 
     //Astuce pour retirer une dimension d'un tableau
     foreach($arrayTemp as $tab1 => $val){

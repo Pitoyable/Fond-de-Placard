@@ -15,7 +15,7 @@
         <div class="contact_address">
           <p><i class="fa fa-envelope-o" aria-hidden="true"></i> lerquet.theo@orange.fr</p>
           <p><a href="https://github.com/ler-theo"><i class="fa fa-github" aria-hidden="true"></i> ler-theo</a></p>
-          <p><a href="http://www.doyoubuzz.com/theo-lerquet">Doyoubuzz/Theo-lerquet</a></p>
+          <p><a href="https://www.linkedin.com/in/th%C3%A9o-lerquet-7314a2136/"><i class="fa fa-linkedin-square" aria-hidden="true"></i> Theo Lerquet</a></p>
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@
     </div>
     <p>Dans le cadre de notre formation developpeur integrateur web, le concept de notre projet nous est venu à la suite d'une facétie de Théo. Formulant avec éloquence que son nom serait "fond de placard". Partant de cette illumination saugrenue, s'ensuivirent les balbutiements de Paul ainsi que toutes les élucubrations possibles et imaginables des membres du groupe. L'idée fut longtemps mûrie, réfléchie, rebâtie et refleurie avec des desseins toujours plus utopiques les uns que les autres. La synthèse de toutes ces réflexions à donner naissance à "Fond de Placard" que vous pouvez apprécier dès à présent.</p>
 
-    <p>fdp.support@mail.com</p>
+    <p>fond.de.placard@gmail.com</p>
     <p>Merci à <a href="https://fr-fr.facebook.com/mekabulle/">Mekabulle</a> pour ce superbe logo !</p>
   </div> <!-- fin container contact support -->
 </div>
