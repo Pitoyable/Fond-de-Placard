@@ -2,7 +2,7 @@ $(function () {
 
 
   //Preparation pour l'autocompletion
-  $('.input_search').on('keyup submit',function(e) {
+  $('.input_search').on('keyup',function(e) {
 
     e.preventDefault();
     //On stock les données du formulaire dans une variable
@@ -162,7 +162,7 @@ var recipeFind = function(credentials) {
       if (response.success) {
 
         var list = response.list;
-        console.log(list);
+
         for (var i = 0; i < list.length; i++) {
 
           if (list[i]['rec_type'] === "entree") {

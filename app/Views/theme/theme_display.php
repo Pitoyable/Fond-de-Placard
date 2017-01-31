@@ -3,7 +3,7 @@
 <?php $this->start('main_content') ?>
 <div class="container">
   <div class="ribbon both_ribbon">
-    <h1>J'ai faim</h1>
+    <h1>Soirée</h1>
   </div>
 
   <p>Cette section est en cours de développement !</p>
