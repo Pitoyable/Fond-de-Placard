@@ -1,0 +1,1153 @@
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Slab', serif;
+}
+
+*, *::before, *::after {
+  box-sizing: content-box;
+}
+
+body {
+  margin: auto;
+  background-image: url('../pictures/pexels-photo-236557.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  position: relative;
+  height: 100%;
+}
+
+/* -----------------------------------------------
+  Wrapper
+----------------------------------------------- */
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+/* -----------------------------------------------
+  Header
+----------------------------------------------- */
+.header-nav {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.desktop-nav {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 0 0 15px 15px;
+}
+
+.desktop-nav a {
+  font-family: 'Oswald', sans-serif;
+  padding: 15px;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: all 0.5s;
+  color: #fff;
+}
+
+.desktop-nav a:hover {
+  background-color: #f2c600;
+}
+
+.mobile-nav a {
+  color: #fff;
+}
+
+.login-connect {
+  position: absolute;
+  right: 0;
+  color: #fff;
+  margin-right: 3%;
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  align-items: baseline;
+  width: 20%;
+}
+
+.login-connect a {
+  text-decoration: none;
+}
+
+.fa-power-off {
+  color: #fff;
+  align-self: center;
+}
+
+.connect_button {
+  background: #cc2727;
+  border: 0;
+  width: 50%;
+  height: 30px;
+  border-radius: 3px;
+  color: #fff;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.connected {
+  font-size: 1.1em;
+  text-shadow: 2px 2px 4px black;
+}
+
+/* -----------------------------------------------
+  Overlay
+----------------------------------------------- */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.7);
+  display: none;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-times-circle-o {
+  font-size: 3em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login-box{
+  position:relative;
+  width: 500px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
+}
+
+.lb-header{
+  position:relative;
+  color: #00415d;
+  margin: 5px 5px 10px 5px;
+  padding-bottom:10px;
+  border-bottom: 1px solid #eee;
+  text-align:center;
+  height:28px;
+}
+
+.lb-header a{
+  margin: 0 25px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+  font-size: 1.5em;
+  transition: all 0.1s linear;
+}
+
+.lb-header .active{
+  color: #1178C2;
+  font-size: 1.5em;
+}
+
+.email-login,.email-signup{
+  position:relative;
+  float: left;
+  width: 100%;
+  height:auto;
+  text-align:center;
+}
+
+.u-form-group{
+  width:100%;
+  margin-bottom: 10px;
+}
+
+.u-form-group input[type="email"],
+.u-form-group input[type="text"],
+.u-form-group input[type="password"]
+{
+  width: calc(70% - 22px);
+  height:45px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  border-radius: 2px;
+  color: #333;
+  font-size:0.8rem;
+  transition:all 0.1s linear;
+}
+
+.u-form-group input:focus{
+  border-color: #358efb;
+}
+
+.u-form-group button{
+  width: calc(70% - 22px);
+  background: #1178C2;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.error p {
+  text-align: center;
+  color: rgb(238, 21, 21);
+}
+/* -----------------------------------------------
+  Main
+----------------------------------------------- */
+.header-main {
+  text-align: center;
+  padding: 3%;
+}
+
+.logo {
+  height: 20em;
+  transition: all 0.5s;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+}
+
+/* -----------------------------------------------
+  Container de chaques pages/nav tab
+----------------------------------------------- */
+.container {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 3%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0px 3px 5px -1px rgba(0,0,0,0.64);
+  padding: 1px 0;
+  min-height: 600px;
+  border-radius: 0 0 7px 7px;
+}
+
+.container h1 {
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 2em;
+  width: 100%;
+  margin: auto;
+}
+
+.container h2 {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  font-weight: 400;
+}
+
+.nav-tab ul {
+  list-style: none;
+  border-bottom: 1px solid black;
+  padding: 0;
+  display: flex;
+  text-align: center;
+}
+
+.nav-a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px;
+  flex: 1;
+}
+
+.nav-tab a:hover {
+  background-color: rgb(119, 117, 121);
+  color: white;
+}
+
+.onfocus {
+  background-color: black;
+  color: white;
+}
+
+.tabs {
+  display: none;
+  text-align: center;
+}
+
+.tabs h3 {
+  font-size: 1.6em;
+}
+
+.block {
+  display: block;
+}
+
+div.ribbon{
+  display: inline-block;
+  color: #fff;
+  margin: 10px 0 5px;
+  position: relative;
+  text-transform: uppercase;
+  background-image: url('../pictures/swirl_pattern.png');
+  border: 1px solid rgba(0,0,0,.3);
+  box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.57);
+  padding: 10px 15px;
+  clear: both;
+}
+
+div.left_ribbon{
+  color: #000;
+  margin-left: -10px;
+}
+
+div.left_ribbon h3{
+  margin: 0 12px;
+  color: white;
+  text-shadow: 1px 2px 20px black;
+}
+
+div.left_ribbon::before{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  left: -11px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ababab;
+}
+
+div.left_ribbon::after{
+  display: block;
+  width: 6px;
+  height: 44px;
+  position: absolute;
+  bottom: 3px;
+  right: -1px;
+  content: "";
+  border: 1px solid rgba(0,0,0,.3);
+
+
+  transform: skew(0deg,45deg);
+  background: #ababab;
+}
+
+div.both_ribbon{
+  text-align: center;
+  color: #000;
+  padding: 10px 9px 10px 10px;
+  width: 100%;
+  margin-left: -10px;
+}
+
+div.both_ribbon h1 {
+  color: white;
+  text-shadow: 1px 2px 20px black;
+}
+
+div.both_ribbon::before{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  left: -11px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #ababab;
+}
+
+div.both_ribbon::after{
+  display: block;
+  width: 10px;
+  height: 0px;
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  content: "";
+
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #ababab;
+}
+
+.form_recipe {
+  height: 230px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: auto;
+}
+
+.card_recipe {
+  margin-top: 20px;
+  height: 200px;
+  width: 300px;
+  border: 1px dashed black;
+  background: white;
+  display: inline-block;
+  text-align: center;
+}
+
+.card_recipe button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  padding: 5px;
+}
+
+.fa-eye {
+  font-size: 2em;
+}
+
+button[name="favoris"]{
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.favoris {
+  color: rgb(238, 225, 46);
+}
+/* -----------------------------------------------
+  Form
+----------------------------------------------- */
+.form {
+  font-size: 1.3em;
+}
+
+.form-input {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+.form input {
+  border: 0;
+  background: transparent;
+  border-bottom: 1px dashed rgb(162, 162, 162);
+  font-size: 1em;
+  outline: none;
+  width: 50%;
+  margin-left: 2%;
+}
+
+.form input:focus {
+  border-bottom: 1px dashed #f2c600;
+}
+
+.form button[type="submit"] {
+  cursor: pointer;
+  width: calc(50% - 22px);
+  background: #0E609B;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 14px 0;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* -----------------------------------------------
+  Nav et animation nav-mobile
+----------------------------------------------- */
+.sidebar {
+  position: absolute;
+  top: 0;
+  width: 25vw;
+  min-height: 100vh;
+  padding-top: 1em;
+  background: #333;
+  color: #ddd;
+  z-index: 1000;
+  left: -25vw;
+  transform: translateX(0) translateZ(0);
+  transition: transform .2s;
+  will-change: transform;
+}
+
+.main {
+  transform: translateX(0) translateZ(0);
+  transition: transform .2s;
+  will-change: transform;
+}
+
+[class^="nav-button"] {
+  display: block;
+  z-index: 1;
+  height: 2.5rem; width: 2.5rem;
+  background-color: transparent;
+  background-image: linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff),
+    linear-gradient(to right, #fff, #fff);
+  background-position: center top, center, center bottom;
+  background-repeat: no-repeat;
+  background-size: 2.5rem .5rem;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: .7em;
+  margin-bottom: 2px;
+  text-decoration: none;
+  background: rgba(255,255,255, 0.1);
+}
+
+body:target .main {
+  transform: translateX(25vw);
+}
+
+body:target .sidebar {
+  transform: translateX(25vw);
+}
+
+body:target .login-connect {
+  transform: translateX(25vw);
+}
+
+.nav-button-close,
+body:target .nav-button-open {
+  display: none;
+}
+.nav-button-open,
+body:target .nav-button-close {
+  display: block;
+}
+
+/* -----------------------------------------------
+  Home
+----------------------------------------------- */
+.card_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 3%;
+  width: 34%;
+  height: 300px;
+  border: 3px dashed #fff;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card-div {
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s;
+}
+
+.card-div h3 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.card-content {
+  display: none;
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.receipe div {
+  background-image: url('../pictures/foodontable.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  color: #fff;
+  text-shadow: 2px 2px 4px black;
+}
+.receipe h3 {font-family: 'Permanent Marker', cursive;}
+
+.party div {
+  background-image: url('../pictures/party.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
+.party h3 {font-family: 'Monoton', cursive;}
+
+.provide div{
+  background-image: url('../pictures/sefournir.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
+.provide h3 {font-family: 'Boogaloo', cursive;}
+
+.contact div {
+  background-image: url('../pictures/contact.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  text-shadow: 2px 2px 4px black;
+}
+
+.contact h3 {font-family: 'Pacifico', cursive;}
+
+.card-div:hover {
+  background-size: 150% 150%;
+  background-color: rgba(9, 9, 9, 0.60);
+  background-blend-mode: darken;
+}
+
+/* -----------------------------------------------
+  Info_display
+----------------------------------------------- */
+.container_contact {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container_contact_dev {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 15px;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  margin-top: 2%;
+}
+
+.container_contact_dev img {
+  height: 200px;
+  border: 2px dashed black;
+  border-radius: 50%;
+}
+
+.container_contact_support p {
+  font-size: 1.5em;
+  padding: 30px;
+  text-align: center;
+}
+
+.container_contact_support p:first-of-type {
+  text-align: justify;
+}
+
+.contact_address a {
+  text-decoration: none;
+  color: black;
+}
+
+/* -----------------------------------------------
+  J'ai faim / recipe_display
+----------------------------------------------- */
+.search_panier {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.search_recipe {
+  width: 50%;
+  display: inline-block;
+}
+
+.recipe_cree {
+  margin-left: 25%;
+}
+
+.search_recipe p:first-of-type {
+  text-align: justify;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 3%;
+}
+
+.search {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.search input {
+  height: 40px;
+  width: 80%;
+  font-size: 1.2em;
+  padding: 0 12px 0 30px;
+  background: white url("http://cssdeck.com/uploads/media/items/5/5JuDgOa.png") 10px 12px no-repeat;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #a8acbc #babdcc #c0c3d2;
+  border-radius: 13px;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px #e5e7ed, 0 1px 0 #fcfcfc;
+}
+
+.search input:focus {
+  outline: none;
+  border-color: #66b1ee;
+  box-shadow: 0 0 2px rgba(85, 168, 236, 0.9);
+}
+
+.search .results {
+  text-align: left;
+  position: absolute;
+  display: none;
+  width: 80%;
+  top: 40px;
+  left: 0;
+  z-index: 30;
+  padding: 0;
+  margin: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #cbcfe2 #c8cee7 #c4c7d7;
+  border-radius: 3px;
+  background-color: #fdfdfd;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.search .results li:first-child { margin-top: -1px }
+
+.search .results li:last-child { margin-bottom: -1px }
+
+.search .results li {
+  display: block;
+  position: relative;
+  margin: 0 -1px;
+  padding: 6px 40px 6px 10px;
+  color: #808394;
+  font-weight: 500;
+  text-shadow: 0 1px #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+.search .results li:hover {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  border-color: #2380dd #2179d5 #1a60aa;
+  background-color: #338cdf;
+  background-image: linear-gradient(top, #59aaf4, #338cdf);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.search button[type="submit"], .submitPanier {
+  cursor: pointer;
+  width: calc(20% - 22px);
+  background: #0A4975;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px 0;
+  border-radius: 13px;
+  text-transform: uppercase;
+}
+
+.search .block {
+  display: block;
+}
+
+.paniertest {
+  height: auto;
+  width: 20%;
+  display: inline-block;
+  margin-left: 3%;
+  z-index: 23;
+}
+
+.panier-header {
+  height: 30px;
+}
+
+.panier-header h3 {
+  display: inline-block;
+  margin: 0;
+}
+
+.delete_panier {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.panier {
+  height: 70%;
+  position: relative;
+}
+
+.submitPanier {
+  width: 100%;
+}
+
+.fa-times {
+  color: rgb(245, 37, 16);
+  cursor: pointer;
+  margin-left: 3%;
+}
+.fa-times:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.form_starter, .form_main_dish, .form_dessert {
+  padding-left: 2%;
+}
+
+.addrecipe {
+  text-align: center;
+}
+
+.addrecipe a {
+  text-decoration: none;
+  color: #0E609B;
+}
+/* -----------------------------------------------
+  Création de recette
+----------------------------------------------- */
+.creation {
+  text-align: center;
+}
+
+.creation .liste_ing_select{
+  text-align: left;
+  width: 50%;
+  margin: auto;
+}
+
+.liste_ing_select {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.liste_ing_select p{
+  margin: 0 3% 0 3%;
+  display: flex;
+}
+
+.theme p {
+  display: flex;
+  justify-content: space-around;
+}
+
+.submitcreate {
+  margin-top: 1%;
+  width: 50%;
+  position: relative;
+}
+
+.writerecipe {
+  border-top: 1px dashed black;
+  margin-top: 3%;
+}
+
+/* -----------------------------------------------
+  ADMIN
+----------------------------------------------- */
+.admin-nav {
+  text-align: center;
+}
+
+.admin-nav table {
+  width: 100%;
+  text-align: left;
+}
+
+.admin-nav a {
+  /*text-decoration: none;*/
+  color: black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid black;
+  width: 40%;
+}
+
+tr th:last-of-type, tr td:last-of-type {
+  width: 20%;
+  text-align: center;
+}
+
+table tr:not(:first-of-type):hover {
+  background-color: #dad7d7;
+}
+
+/* -----------------------------------------------
+  Responsive
+----------------------------------------------- */
+@media (max-width: 1480px) {
+  .contact h3 {
+    font-size: 2.3em;
+  }
+}
+
+@media (max-width: 1200px) {
+  .card-div h3 {
+    font-size: 2em;
+  }
+
+  .card-content {
+    font-size: 1em;
+  }
+
+  .card {
+    height: 230px;
+  }
+}
+
+@media (max-width: 1070px) {
+  .search button[type="submit"] {
+    font-size: 0.7em;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search_bar {
+    width: 100%;
+  }
+
+  .search_panier {
+    flex-direction: column;
+  }
+
+  .search_recipe {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+  }
+
+  .paniertest {
+    margin: auto;
+    margin-top: 2%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 987px) {
+  .login-connect h3 {
+    display: none;
+  }
+
+  .header-nav {
+    align-items: center;
+  }
+
+  .container_contact {
+    flex-wrap: wrap;
+  }
+
+  .contact h3 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 970px) {
+  .card_container {
+    padding: 0;
+  }
+
+  .form-input {
+    width: 80%;
+  }
+
+  .container_contact_support p {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 910px) {
+  .search button[type="submit"] span{
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .logo {
+    height: 10em;
+  }
+
+  section {
+    margin-bottom: 0;
+  }
+
+  .login-connect {
+    justify-content: flex-end;
+  }
+
+  .liste_ing_select p {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .card_container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10%;
+  }
+
+  .card-div:hover h3 {
+    display: none;
+  }
+}
+
+@media (min-width: 764px) {
+  .nav-button-open, .nav-button-close {
+    display: none;
+  }
+}
+
+@media (max-width: 764px) {
+  .desktop-nav {
+    display: none;
+  }
+
+}
+.login-connect {
+  position: absolute;
+  z-index: 2;
+  top: 15px;
+  right: 15px;
+  width: 120px;
+}
+
+@media (max-width: 620px) {
+  .receipe h3 {
+    font-size: 1.7em;
+  }
+
+  .u-form-group input[type="email"],
+  .u-form-group input[type="text"],
+  .u-form-group input[type="password"]{
+    width: 90%;
+  }
+}
+
+@media (max-width: 545px) {
+  .login-box {
+    width: 90%;
+  }
+
+  .form-input {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 510px) {
+  .lb-header {
+    border-bottom: 0;
+  }
+
+  .email-login {
+    margin-top: 3%;
+  }
+}
+
+@media (max-width: 490px) {
+  .container_contact_dev {
+    width: 80%;
+  }
+  .search {
+    justify-content: flex-start;
+  }
+  .search button[type="submit"]{
+    flex: 1;
+  }
+}
+
+@media (max-width: 425px) {
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .container {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .form-input input {
+    width: 100%;
+  }
+
+  .container_contact_dev img {
+    height: 100px;
+  }
+}
+
+@media (max-width: 348px) {
+  .contact h3 {
+    font-size: 1.5em;
+  }
+
+  .card {
+    height: 150px;
+  }
+
+  .sidebar {
+    width: 50vw;
+    left: -50vw;
+  }
+
+  body:target .main {
+    transform: translateX(50vw);
+  }
+
+  body:target .sidebar {
+    transform: translateX(50vw);
+  }
+
+  body:target .login-connect {
+    transform: translateX(50vw);
+  }
+
+  .theme label {
+    font-size: 0.8em;
+  }
+}
